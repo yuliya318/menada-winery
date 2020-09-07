@@ -1,0 +1,680 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+
+section{
+    width: 100%;
+}
+
+.main-wrap{
+    background-color: $darkBlockColor;
+    position: relative;
+}
+.intro-grape{
+    position: absolute;
+    top: -130px;
+    left: 24%;
+    width: 35vw;
+    max-width: 685px;
+    z-index: 3;
+}
+.intro-video{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+
+.intro-grid{
+    position: relative;
+    width: 100%;
+    padding: 130px 0 60px;
+    z-index: 2;
+}
+.intro-grid-item{
+    width: 50%;
+    padding-left: 3.65vw;
+}
+.intro-item-title{
+    margin-bottom: 20px;
+}
+.light-title{
+    line-height: 0.6em;
+}
+.intro-item-content{
+    background-color: $darkBlockColor;
+    width: 100%;
+    padding: 30px;
+    margin-left: -20px;
+}
+.item-intro-text, .content-text{
+    @include play-small-text;
+    color: $mainDarkColor;
+    max-width: 330px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.item-intro-text{
+   color: #dbdbdb;
+   letter-spacing: 1px;
+}
+.intro-item-content .btn-line-text{
+    display: inline-block;
+    width: 150px;
+    margin-top: 15px;
+}
+
+
+.intro-grid-item.right{
+    display: flex;
+    justify-content: flex-end;
+}
+.intro-menada-products{
+    width: 65%;
+    padding-right: 3.65vw;
+}
+.menada-products-title{
+    margin: 70px 0 20px;
+}
+
+.menada-products-wrap {
+    align-items: flex-end;
+    height: 11vw;
+    width: 25vw;
+}
+.menada-product-image {
+    margin-right: 5px;
+    flex-basis: 2.3vw;
+    transition: ease .4s all;
+}
+.menada-product-image:hover {
+    flex-basis: 3vw;
+}
+
+.product-info-title{
+    min-height: 46px;
+    font-size: 20px;
+    @include abril-maincolor-text;
+    line-height: 1.1em;
+    margin: 20px 0 10px;
+}
+.product-info-text{
+    @include play-small-text;
+    font-size: 13px;
+    color: #909090;
+    margin-bottom: 30px;
+    line-height: 1.2em;
+    min-height: 82px;
+}
+
+
+
+.home-video-section{
+    padding-top: 60px;
+    position: relative;
+}
+.bg-right-leaf-video {
+    position: absolute;
+    top: -22%;
+    right: -15%;
+    width: 31%;
+    z-index: -10;
+}
+
+.video-container, .video-bottom{
+    display: flex;
+    justify-content: flex-end;
+}
+.video-content{
+    width: 73%;
+    padding-top: 9.9vw;
+    padding-bottom: 6.25vw;
+    padding-right: 7.55vw;
+    padding-left: 9.38vw;
+    min-height: 300px;
+    background-image: url(../../../assets/images/home-video-bg.jpg);
+    @include bg-center;
+}
+.video-content-item{
+    width: 50%;
+}
+.video-content-item.left{
+    padding-right: 2.65vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.video-item-title{
+    @include abril-maincolor-text;
+    letter-spacing: 8px;
+    font-size: 5.31vw;
+    color: #fff;
+    margin: 15px 0 0;
+}
+.video-item-title-percent{
+    font-size: 35px;
+}
+.video-item-text{
+    @include play-small-text;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.grape-grow-video{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.video-description{
+    @include play-small-text;
+    color: #d1d1d1;
+    line-height: 1.2;
+    font-size: 15px;
+}
+
+.video-bottom{
+    position: relative;
+}
+.video-bottom-content{
+    width: 73%;
+    margin: 3.2vw;   
+    display: flex;
+    justify-content: space-between;
+}
+.video-bottom-info{
+    margin-left: 5.0vw;
+}
+.video-bottom-number{
+    @include abril-maincolor-text;
+    font-size: 38px;
+}
+.video-bottom-text{
+    @include play-small-text;
+    margin: 0 1.3vw;
+    letter-spacing: 7px;
+    color: #595959;
+    line-height: 38px;
+}
+
+
+.video-aside{
+    position: absolute;
+    top: auto;
+    bottom: 320px;
+    right: 81vw;
+    transform: rotate(-90deg);
+    min-width: 340px;
+    transform-origin: 100% 0 0;
+}
+.video-aside .video-bottom-text, .video-aside-title{
+    margin: 0;
+}
+
+.single-grape-main{
+    position: absolute;
+    top: 3vw;
+    left: -30px;
+    width: 34.95vw;
+    max-width: 671px;
+}
+.single-grape-small{
+    position: absolute;
+    width: 34.95vw;
+    max-width: 671px;
+    top: 20vh;
+    left: -7.8vw;
+}
+
+
+
+
+.menada-info-section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5.47vw;
+    position: relative;
+}
+.bg-left-leaf-video {
+    position: absolute;
+    top: -22%;
+    left: -18%;
+    width: 40%;
+    z-index: -10;
+}
+
+.about-block{
+    width: 49%;
+    background-image: url(../../../assets/images/about-bg.jpg);
+    @include bg-center;
+}
+.history-block{
+    width: 50%;
+    background-image: url(../../../assets/images/history-bg.jpg);
+    @include bg-center;
+}
+.menada-info-content{
+    width: 53%;
+    padding-left: 3.65vw;
+    margin: 4.1vw 0;
+    vertical-align: middle;
+}
+.menada-info-title{
+    @include abril-maincolor-text;
+    font-size: 3.02vw;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+.info-title-small{
+    font-size: 1.98vw;
+    line-height: 0;
+}
+.menada-info-text{
+    @include play-small-text;
+    color: #7b7b7b;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+
+
+.products-title-line {
+    padding-top: 3.91vw;
+    padding-bottom: 4.69vw;
+}
+.products-title{
+    @include abril-maincolor-text;
+    font-size: 2.76vw;
+    letter-spacing: .36vw;
+    margin: 0 30px 0 50px;
+    position: relative;
+}
+.products-title-small{
+    position: absolute;
+    font-size: 1.25vw;
+    letter-spacing: 0;
+    color: $mainDarkColor;
+    transform: rotate(-90deg);
+    top: 0;
+    left: -2vw;
+}
+
+
+.products-container{
+    display: flex;
+    justify-content: space-between;
+}
+.product-large-container {
+    width: 49%;
+}
+.product-large {
+    background-color: #6F2026;
+    padding: 5vw 2vw;
+    position: relative;
+    overflow-y: hidden;
+}
+.products-small {
+    width: 50%;
+}
+.large-bottle-container {
+    position: relative;
+    z-index: 3;
+    width: 10.42vw;
+    margin: auto;
+    transition: 0.7s all;
+}    
+.large-bottle-container:hover {
+    transform: translateY(-8px);
+}
+.product-large-bg-image {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    background-image: url(../../../assets/images/inovino-bg-red.jpg);
+    @include bg-center;
+    z-index: 2;
+}
+.product-large-logo {
+    position: absolute;
+    z-index: 2;
+    top: 2.4vw;
+    left: 3.1vw;
+    width: 9.58vw;
+}
+.product-large-logo-title {
+    text-align: center;
+    @include abril-maincolor-text;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+.product-large-description {
+    position: absolute;
+    z-index: 2;
+    bottom: 2.3vw;
+    right: 2.9vw;
+    width: 9.58vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-large-text{
+    @include play-small-text;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.product-large-bottom {
+    background-image: url(../../../assets/images/product-large-bottom-bg.jpg);
+    @include bg-center;
+    background-position: bottom left;
+    width: 100%;
+    height: 13.1vh;
+    padding-right: 3vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.more-products{
+    @include play-small-text;
+    color: #000;
+    font-size: 16px;
+}
+.more-products-bold {
+    font-size: 24px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.product-small {
+    margin-bottom: 0.8vw;
+    background-color: $darkBlockColor;
+    position: relative;
+    overflow-y: hidden;
+}
+.product-small-bg {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(../../../assets/images/tcherga-bg-large.jpg);
+    @include bg-center;
+}
+.small-bottle-container, .product-small-description {
+    width: 50%;
+    padding-top: 3vw;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    position: relative;
+}
+.product-small-description {
+    padding-bottom: 1vw;
+}
+.small-bottle-image{
+    display: block;
+    width: 6.29vw;
+    margin: auto;
+    z-index: 3;
+}
+.small-bottle-image-bg {
+    position: absolute;
+    top: 17%;
+    left: 8%;
+    width: 84%;
+    z-index: 1;
+}
+.product-small-description-items {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+.products-small-logo-title {
+    @include abril-maincolor-text;
+    font-size: 15px;
+    margin: 15px 0 40px;
+    letter-spacing: 1px;
+}
+.product-small-text {
+    @include play-small-text;
+    font-size: 13px;
+    color: #7b7b7b;
+    margin-bottom: 30px;
+}
+
+
+
+
+.region-section {
+    margin: 7vw 0;
+}
+.region-up-level{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.region-block{
+    width: 50%;
+    min-height: 22vw;
+    background-color: $darkBlockColor;
+    position: relative;
+    padding: 5vw 0;
+    margin-bottom: 7vw;
+    overflow-y: hidden;
+}
+.region-block-bg {
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../assets/images/region-title-bg.jpg);
+    @include bg-center;
+    z-index: -1;
+}
+.region-title-block, .region-text-block {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.region-title {
+    @include abril-maincolor-text;
+    font-size: 18px;
+    line-height: 1.2em;
+    letter-spacing: 2px;
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 5vw;
+    left: -4.08vw;
+}
+.region-title-bold {
+    font-size: 3.75vw;
+    letter-spacing: .94vw;
+}
+.region-text {
+    display: inline-block;
+    width: 75%;
+    @include play-small-text;
+    color: $mainDarkColor;
+}
+.region-text-block .btn-line {
+    display: inline-block;
+    width: 75%;
+    margin-top: 30px;
+}
+
+.grape-sorts {
+    width: 25%;
+    margin-top: 4.17vw;
+    background-color: #d4d4d4;
+    padding: 10.94vw 3.17vw 3.13vw;
+    position: relative;
+    z-index: -2;
+}
+.grape-sorts-title {
+    @include abril-maincolor-text;
+    font-size: 27px;
+    color: #bf9a64;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    margin: 0;
+}
+.grape-sorts-list li{
+    display: block;
+    margin-top: 20px;
+    @include play-small-text;
+    width: 100%;
+}
+.grape-sorts-list:last-child {
+    border-bottom: 1px solid #000;
+}
+.bulgaria-map {
+    position: absolute;
+    width: 45%;
+    top: -15vw;
+    right: 0;
+    z-index: -1;
+}
+
+
+.region-down-level {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+}
+.region-video {
+    width: 50%;
+    margin-top: -12vw;
+}
+.menada-region-video {
+    width: 100%;
+    box-shadow: 0px 0px 15px #000;
+}
+.region-glass {
+    position: absolute;
+    top: 110%;
+    left: 43%;
+    width: 11.04vw;
+}
+.region-bg-image {
+    position: absolute;
+    top: -120%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+
+
+.wine-section {
+    margin-top: 10vw;
+    position: relative;
+}
+.wine-container {
+    padding: 5.47vw 0 4.69vw;
+    background-color: $darkBlockColor;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.wine-title {
+    @include abril-maincolor-text;
+    font-size: 5.57vw;
+    letter-spacing: .42vw;
+    line-height: 1.3em;
+    text-align: right;
+    padding: 0 6vw;
+    width: 100%;
+}
+.wine-title-light {
+    font-size: 3.7vw;
+    line-height: 1.1em;
+    letter-spacing: .42vw;
+    color: #fff;
+}
+.wine-content {
+    width: 50%;
+    margin-top: 4.17vw;
+}
+.wine-content-item{
+    width: 50%;
+    padding-left: 3.91vw;
+    padding-right: 1.56vw;
+}
+.wine-content-item.right {
+    padding-right: 3.91vw;
+    padding-left: 1.56vw;
+}
+.wine-content-text{
+    @include play-small-text;
+    color: $mainDarkColor;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+.wine-recipe-container, .wine-recipe-hover {
+    width: 25%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.recipe-bg {
+    background-image: url(../../../assets/images/wine-lifestyle-bg.jpg);
+    @include bg-center;
+    height: 14vw;
+}
+.our-recipes {
+    background: #0e0e0e;
+    height: 16vw;
+}
+.our-recipes-title {
+    @include abril-maincolor-text;
+    font-size: 1.72vw;
+    letter-spacing: 2px;
+    line-height: 1.3em;
+    margin: 20px 0;
+}
+.first-recipe, .second-recipe {
+    height: 24vw;
+    background-image: url(../../../assets/images/recipes/cucumber_thumb.jpg);
+    @include bg-center;
+}
+.second-recipe {
+    background-image: url(../../../assets/images/recipes/watermelon_thumb.jpg);
+}
+.recipe-title {
+    @include abril-maincolor-text;
+    font-size: 1.35vw;
+    letter-spacing: 2px;
+    line-height: 1.3;
+}
+.wine-recipe-hover{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+.wine-recipe-hover:hover {
+    background-color: rgba(0, 0, 0, 0.678);
+    border: 10px solid #000;
+}
+.wine-hands {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48.15vw;
+}
+
+
+
+
+.leaf-video {
+    width: 100%;
+    box-shadow: 0 0 30px #212121;
+}

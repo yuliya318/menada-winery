@@ -1,0 +1,378 @@
+<div class="main-content-block" (click)="check()">
+
+    <section class="home-intro-section main-wrap">
+        <div class="intro-grape" data-aos="fade-up" data-aos-duration="1500">
+            <img src="../../../assets/images/main-grape.png" alt="grape" class="intro-grape-image"
+                ngxParallaxScroll
+                [parallaxSpeed]='0.2'
+                [parallaxSmoothness]='0.2'
+                [parallaxDirection]='"reverse"'>
+        </div>
+        <div class="intro-block">
+            <div class="intro-grid d-flex">
+
+                <div class="intro-grid-item">
+                    <h1 class="intro-item-title" data-aos="fade-right" data-aos-delay="700">
+                        <span class="main-title">Wines</span><br>
+                        <span class="small-title">inspired by </span>
+                        <span class="light-title">you!</span>
+                    </h1>
+                    <div class="intro-item-content" data-aos="appearance" data-aos-delay="1500" data-aos-duration="2500">
+                        <p class="item-intro-text">
+                            Welcome to Menada - one of Bulgaria's oldest wineries.
+                        </p>
+                        <p class="content-text">
+                            We strive to produce high quality wine combining 100-year-old traditions with an innovative
+                            approach.
+                        </p>
+                        <a class="btn-line">
+                            <span class="line"></span>
+                            <span class="btn-line-text">Have a look at our product portfolio</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="intro-grid-item right">
+                    <div class="intro-menada-products" (mouseleave)="setProdInfo()">
+                        <h4 class="menada-products-title" data-aos="fade-right" data-aos-delay="700">
+                            <span class="middle-title">The new face</span><br>
+                            <span class="middle-title">of Menada</span>
+                        </h4>
+                        <div class="menada-products-wrap d-flex" data-aos="fade-up" data-aos-delay="700">
+                            <div class="menada-product-image" *ngFor="let prod of products">
+                                <img [src]="prod?.source" alt="bottle" class="product-image"
+                                    (mouseover)="changeProdInfo(prod)">
+                            </div>
+                        </div>
+                        <div class="menada-product-info" data-aos="appearance" data-aos-delay="1500" data-aos-duration="2500">
+                            <h5 class="product-info-title" [innerHTML]="productName"></h5>
+                            <p class="product-info-text">
+                                {{ productText }}
+                            </p>
+                            <a class="btn-line">
+                                <span class="line"></span>
+                                <span class="btn-line-text">Learn more</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <video loop muted preload="metadata" class="intro-video">
+                <source src="../../../assets/images/home-bg.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="home-video-section main-wrap">
+        <div class="bg-right-leaf-video">
+            <video loop muted preload="metadata" class="leaf-video">
+                <source src="../../../assets/images/left-leaf.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-container">
+            <div class="video-content d-flex">
+                <div class="video-content-item left" data-aos="fade-up" data-aos-duration="800">
+                    <h1 class="video-item-title">
+                        <span>80</span>
+                        <span class="video-item-title-percent">%</span>
+                    </h1>
+                    <p class="video-item-text">
+                        estate grown grapes used in wine making process
+                    </p>
+                    <a class="btn-line">
+                        <span class="line"></span>
+                        <span class="btn-line-text">Read more</span>
+                    </a>
+                </div>
+                <div class="video-content-item" data-aos="fade-down" data-aos-duration="800" ngxParallaxScroll
+                        [parallaxSpeed]='0.1'
+                        [parallaxSmoothness]='0.1'
+                        [parallaxDirection]='"reverse"'>
+                    <video loop muted preload="metadata" class="grape-grow-video">
+                        <source src="../../../assets/images/grow-grape.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-description">
+                        The grape varieties are carefully selected depending on the characteristics of the region.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="video-bottom">
+            <div class="video-bottom-content">
+                <div class="video-bottom-info d-flex">
+                    <h4 class="video-bottom-number">20</h4>
+                    <p class="video-bottom-text">million bottles</p>
+                    <img src="../../../assets/images/bottles.svg" alt="bottles">
+                    <p class="video-bottom-text">per year</p>
+                </div>
+                <div class="video-btn" data-aos="appearance" data-aos-delay="1000">
+                    <a class="link-btn">View all</a>
+                </div>
+            </div>
+        </div>
+        <div class="single-grape-main" data-aos="rotate-l90" data-aos-duration="1500" data-aos-offset="200">
+            <img src="../../../assets/images/single-grape-main.png" alt="grape" ngxParallaxScroll
+                [parallaxSpeed]='0.1'
+                [parallaxSmoothness]='0.1'
+                [parallaxDirection]='"reverse"'>
+        </div>
+        <div class="single-grape-small" ngxParallaxScroll
+        [parallaxSpeed]='0.1'
+        [parallaxSmoothness]='0.1'
+        [parallaxDirection]='"reverse"'>
+            <img src="../../../assets/images/single-grape-small.png" alt="grape">
+        </div>
+        <div class="video-aside" data-aos="appearance" data-aos-delay="1000">
+            <h5 class="video-aside-title middle-title">
+                <span>8000</span>
+                <span class="small-title">tons</span>
+            </h5>
+            <p class="video-bottom-text">
+                of wine produced per year
+            </p>
+        </div>
+    </section>
+
+    <section class="menada-info-section">
+        <div class="bg-left-leaf-video">
+            <video loop muted preload="metadata" class="leaf-video">
+                <source src="../../../assets/images/left-leaf.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="about-block" data-aos="fade-down" data-aos-duration="800" data-aos-offset="200">
+            <div class="menada-info-content">
+                <h2 class="menada-info-title" data-aos="fade-right" data-aos-delay="800" data-aos-duration="800">
+                    <span class="info-title-small">About</span><br>
+                    <span>Menada</span>
+                </h2>
+                <p class="menada-info-text" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                    Domain Menada, established in 1901, is located in the central part of Southern Bulgaria in a region
+                    known as the Thracian Valley. The winery owns over 426 ha of vineyards and is one of the leading
+                    producers of high quality wines and spirits in the country.
+                </p>
+                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                    <span class="line"></span>
+                    <span class="btn-line-text">Read more</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="history-block" data-aos="fade-down" data-aos-duration="800" data-aos-offset="200">
+            <div class="menada-info-content">
+                <h2 class="menada-info-title" data-aos="fade-right" data-aos-delay="800" data-aos-duration="800">
+                    History
+                </h2>
+                <p class="menada-info-text" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                    Domain Menada winery has been producing quality wines for over a century. The cellar was founded in
+                    1901 under the name Loza Cooperative. In 2002, Domain Menada became part of the French holding
+                    company Belvedere Group (renamed Marie Brizard Wine & Spirits Bulgaria in in July 2015).
+                </p>
+                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                    <span class="line"></span>
+                    <span class="btn-line-text">Read more</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-products-section">
+        <div class="products-title-line d-flex" data-aos="fade-left" data-aos-duration="3000">
+            <h2 class="products-title">
+                <span class="products-title-small">our</span>
+                <span>Products</span>
+            </h2>
+            <div class="products-btn">
+                <a class="link-btn">View all products</a>
+            </div>
+        </div>
+
+        <div class="products-container">
+            <div class="product-large-container" data-aos="fade-up">
+                <div class="product-large">
+                    <div class="large-bottle-container" data-aos="fade-up" data-aos-delay="800">
+                        <img src="../../../assets/images/inovino-large-bottle-red.png" alt="inovino">
+                    </div>
+                    <div class="product-large-bg-image" ngxParallaxScroll
+                        [parallaxSpeed]='0.15'
+                        [parallaxSmoothness]='0.15'
+                        [parallaxDirection]='"reverse"'></div>
+                    <div class="product-large-logo">
+                        <img src="../../../assets/images/inovino-logo-red.jpg" alt="inovino">
+                        <h5 class="product-large-logo-title">Inovino</h5>
+                    </div>
+                    <div class="product-large-description">
+                        <p class="product-large-text">
+                            InoVino is unforgettable.It’s an irreplaceable part of our personal ritual, the good ending of every day – a glass of nice wine to celebrate both the small and the grand victories.
+                        </p>
+                        <div class="product-btn">
+                            <a class="link-btn">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-large-bottom" data-aos="fade-up" data-aos-delay="800">
+                    <a class="more-products">
+                        <span>Discover all our</span><br>
+                        <span class="more-products-bold">products</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="products-small">
+                <div class="product-small d-flex" data-aos="fade-left">
+                    <div class="product-small-description">
+                        <div class="product-small-description-items">
+                            <div class="product-small-logo" data-aos="fade-left" data-aos-delay="800">
+                                <img src="../../../assets/images/tcherga_logo.svg" alt="tcherga">
+                            </div>
+                            <h5 class="products-small-logo-title">Tcherga</h5>
+                            <p class="product-small-text">
+                                Tcherga04 is the wine of the contemporary urban people – then, now and forever – it’s the spirit of Bulgaria in a glass of wine. A glass of wine that holds a unique blend of varieties showcasing the colourful diversity of the Bulgarian soul.
+                            </p>
+                            <div class="product-btn">
+                                <a class="link-btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="small-bottle-container">
+                        <img src="../../../assets/images/tcherga-bottle-white.png" class="small-bottle-image" alt="tcherga">
+                    </div>
+                    <div class="product-small-bg" ngxParallaxScroll
+                        [parallaxSpeed]='0.15'
+                        [parallaxSmoothness]='0.15'
+                        [parallaxDirection]='"reverse"'></div>
+                </div>
+
+                <div class="product-small d-flex" data-aos="fade-right">
+                    <div class="small-bottle-container">
+                        <img src="../../../assets/images/menada-bottle-products.png" class="small-bottle-image" alt="menada" data-aos="fade-right" data-aos-delay="800">
+                        <img src="../../../assets/images/menada-symbol-bg.svg" alt="menada" class="small-bottle-image-bg" data-aos="fade-right" data-aos-delay="800">
+                    </div>
+                    <div class="product-small-description">
+                        <div class="product-small-description-items">
+                            <div class="product-small-logo">
+                                <img src="../../../assets/images/menada-product-logo.svg" alt="menada">
+                            </div>
+                            <h5 class="products-small-logo-title">Menada</h5>
+                            <p class="product-small-text">
+                                Contemporary, yet always comprising in itself the good taste and quality that it is long known for, MENADA is an heir of ancient traditions. Transformed, with a brand new look, MENADA lives by the saw that what is important is hidden from the eyes - in our case, inside the bottle.
+                            </p>
+                            <div class="product-btn">
+                                <a class="link-btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="region-section">
+
+        <div class="region-up-level">
+
+            <div class="region-block d-flex" data-aos="fade-left" data-aos-duration="800" data-aos-offset="200">
+                <div class="region-title-block">
+                    <h3 class="region-title">
+                        <span>About the</span><br>
+                        <span class="region-title-bold">region</span>
+                    </h3>
+                </div>
+                <div class="region-text-block">
+                    <p class="region-text">The climate and diversity of soils in the Stara Zagora region present great opportunities for viticulture and winemaking.</p>
+                    <br>
+                    <p class="region-text">Our winery benefits from fantastic geography and weather conditions that allow us to grow both exotic international grapes as well as local traditional grape varieties.</p>
+                    <a class="btn-line">
+                        <span class="line"></span>
+                        <span class="btn-line-text">Learn more</span>
+                    </a>
+                </div>
+                <div class="region-block-bg" ngxParallaxScroll
+                    [parallaxSpeed]='0.15'
+                    [parallaxSmoothness]='0.15'
+                    [parallaxDirection]='"reverse"'></div>
+            </div>
+
+            <div class="grape-sorts" data-aos="fade-right" data-aos-delay="500" data-aos-duration="800" data-aos-offset="200">
+                <h5 class="grape-sorts-title">
+                    <span>Grape</span><br>
+                    <span>varietals:</span>
+                </h5>
+                <ul class="grape-sorts-list">
+                    <li>Cabernet Sauvignon</li>
+                    <li>Merlot</li>
+                    <li>Rubin</li>
+                    <li>Mavrud</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="bulgaria-map" data-aos="fade-up" data-aos-delay="1000" data-aos-offset="500">
+                <img src="../../../assets/images/bulgaria-map.png" alt="map">
+            </div>
+        </div>
+
+        <div class="region-down-level">
+            <div class="region-video" data-aos="fade-down" data-aos-delay="1000">
+                <video loop muted preload="metadata" class="menada-region-video">
+                    <source src="../../../assets/images/menada_region.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="region-glass" data-aos="appearance" data-aos-delay="1200" ngxParallaxScroll
+                [parallaxSpeed]='0.1'
+                [parallaxSmoothness]='0.1'
+                [parallaxDirection]='"reverse"'>
+                <img src="../../../assets/images/glass.png" alt="glass">
+            </div>
+            <div class="region-bg-image">
+                <img src="../../../assets/images/region-video-bg.png" alt="menada">
+            </div>
+        </div>
+    </section>
+
+    <section class="wine-section">
+        <div class="wine-container">
+            <h2 class="wine-title" data-aos="fade-left" data-aos-duration="800" data-aos-offset="600">
+                <span>Wine </span>
+                <span class="wine-title-light">& Lifestyle</span>
+            </h2>
+            <div class="wine-content d-flex" data-aos="appearance" data-aos-offset="600">
+                <div class="wine-content-item">
+                    <p class="wine-content-text">Since ancient times, wine has been perceived as part of our culture and a symbol of good life. The role of wine has evolved over the centuries, making the beverage a complement to food, festivities, and a healthy lifestyle.</p>
+                </div>
+                <div class="wine-content-item right">
+                    <p class="wine-content-text">The art of viticulture and winemaking has evolved. Nonetheless, during all those centuries, one important aspect remains unchanged: the connection of wine to gastronomy, to local traditions and to social celebrations.</p>
+                    <a class="btn-line">
+                        <span class="line"></span>
+                        <span class="btn-line-text">Learn more</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="wine-recipes d-flex">
+            <div class="wine-recipe-container recipe-bg" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay=""></div>
+            <div class="wine-recipe-container our-recipes" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="400">
+                <h5 class="our-recipes-title">Our recipes</h5>
+                <div class="wine-btn">
+                    <a class="link-btn">Read more</a>
+                </div>
+            </div>
+            <div class="wine-recipe-container first-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="800">
+                <div class="wine-recipe-hover">
+                    <h5 class="recipe-title">Cucumber Cocktail</h5>
+                </div>
+            </div>
+            <div class="wine-recipe-container second-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="1200">
+                <div class="wine-recipe-hover">
+                    <h5 class="recipe-title">Sangria with Watermelon and Raspberry</h5>
+                </div>
+            </div>
+        </div>
+        <div class="wine-hands" data-aos="fade-right" data-aos-duration="800" data-aos-offset="600">
+            <img src="../../../assets/images/wine-hands.png" alt="menada">
+        </div>
+    </section>
+
+</div>

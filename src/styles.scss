@@ -1,1 +1,182 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./variables.scss";
+@import "./fonts.scss";
+
+
+
+// ____________________________________________________ start reset css
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a{
+  text-decoration: none;
+}
+// ____________________________________________________ end reset css
+
+
+body{
+  min-height: 100vh;
+  background-color: $mainBGColor;
+  font-weight: 400;
+  font-family: Play, sans-serif;
+  overflow-x: hidden;
+}
+
+.d-flex{
+  display: flex;
+}
+.m-auto{
+  margin: auto;
+}
+
+.main-content-block{
+  width: 83%;
+  margin: auto;
+}
+
+.link-btn{
+  display: inline-block;
+  font-size: $smallFontsize;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+  padding: 12px 20px;
+  border-radius: 40px;
+  color: #cdcdcd;
+  background: #000;
+  text-decoration: none;
+  text-align: center;
+}
+.link-btn:hover {
+  color: #000;
+  background: $mainLightColor;
+}
+
+
+.btn-line{
+  padding: 10px 0;
+  color: $mainLightColor;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.line{
+  height: 1px;
+  width: 33%;
+  max-width: 70px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 15px;
+  background-color: $mainLightColor;
+}
+.btn-line-text{
+  font-size: 13px;
+  line-height: 1;
+}
+
+
+.main-title{
+  font-size: 5.21vw;
+  letter-spacing: 0.73vw;
+  @include abril-maincolor-text;
+}
+.middle-title{
+  font-size: 2.19vw;
+  @include abril-maincolor-text;
+}
+.small-title{
+  font-size: 19px;
+  letter-spacing: 0.36vw;
+  @include abril-maincolor-text;
+  padding-left: 20px;
+}
+.light-title{
+  font-size: 3.65vw;
+  letter-spacing: 4px;
+  @include abril-maincolor-text;
+  color: #fff;
+}
+
+
+
+[data-aos="rotate-l90"] {
+  transform: rotate(-45deg);
+  transition-property: transform;
+  transform-origin: center;
+}
+[data-aos="rotate-l90"].aos-animate {
+  transform: rotate(0deg);
+}
+
+[data-aos="appearance"] {
+  opacity: 0;
+  transition-property: opacity;
+}
+[data-aos="appearance"].aos-animate {
+  opacity: 1;
+}

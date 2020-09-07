@@ -1,0 +1,59 @@
+@import "../../../fonts.scss";
+@import "../../../variables.scss";
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 120px;
+    padding: 30px;
+    // width: $contentWidth;
+    // margin: auto;
+}
+
+.header-logo-image{
+    width: 150px;
+}
+
+.header-menu-text{
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: Play,sans-serif;
+    // display: inline-block;
+    // vertical-align: middle;
+}
+
+.grape-icon{
+    margin-left: 8px;
+}
+.grape-line{
+    margin: -1px;
+    line-height: 5px;
+    text-align: center ;
+}
+.grape-dot {
+    display: inline-block;
+    background: $mainLightColor;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    // transition: visibility .4s,opacity .4s;
+    // transform: scale(1);
+}
+.hidden-dot{
+    display: none;
+}
+
+.header-menu:hover .hidden-dot{
+    display: inline-block;
+}
+.header-menu:hover .hide-dot{
+    display: none;
+}
+

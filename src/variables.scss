@@ -1,0 +1,32 @@
+$mainBGColor: rgb(34, 34, 34);
+
+$mainLightColor: #e1a957;
+$mainDarkColor: #896f4b;
+// $textFontColor: #909090;
+
+$headingDarkColor: #0b0b0b;
+$smallFontsize: 14px;
+// $contentWidth: 85%;
+
+$darkBlockColor: #191919;
+
+
+@mixin abril-maincolor-text {
+  font-family: 'Abril Fatface','Times New Roman',serif;
+  color: $mainLightColor;
+  font-weight: 400;
+  line-height: 1em;
+}
+
+@mixin play-small-text {
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+  font-size: $smallFontsize;
+}
+
+@mixin bg-center {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

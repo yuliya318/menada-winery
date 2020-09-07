@@ -28,7 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/variables.scss",
+              "src/fonts.scss",
+              "node_modules/aos/dist/aos.css"
             ],
             "scripts": []
           },

@@ -37,15 +37,15 @@
         </div>
         <div class="footer-col menu">
             <h4 class="footer-col-title">Menu</h4>
-            <div class="footer-menu">
+            <nav class="footer-menu">
                 <ul class="footer-links-container">
                     <li>
-                        <a class="link-btn footer-menu-link active">
+                        <a class="link-btn footer-menu-link" [routerLink]="[ '/home' ]">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a class="link-btn footer-menu-link">
+                        <a class="link-btn footer-menu-link" [routerLink]="[ '/brands' ]">
                             Wine &amp; Spirits
                         </a>
                     </li>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="link-btn footer-menu-link">
+                        <a class="link-btn footer-menu-link" [routerLink]="[ '/about' ]">
                             About
                         </a>
                     </li>
@@ -75,7 +75,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="link-btn footer-menu-link">
+                        <a class="link-btn footer-menu-link" [routerLink]="[ '/contacts' ]">
                             Contacts
                         </a>
                     </li>
@@ -90,7 +90,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </nav>
         </div>
         <div class="footer-col contacts">
             <div class="contacts-links">

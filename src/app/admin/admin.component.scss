@@ -1,0 +1,13 @@
+@import "../../fonts.scss";
+@import "../../variables.scss";
+
+
+.dark.nav-pills a{
+    color: white!important;
+}
+
+.dark.nav-pills a.active,
+.dark.nav-pills a.active:hover {
+    background-color: $mainLightColor!important;
+    color: #000!important;
+}

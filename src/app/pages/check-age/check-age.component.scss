@@ -1,0 +1,93 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+.check-age-container {
+    width: 100vw;
+    height: 120vh;
+    @include item-centred;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: $mainBGColor;
+    @include play-small-text;
+}
+
+.check-age {
+    width: 75%;
+    height: 75vh;
+    margin-top: -20vh;
+    background-image: url(../../../assets/images/age-check-bg.jpg);
+    @include bg-center;
+}
+.winery-logo-block,
+.check-age-block {
+    width: 50%;
+    @include item-centred;
+    height: 100%;
+}
+.winery-logo {
+    width: 26vw;
+}
+
+.check-age-content {
+    width: 100%;
+    background-image: url(../../../assets/images/age-check-text-bg.jpg);
+    @include bg-center;
+    padding-left: 8.91vw;
+    padding-right: 4vw;
+    padding-top: 3.91vw;
+    padding-bottom: 3.91vw;
+    margin-right: -4.6vw;
+    position: relative;
+}
+.check-age-text {
+    font-size: 18px;
+    color: #a7a7a7;
+    font-weight: 400;
+    margin: 0;
+}
+.check-age-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 3vw 0;
+}
+.denay-btn a {
+    background: #414141;
+    color: #a5a5a5;
+}
+.denay-btn a:hover {
+    background: #414141;
+    color: #fff;
+}
+.agree-btn a {
+    background-color: $mainLightColor;
+    color: #000;
+}
+.agree-btn a:hover {
+    color: #fff;
+}
+.terms-block {
+    line-height: 1.2;
+    font-size: 14px;
+}
+.terms-text {
+    color: #b3b3b3;
+}
+.terms-link {
+    color: $mainLightColor;
+}
+.check-age-title {
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 7vw;
+    left: -3vw;
+    @include abril-maincolor-text;
+    font-size: 52px;
+    letter-spacing: 10px;
+}
+.check-age-title-small {
+    font-size: 25px;
+    line-height: 1em;
+    letter-spacing: 2px;
+}

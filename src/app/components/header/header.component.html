@@ -1,14 +1,14 @@
 <header class="main-content-block">
-    <div>
-        <a>
+    <div class="header-logo">
+        <a [routerLink]="[ '/home' ]">
             <img src="../../../assets/images/menada-logo.png" alt="logo" class="header-logo-image">
         </a>
     </div>
-    <div class="header-menu d-flex">
+    <div class="header-menu d-flex" >
         <div class="header-menu-text">
             <span class="header-menu-text">Menu</span>
         </div>
-        <div class="grape-icon">
+        <div class="grape-icon" (click)="menuActivate()">
             <div class="grape-line">
                 <span class="grape-dot hide-dot"></span>
                 <span class="grape-dot"></span>
@@ -23,6 +23,23 @@
                 <span class="grape-dot"></span>
             </div>
         </div>
+        <div class="admin" style="width: 20px; height: 100%; margin-left: 20px;" [routerLink]="[ '/admin' ]">
+            <img src="../../../assets/images/grape-icon.svg" alt="">
+        </div>
     </div>
 </header>
 
+<section class="test" *ngIf="menuActive">
+    <div class="admin" style="width: 50px; height: 50px; margin: 20px; background-color: rgb(56, 56, 56); border-radius: 50px;" (click)="menuActivate()">
+        <img src="../../../assets/images/grape-icon.svg" width="40px" height="40px" style="margin: auto;">
+    </div>
+    <div class="categories d-flex">
+        <div class="category" *ngFor="let cat of categories" style="background-color: rgb(56, 56, 56); padding: 20px; margin: 40px;"
+            [routerLink]="[ '/brands/'+cat.name ]" (click)="menuActivate()">
+            <div style="width: 100%; height: 100%;">
+                <img [src]="cat?.logo">
+                <p class="text-white">{{ cat?.name }}</p>
+            </div>
+        </div>
+    </div>
+</section>

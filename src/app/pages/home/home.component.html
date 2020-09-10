@@ -1,4 +1,5 @@
-<div class="main-content-block" (click)="check()">
+
+<div class="main-content-block" (click)="startVideo()">
 
     <section class="home-intro-section main-wrap">
         <div class="intro-grape" data-aos="fade-up" data-aos-duration="1500">
@@ -25,7 +26,7 @@
                             We strive to produce high quality wine combining 100-year-old traditions with an innovative
                             approach.
                         </p>
-                        <a class="btn-line">
+                        <a class="btn-line" [routerLink]="[ '/brands' ]">
                             <span class="line"></span>
                             <span class="btn-line-text">Have a look at our product portfolio</span>
                         </a>
@@ -68,7 +69,7 @@
     <section class="home-video-section main-wrap">
         <div class="bg-right-leaf-video">
             <video loop muted preload="metadata" class="leaf-video">
-                <source src="../../../assets/images/left-leaf.mp4" type="video/mp4">
+                <source src="../../../assets/images/leaf-video.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -139,7 +140,7 @@
     <section class="menada-info-section">
         <div class="bg-left-leaf-video">
             <video loop muted preload="metadata" class="leaf-video">
-                <source src="../../../assets/images/left-leaf.mp4" type="video/mp4">
+                <source src="../../../assets/images/leaf-video.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -376,3 +377,4 @@
     </section>
 
 </div>
+

@@ -1,0 +1,138 @@
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="small-crumb link" [routerLink]="[ '/brands' ]">Our Wine & Spirits</li>
+            <li class="small-crumb">/</li>
+            <li class="small-crumb link" [routerLink]="[ '/brands/' +product?.catName ]">
+                {{ product?.catName | titlecase }}</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">{{ product?.name }}</li>
+        </ul>
+    </div>
+    <div class="product-container">
+        <div class="product-image-block"
+            [ngStyle]="{'background-color' : product?.sort == 'White' ? '#ae9b7e' : product?.sort == 'Red' ? '#6a192c' : '#d87769'}">
+            <img [src]="product?.image" alt="menada" class="product-image">
+            <p class="product-promille">
+                <span class="small-text">Alc. </span>
+                <span>{{ product?.promille }}</span>
+            </p>
+            <p class="product-volume">{{ product?.volume }}</p>
+            <p class="product-sort">
+                <span>{{ product?.sort }} wine</span>
+                <span class="sort-label"
+                    [ngStyle]="{'background-color' : product?.sort == 'White' ? '#e1a957' : product?.sort == 'Red' ? '#d42c28' : '#d96461'}">
+                </span>
+            </p>
+        </div>
+        <div class="product-info-block">
+            <div class="product-list">
+                <div class="product-list-bg"></div>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <p>Vintage:</p>
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-title">{{ product?.vintage }}</p>
+                    </div>
+                </div>
+                <span class="list-line"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <p>Blend:</p>
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-name">{{ product?.name }}</p>
+                    </div>
+                </div>
+                <span class="list-line"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <p>Aging in oak:</p>
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-title">{{ product?.oak }}</p>
+                    </div>
+                </div>
+                <span class="list-line"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <img class="list-icon" src="../../../assets/images/glass-icon.svg" alt="glass">
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-text">{{ product?.color }}</p>
+                    </div>
+                </div>
+                <span class="list-line short"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <img class="list-icon" src="../../../assets/images/nose-icon.svg" alt="aroma">
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-text">{{ product?.aroma }}</p>
+                    </div>
+                </div>
+                <span class="list-line short"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <img class="list-icon" src="../../../assets/images/grape-product-icon.svg" alt="grape">
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-text">{{ product?.taste }}</p>
+                    </div>
+                </div>
+                <span class="list-line short"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <div class="list-icon">
+                            <img src="../../../assets/images/bottle-icon.png" alt="bottle">
+                        </div>
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-title">{{ product?.sort }} wine</p>
+                    </div>
+                </div>
+                <span class="list-line short"></span>
+                <div class="list-row">
+                    <div class="list-left-part">
+                        <div class="list-icon">
+                            <img src="../../../assets/images/temp-icon.png" alt="temperature">
+                        </div>
+                    </div>
+                    <div class="list-right-part">
+                        <p class="list-title">{{ product?.temp }}</p>
+                    </div>
+                </div>
+                <span class="list-line"></span>
+                <div class="list-price-row">
+                    <div class="price-container">
+                        <p class="list-text">Price per one item:</p>
+                        <p class="product-price d-flex">
+                            <img src="../../../assets/images/curl-left.svg">
+                            <span>${{ product?.price }}</span>
+                            <img src="../../../assets/images/curl-right.svg">
+                        </p>
+                        <div class="order-btn">
+                            <a class="link-btn">Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recipes-block">
+                <div class="recipes-title">
+                    <span class="recipes-title-small">Have a look at our</span><br>
+                    <span>Wine Recipes</span>
+                </div>
+                <div class="recipes-btn">
+                    <a class="link-btn">View Recipes</a>
+                </div>
+            </div>
+            <!-- <div class="aside-product-name">
+                {{ product?.name }}
+            </div> -->
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,112 @@
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>Categories</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(addC)">Add category</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Name</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Bottles</th>
+                    <th scope="col">Background</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cat of adminCategories">
+                    <th scope="row">{{ cat.name | titlecase}}</th>
+                    <td style="background-color: #d6d8db;">
+                        <img [src]="cat?.logo" class="m-auto">
+                    </td>
+                    <td>
+                        <img [src]="cat?.bottles" class="m-auto"> 
+                    </td>
+                    <td>
+                        <img [src]="cat?.bg" class="m-auto">
+                    </td>
+                    <td style="width: 43%;">
+                        {{ cat.description }}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="changeEditStatus(cat); openModal(addC)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #addC>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Category</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #categoryForm="ngForm" novalidate>
+            <div class="form-group">
+                <label for="catName">Name</label>
+                <input type="text" class="form-control" id="catName" [(ngModel)]="categoryName" name="categoryName"
+                    required>
+            </div>
+
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!logoStatus">
+                <input (change)="uploadFile($event, 'logo')" type="file" class="custom-file-input" id="logoImage"
+                    [(ngModel)]="categoryLogo" name="categoryLogo" required>
+                <label class="custom-file-label" for="logoImage">Logo image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="logoStatus"
+                style="width: 200px; height: 200px; background-color: #6c757d;">
+                <img [src]="categoryLogo" alt="" style="width: 100%; height: 100%;">
+                <span (click)="deleteImage('logo')" class="d-block ml-3 text-center font-weight-bold"
+                    style="color: #6c757d;"> X </span>
+            </div>
+
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!bottlesStatus">
+                <input (change)="uploadFile($event, 'bottles')" type="file" class="custom-file-input"
+                    id="categoryBottles" [(ngModel)]="categoryBottles" name="categoryBottles" required>
+                <label class="custom-file-label" for="categoryBottles">Bottles image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="bottlesStatus" style="width: 200px; height: 200px;">
+                <img [src]="categoryBottles" alt="" style="width: 100%; height: 100%;">
+                <span (click)="deleteImage('bottles')" class="d-block ml-3 text-center font-weight-bold"
+                    style="color: #6c757d;"> X </span>
+            </div>
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!bgStatus">
+                <input (change)="uploadFile($event, 'bg')" type="file" class="custom-file-input" id="categoryBg"
+                    [(ngModel)]="categoryBg" name="categoryBg" required>
+                <label class="custom-file-label" for="categoryBg">Background image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="bgStatus" style="width: 200px; height: 200px;">
+                <img [src]="categoryBg" alt="" style="width: 100%; height: 100%;">
+                <span (click)="deleteImage('bg')" class="d-block ml-3 text-center font-weight-bold"
+                    style="color: #6c757d;"> X </span>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea [(ngModel)]="categoryDescr" name="categoryDescr" id="description" class="form-control"
+                    rows="3" style="resize: none;" required></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="categoryForm.invalid"
+            (click)="addEditCategory(); modalRef.hide()" *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="categoryForm.invalid"
+            (click)="addEditCategory(); modalRef.hide()" *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

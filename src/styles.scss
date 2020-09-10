@@ -77,12 +77,22 @@ select {
 a{
   text-decoration: none;
 }
+
+li:focus {
+  outline: none;
+}
+// a.text:active, /* активная/посещенная ссылка */
+// a.text:hover,  /* при наведении */
+// a.text {
+//   text-decoration: none!important;
+//   color: #000!important;
+// }
 // ____________________________________________________ end reset css
 
 
 body{
   min-height: 100vh;
-  background-color: $mainBGColor;
+  background-color: $mainBGColor!important;
   font-weight: 400;
   font-family: Play, sans-serif;
   overflow-x: hidden;
@@ -164,8 +174,37 @@ body{
 
 
 
+.bread-crumbs {
+  padding-top: 1.04vw;
+  padding-bottom: 2.08vw;
+}
+.bread-crumbs-list {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.bread-crumbs-list li {
+  display: inline-block;
+  @include abril-maincolor-text;
+  margin: 15px 10px 0 0;
+}
+.small-crumb.link {
+  cursor: pointer;
+}
+.small-crumb {
+  opacity: 0.22;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+.main-crumb {
+  font-size: 2.76vw;
+  letter-spacing: 7px;
+}
+
+
+
 [data-aos="rotate-l90"] {
-  transform: rotate(-45deg);
+  transform: rotate(-30deg);
   transition-property: transform;
   transform-origin: center;
 }
@@ -180,3 +219,5 @@ body{
 [data-aos="appearance"].aos-animate {
   opacity: 1;
 }
+html, body { height: 100%; }
+body { margin: 0; }

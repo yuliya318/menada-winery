@@ -1,0 +1,100 @@
+
+<div class="brands-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">Our Wine & Spirits</li>
+        </ul>
+    </div>
+    <div class="brands-blocks">
+        <section class="brand-container tcherga">
+            <div class="brand-image-block">
+                <img src="../../../assets/images/brands-tcherga-bottle.png" alt="tcherga" class="brand-bottle-image"
+                ngxParallaxScroll
+                [parallaxSpeed]='0.15'
+                [parallaxSmoothness]='0.15'
+                [parallaxDirection]='"reverse"'>
+            </div>
+            <div class="brand-text-block">
+                <div class="text-content">
+                    <img src="../../../assets/images/tcherga_logo.svg" alt="tcherga" class="brand-logo">
+                    <p class="brand-text">Tcherga04 is the wine of the contemporary urban people – then, now and forever – it’s the spirit of Bulgaria in a glass of wine. A glass of wine that holds a unique blend of varieties showcasing the colourful diversity of the Bulgarian soul.</p>
+                    <div class="brand-btn">
+                        <a class="link-btn" [routerLink]="[ '/brands/tcherga' ]">View all</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-container inovino">
+            <div class="brand-text-block">
+                <div class="text-content">
+                    <img src="../../../assets/images/inovino_logo_white.svg" alt="inovino" class="brand-logo">
+                    <p class="brand-text">InoVino is unforgettable.It’s an irreplaceable part of our personal ritual, the good ending of every day – a glass of nice wine to celebrate both the small and the grand victories.</p>
+                    <div class="brand-btn">
+                        <a class="link-btn" [routerLink]="[ '/brands/inovino' ]">View all</a>
+                    </div>
+                </div>
+            </div>
+            <div class="brand-image-block">
+                <img src="../../../assets/images/brands-inovino-bottle.png" alt="inovino" class="brand-bottle-image"
+                ngxParallaxScroll
+                [parallaxSpeed]='0.15'
+                [parallaxSmoothness]='0.15'
+                [parallaxDirection]='"reverse"'>
+            </div>
+            <img src="../../../assets/images/page-leaf-bg.jpg" alt="inovino" class="bg-leaf-right">
+        </section>
+
+        <section class="brand-container menada">
+            <div class="brand-image-block">
+                <img src="../../../assets/images/brands-menada-bottle.png" alt="menada" class="brand-bottle-image"
+                ngxParallaxScroll
+                [parallaxSpeed]='0.15'
+                [parallaxSmoothness]='0.15'
+                [parallaxDirection]='"reverse"'>
+            </div>
+            <div class="brand-text-block">
+                <div class="text-content">
+                    <img src="../../../assets/images/menada-product-logo.svg" alt="menada" class="brand-logo">
+                    <p class="brand-text">Contemporary, yet always comprising in itself the good taste and quality that it is long known for, MENADA is an heir of ancient traditions. Transformed, with a brand new look, MENADA lives by the saw that what is important is hidden from the eyes - in our case, inside the bottle.</p>
+                    <div class="brand-btn">
+                        <a class="link-btn" [routerLink]="[ '/brands/menada' ]">View all</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-container artistique">
+            <div class="brand-text-block">
+                <div class="text-content">
+                    <img src="../../../assets/images/artistique-logo.svg" alt="artistique" class="brand-logo">
+                    <p class="brand-text">Artistique is the symbol of our creative drive. The magic of the process that turns grape into wine, with a single move of the stick…or the brush.</p>
+                    <div class="brand-btn">
+                        <a class="link-btn" [routerLink]="[ '/brands/artistique' ]">View all</a>
+                    </div>
+                </div>
+            </div>
+            <div class="brand-image-block">
+                <img src="../../../assets/images/brands-artistique-bottle.png" alt="artistique" class="brand-bottle-image"
+                ngxParallaxScroll
+                [parallaxSpeed]='0.15'
+                [parallaxSmoothness]='0.15'
+                [parallaxDirection]='"reverse"'>
+            </div>
+            <img src="../../../assets/images/page-leaf-bg.jpg" alt="inovino" class="bg-leaf-left">
+        </section>
+    </div>
+</div>
+
+<!-- <div class="categories d-flex">
+    <div class="category" *ngFor="let cat of categories"
+        style="background-color: rgb(56, 56, 56); padding: 20px; margin: 40px;" 
+        [routerLink]="[ '/brands/'+cat.name ]">
+        <div style="width: 100%; height: 100%;">
+            <img [src]="cat?.logo">
+            <p class="text-white">{{ cat?.name }}</p>
+        </div>
+    </div>
+</div> -->

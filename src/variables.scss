@@ -23,10 +23,17 @@ $darkBlockColor: #191919;
   font-weight: 400;
   line-height: 1em;
   font-size: $smallFontsize;
+  // font-size: 0.97vw;
 }
 
 @mixin bg-center {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@mixin item-centred {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

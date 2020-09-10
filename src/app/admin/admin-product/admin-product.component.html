@@ -1,0 +1,179 @@
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>Products</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(addProd)">Add product</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Category</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sort</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of adminProducts">
+                    <th scope="row">{{ prod?.catName | titlecase}}</th>
+                    <td class="text-left">{{ prod?.name | titlecase}}</td>
+                    <td>{{ prod?.sort | titlecase}}</td>
+                    <td>{{ prod?.volume }}</td>
+                    <td>${{ prod?.price }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning"
+                            (click)="changeEditStatus(prod); openModal(addProd)">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteProdID = prod.id; openModal(deleteP)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #addProd>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Product</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #productForm="ngForm" novalidate>
+            <div class="form-group">
+                <label for="prodName">Name</label>
+                <input type="text" class="form-control" id="prodName" [(ngModel)]="prodName" name="prodName" required>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col-md-4">
+                    <label for="categoryChoose">Choose category:</label>
+                    <select class="form-control" [(ngModel)]="catName" name="catName" (change)="setCategory()"
+                        id="categoryChoose" required>
+                        <option *ngFor="let category of adminCategories">
+                            {{ category.name | titlecase}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="sortChoose">Choose sort:</label>
+                    <select class="form-control" [(ngModel)]="prodSort" name="prodSort" id="sortChoose" required>
+                        <option>Red</option>
+                        <option>White</option>
+                        <option>Rosé</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="volumeChoose">Choose volume:</label>
+                    <select class="form-control" [(ngModel)]="prodVolume" name="prodVolume" id="volumeChoose" required>
+                        <option>750 ml</option>
+                        <option>3 l</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col-md-4">
+                    <label for="prodPromille">Promille</label>
+                    <input type="text" class="form-control" id="prodPromille" [(ngModel)]="prodPromille"
+                        name="prodPromille" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="prodVintage">Vintage</label>
+                    <input type="text" class="form-control" id="prodVintage" [(ngModel)]="prodVintage"
+                        name="prodVintage" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="oakChoose">Aging in oak:</label>
+                    <select class="form-control" [(ngModel)]="prodOak" name="prodOak" id="oakChoose" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="prodColor">Color description</label>
+                <textarea [(ngModel)]="prodColor" name="prodColor" id="prodColor" class="form-control" rows="2"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="prodAroma">Aroma description</label>
+                <textarea [(ngModel)]="prodAroma" name="prodAroma" id="prodAroma" class="form-control" rows="2"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="prodTaste">Taste description</label>
+                <textarea [(ngModel)]="prodTaste" name="prodTaste" id="prodTaste" class="form-control" rows="2"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col-md-6">
+                    <label for="prodTemp">Temperature</label>
+                    <input type="text" class="form-control" id="prodTemp" [(ngModel)]="prodTemp" name="prodTemp"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label for="prodPrice">Price</label>
+                    <input type="text" class="form-control" id="prodPrice" [(ngModel)]="prodPrice" name="prodPrice"
+                        required>
+                </div>
+            </div>
+
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="prodImage"
+                    [(ngModel)]="prodImage" name="prodImage" required>
+                <label class="custom-file-label" for="prodImage">Product image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="imageStatus"
+                style="width: 200px; height: 200px; background-color: #c6c7c7; border-radius: 10px;">
+                <img [src]="prodImage" alt="" style="width: 200px; height: 200px;">
+                <span (click)="deleteImage()" class="d-block ml-2 text-center font-weight-bold" style="color: black;">
+                    X </span>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="productForm.invalid"
+            (click)="addProduct(); modalRef.hide()" *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="productForm.invalid"
+            (click)="editProduct(); modalRef.hide()" *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+
+<ng-template #deleteP>
+    <div class="modal-header">
+        <h6 class="modal-title m-auto">Are you sure? This action can not be undone.</h6>
+    </div>
+    <div class="modal-body row">
+        <div class="col-6">
+            <button type="button" class="btn btn-dark w-100" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-danger w-100" (click)="deleteProduct(); modalRef.hide()">Delete</button>
+        </div>
+    </div>
+</ng-template>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

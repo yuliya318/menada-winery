@@ -1,0 +1,26 @@
+<div class="main-content-block d-flex">
+
+    <div class="container-fluid mt-2 mb-3">
+        <div class="row">
+            <div class="col-2">
+                <div class="nav flex-column nav-pills dark" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link" [routerLink]="[ 'category' ]" routerLinkActive="active">Category</a>
+                    <a class="nav-link" [routerLink]="[ 'product' ]" routerLinkActive="active">Products</a>
+                    <a class="nav-link" [routerLink]="[ 'news' ]" routerLinkActive="active">News</a>
+                    <a class="nav-link" [routerLink]="[ 'recipes' ]" routerLinkActive="active">Recipes</a>
+                    <a class="nav-link" [routerLink]="[ 'orders' ]" routerLinkActive="active">Orders</a>
+                    <button class="btn btn-warning mt-5">Sign Out</button>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="tab-content">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

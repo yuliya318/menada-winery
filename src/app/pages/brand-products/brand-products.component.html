@@ -1,0 +1,36 @@
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="small-crumb link" [routerLink]="[ '/brands' ]">Our Wine & Spirits</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">{{ categoryName | titlecase }}</li>
+        </ul>
+    </div>
+    <div class="brand-products-content" [ngStyle]="{'background-image': 'url(' + category?.bg + ')'}">
+        <div class="brand-info-container">
+            <img [src]="category?.logo" class="brand-logo-image">
+            <p class="brand-info-text">{{ category?.description }}</p>
+            <img src="../../../assets/images/brand-leaf-bg.jpg" alt="menada" class="brand-leaf-bg">
+        </div>
+        <div class="brand-products">
+            <div *ngFor="let prod of catProducts" [routerLink]="[ '/brands/'+prod.catName, prod.name ]" class="product">
+                <div class="product-content">
+                    <img [src]="prod?.image" alt="menada" class="product-image">
+                    <h3 class="product-title">{{ prod?.name }}</h3>
+                    <span class="product-price-line"></span>
+                    <span class="product-price product-title">${{ prod?.price }}</span>
+                    <p class="product-volume">{{ prod?.volume }}</p>
+                    <p class="product-sort">
+                        <span>{{ prod?.sort }} wine</span>
+                        <span class="sort-label"
+                            [ngStyle]="{'background-color' : prod?.sort == 'White' ? '#e1a957' : prod?.sort == 'Red' ? '#d42c28' : '#d96461'}">
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

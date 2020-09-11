@@ -12,7 +12,6 @@
     position: relative;
 }
 
-
 .product-image{
     width: 100%;
 }
@@ -118,7 +117,7 @@
 .list-price-row {
     display: flex;
     justify-content: flex-end;
-    padding: 1.74vw 0;
+    padding: 1.34vw 0;
 }
 .price-container {
     width: 50%;
@@ -130,7 +129,7 @@
     @include abril-maincolor-text;
     color: $mainDarkColor;
     font-size: 1.8vw;
-    margin: 20px;
+    margin: 15px;
 }
 .product-price img {
     width: 2.3vw;

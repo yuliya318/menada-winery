@@ -1,0 +1,18 @@
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">Our Recipes</li>
+        </ul>
+    </div>
+
+    <div class="recipes-container">
+        <div class="recipe-block" *ngFor="let rec of recipes" [routerLink]="[ '/recipes/', rec?.title]"
+        [ngStyle]="{'background-image': 'url(' + rec?.image + ')'}">
+            <div class="recipe-card">
+                <h5 class="recipe-card-title">{{ rec?.title }}</h5>
+            </div>
+        </div>
+    </div>
+</div>

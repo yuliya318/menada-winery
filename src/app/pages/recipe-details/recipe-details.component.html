@@ -1,0 +1,49 @@
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="small-crumb link" [routerLink]="[ '/recipes' ]">Our Recipes</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">{{ recipe?.title }}</li>
+        </ul>
+    </div>
+
+    <div class="recipe-container d-flex">
+        <div class="recipe-content">
+            <div class="ingredients-block">
+                <h5 class="recipe-content-title">Ingredients:</h5>
+                <ul class="ingredients-list">
+                    <li>Makes {{ recipe?.cocktails }} cocktails:</li>
+                    <li *ngFor="let ingred of recipeIngreds">{{ ingred }}</li>
+                </ul>
+            </div>
+            <div class="recipe-block">
+                <h5 class="recipe-content-title">Recipe:</h5>
+                <p class="recipe-block-text">{{ recipe?.recipe }}</p>
+            </div>
+            <div class="back-btn">
+                <a class="back-btn-text" [routerLink]="[ '/recipes' ]">Back to list</a>
+            </div>
+        </div>
+        <div class="recipe-image-block">
+            <img [src]="recipe?.image" alt="recipe" class="recipe-image">
+        </div>
+        <div class="other-recipes" *ngIf="recipes.length !== 0">
+            <div class="first-recipe" [routerLink]="[ '/recipes/', recipes[getIndex(true)]?.title]"
+                [ngStyle]="{'background-image': 'url(' + recipes[getIndex(true)]?.image + ')'}">
+                <div class="recipe-card">
+                    <h5 class="recipe-card-title">{{ recipes[getIndex(true)]?.title }}</h5>
+                </div>
+            </div>
+            <div class="second-recipe" [routerLink]="[ '/recipes/', recipes[getIndex(false)]?.title]"
+                [ngStyle]="{'background-image': 'url(' + recipes[getIndex(false)]?.image + ')'}">
+                <div class="recipe-card">
+                    <h5 class="recipe-card-title">{{ recipes[getIndex(false)]?.title }}</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

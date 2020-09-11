@@ -29,6 +29,10 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { BrandsComponent } from './pages/brands/brands.component';
 import { BrandProductsComponent } from './pages/brand-products/brand-products.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.component';
+import { NewsComponent } from './pages/news/news.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 
 
 @NgModule({
@@ -49,6 +53,10 @@ import { BrandProductsComponent } from './pages/brand-products/brand-products.co
     ProductDetailsComponent,
     BrandsComponent,
     BrandProductsComponent,
+    RecipesComponent,
+    RecipeDetailsComponent,
+    NewsComponent,
+    NewsDetailsComponent,
   ],
   imports: [
     BrowserModule,

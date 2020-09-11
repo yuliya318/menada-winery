@@ -78,15 +78,11 @@ a{
   text-decoration: none;
 }
 
-li:focus {
+li:focus,
+div:focus,
+a:focus {
   outline: none;
 }
-// a.text:active, /* активная/посещенная ссылка */
-// a.text:hover,  /* при наведении */
-// a.text {
-//   text-decoration: none!important;
-//   color: #000!important;
-// }
 // ____________________________________________________ end reset css
 
 
@@ -200,6 +196,28 @@ body{
   font-size: 2.76vw;
   letter-spacing: 7px;
 }
+
+
+.recipe-card {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  text-align: center;
+  @include item-centred;
+  flex-direction: column;
+}
+.recipe-card-title {
+  @include abril-maincolor-text;
+  font-size: 1.5vw;
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+.recipe-card:hover {
+  background-color: rgba(0, 0, 0, 0.678);
+  border: 10px solid #000;
+}
+
+
 
 
 

@@ -1,4 +1,125 @@
-<p>admin-recipes works!</p>
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>Recipes</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(addR)">Add recipe</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Title</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Recipe</th>
+                    <th scope="col">Cocktails</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rec of adminRecipes">
+                    <th scope="row">{{ rec?.title }}</th>
+                    <td>{{ rec?.ingredients }}</td>
+                    <td>{{ rec?.recipe }}</td>
+                    <td>{{ rec?.cocktails }}</td>
+                    <td>
+                        <img [src]="rec?.image" style="width: 70px; height:70px;">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning"
+                            (click)="changeEditStatus(rec); openModal(addR)">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteRecipeID = rec.id; openModal(deleteR)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #addR>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Recipe</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #recipeForm="ngForm" novalidate>
+
+            <div class="form-group">
+                <label for="recipeTitle">Title</label>
+                <textarea [(ngModel)]="recipeTitle" name="recipeTitle" id="recipeTitle" class="form-control" rows="2"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recipeIngreds">Ingredients</label>
+                <small class="form-text text-danger">
+                    If you want to add multiple ingredients, please put theese two characters between them: 
+                    <b>*/</b>
+                </small>
+                <textarea [(ngModel)]="recipeIngreds" name="recipeIngreds" id="recipeIngreds" class="form-control" rows="5"
+                    style="resize: none;" required></textarea>
+                <small class="form-text text-muted">
+                    For example: "10 slices of lime */ 1/2 cup of orange juice */ orange slices "
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="recipeText">Recipe</label>
+                <textarea [(ngModel)]="recipeText" name="recipeText" id="recipeText" class="form-control" rows="3"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recipeCocktails">Number of cocktails at the outlet</label>
+                <input type="number" [(ngModel)]="recipeCocktails" name="recipeCocktails" id="recipeCocktails" class="form-control" 
+                min="0" required>
+            </div>
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="recipeImage"
+                    [(ngModel)]="recipeImage" name="recipeImage" required>
+                <label class="custom-file-label" for="recipeImage">Recipe image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="imageStatus"
+                style="width: 200px; height: 200px; border-radius: 10px;">
+                <img [src]="recipeImage" alt="" style="width: 200px; height: 200px;">
+                <span (click)="deleteImage()" class="d-block ml-2 text-center font-weight-bold" style="color: black;">
+                    X </span>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="recipeForm.invalid"
+            (click)="addRecipe(); modalRef.hide()" *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="recipeForm.invalid"
+            (click)="editRecipe(); modalRef.hide()" *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+
+<ng-template #deleteR>
+    <div class="modal-header">
+        <h6 class="modal-title m-auto">Are you sure? This action can not be undone.</h6>
+    </div>
+    <div class="modal-body row">
+        <div class="col-6">
+            <button type="button" class="btn btn-dark w-100" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-danger w-100" (click)="deleteRecipe(); modalRef.hide()">Delete</button>
+        </div>
+    </div>
+</ng-template>
+
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

@@ -1,0 +1,15 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vw 0 3vw;
+}
+
+.recipe-block {
+  width: 25%;
+  height: 25vw;
+  @include bg-center;
+}
+

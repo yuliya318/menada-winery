@@ -1,3 +1,114 @@
-<p>admin-news works!</p>
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>News</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(addN)">Add article</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Date</th>
+                    <th scope="col">Annotation</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let news of adminNews">
+                    <th scope="row">{{ news?.date.toDate() | date: 'dd.MM'}}</th>
+                    <td style="width: 55%;">{{ news?.annotation }}</td>
+                    <td>
+                        <img [src]="news?.image" style="width: 70px; height:70px;">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning"
+                            (click)="changeEditStatus(news); openModal(addN)">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteNewsID = news.id; openModal(deleteN)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #addN>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Article</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #newsForm="ngForm" novalidate>
+
+            <div class="form-group">
+                <label for="newsAnnot">Annotation</label>
+                <textarea [(ngModel)]="newsAnnot" name="newsAnnot" id="newsAnnot" class="form-control" rows="3"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="newsTitle">Title</label>
+                <textarea [(ngModel)]="newsTitle" name="newsTitle" id="newsTitle" class="form-control" rows="3"
+                    style="resize: none;" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="newsText">Text</label>
+                <small class="form-text text-danger">
+                    If you want to split the article into several paragraphs, please in the place where the line break should be, put theese two characters: 
+                    <b>*/</b>
+                </small>
+                <textarea [(ngModel)]="newsText" name="newsText" id="newsText" class="form-control" rows="5"
+                    style="resize: none;" required></textarea>
+                <small class="form-text text-muted">
+                    For example: "Some text text text of first paragraph. */ Some text of next paragraph."
+                </small>
+            </div>
+
+            <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="newsImage"
+                    [(ngModel)]="newsImage" name="newsImage" required>
+                <label class="custom-file-label" for="newsImage">Article image...</label>
+            </div>
+            <div class="image mb-3 d-flex" *ngIf="imageStatus"
+                style="width: 200px; height: 200px; border-radius: 10px;">
+                <img [src]="newsImage" alt="" style="width: 200px; height: 200px;">
+                <span (click)="deleteImage()" class="d-block ml-2 text-center font-weight-bold" style="color: black;">
+                    X </span>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="newsForm.invalid"
+            (click)="addNews(); modalRef.hide()" *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="newsForm.invalid"
+            (click)="editNews(); modalRef.hide()" *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+
+<ng-template #deleteN>
+    <div class="modal-header">
+        <h6 class="modal-title m-auto">Are you sure? This action can not be undone.</h6>
+    </div>
+    <div class="modal-body row">
+        <div class="col-6">
+            <button type="button" class="btn btn-dark w-100" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-danger w-100" (click)="deleteNews(); modalRef.hide()">Delete</button>
+        </div>
+    </div>
+</ng-template>
+
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

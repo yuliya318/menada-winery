@@ -357,16 +357,16 @@
             <div class="wine-recipe-container our-recipes" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="400">
                 <h5 class="our-recipes-title">Our recipes</h5>
                 <div class="wine-btn">
-                    <a class="link-btn">Read more</a>
+                    <a class="link-btn" [routerLink]="[ '/recipes' ]">Read more</a>
                 </div>
             </div>
             <div class="wine-recipe-container first-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="800">
-                <div class="wine-recipe-hover">
+                <div class="wine-recipe-hover" [routerLink]="[ '/recipes/Cucumber%20Cocktail' ]">
                     <h5 class="recipe-title">Cucumber Cocktail</h5>
                 </div>
             </div>
             <div class="wine-recipe-container second-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="1200">
-                <div class="wine-recipe-hover">
+                <div class="wine-recipe-hover" [routerLink]="[ '/recipes/recipes/Sangria%20with%20Watermelon%20and%20Raspberry' ]">
                     <h5 class="recipe-title">Sangria with Watermelon and Raspberry</h5>
                 </div>
             </div>

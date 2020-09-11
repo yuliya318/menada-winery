@@ -15,6 +15,8 @@ import { AdminRecipesComponent } from './admin/admin-recipes/admin-recipes.compo
 import { BrandsComponent } from './pages/brands/brands.component';
 import { BrandProductsComponent } from './pages/brand-products/brand-products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'brands', component: BrandsComponent },
   { path: 'brands/:category', component: BrandProductsComponent },
   { path: 'brands/:category/:name', component: ProductDetailsComponent }, 
+  { path: 'recipes', component: RecipesComponent },
+  { path: 'recipes/:name', component: RecipeDetailsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'admin', component: AdminComponent, children: [

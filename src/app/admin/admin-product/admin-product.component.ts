@@ -135,7 +135,6 @@ export class AdminProductComponent implements OnInit {
     let newProd = this.createProduct();
     this.productService.updateFirestoreProduct({ ...newProd })
       .then(() => this.getProducts());
-    this.editStatus = false;
     this.resetForm();
   }
 
@@ -184,6 +183,7 @@ export class AdminProductComponent implements OnInit {
     this.prodPrice = 0;
     this.prodImage = '';
     this.imageStatus = false;
+    this.editStatus = false;
   }
 
 }

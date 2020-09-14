@@ -4,45 +4,88 @@
             <img src="../../../assets/images/menada-logo.png" alt="logo" class="header-logo-image">
         </a>
     </div>
-    <div class="header-menu d-flex" >
-        <div class="header-menu-text">
-            <span class="header-menu-text">Menu</span>
+    <div class="header-panel">
+
+        <div class="header-item basket">
+            <img src="../../../assets/images/wine-barrel.svg" class="header-item-image">
+            <span class="header-item-label">Order</span>
         </div>
-        <div class="grape-icon" (click)="menuActivate()">
-            <div class="grape-line">
-                <span class="grape-dot hide-dot"></span>
-                <span class="grape-dot"></span>
-                <span class="grape-dot hide-dot"></span>
-            </div>
-            <div class="grape-line">
-                <span class="grape-dot"></span>
-                <span class="grape-dot"></span>
-                <span class="grape-dot hidden-dot"></span>
-            </div>
-            <div class="grape-line">
-                <span class="grape-dot"></span>
-            </div>
+
+        <div class="header-item login" [routerLink]="[ '/login' ]" *ngIf="!loginedStatus">
+            <img src="../../../assets/images/wine-tasting.svg" class="header-item-image">
+            <span class="header-item-label">Login</span>
         </div>
-        <div class="admin" style="width: 20px; height: 100%; margin-left: 20px;" [routerLink]="[ '/admin' ]">
-            <img src="../../../assets/images/grape-icon.svg" alt="">
+        <div class="header-item login" [routerLink]="[ '/' + urlName]" *ngIf="loginedStatus">
+            <img src="../../../assets/images/wine-arm-empty.svg" class="header-item-image cabinet-image"
+                *ngIf="menuName === 'cabinet'">
+            <img src="../../../assets/images/admin-avatar.svg" class="header-item-image" *ngIf="menuName === 'admin'">
+            <span class="header-item-label">{{ menuName | titlecase }}</span>
+        </div>
+
+        <div class="header-menu d-flex" (click)="menuActivate()">
+            <div class="header-menu-text">
+                <span class="header-menu-text">Menu</span>
+            </div>
+            <div class="grape-icon">
+                <div class="grape-line">
+                    <span class="grape-dot hide-dot"></span>
+                    <span class="grape-dot"></span>
+                    <span class="grape-dot hide-dot"></span>
+                </div>
+                <div class="grape-line">
+                    <span class="grape-dot"></span>
+                    <span class="grape-dot"></span>
+                    <span class="grape-dot hidden-dot"></span>
+                </div>
+                <div class="grape-line">
+                    <span class="grape-dot"></span>
+                </div>
+            </div>
         </div>
     </div>
+
 </header>
 
-<section class="test" *ngIf="menuActive">
-    <div class="admin" style="width: 50px; height: 50px; margin: 20px; background-color: rgb(56, 56, 56); border-radius: 50px;" (click)="menuActivate()">
-        <img src="../../../assets/images/grape-icon.svg" width="40px" height="40px" style="margin: auto;">
-    </div>
-    <div class="categories d-flex">
-        <div class="category" *ngFor="let cat of categories" style="background-color: rgb(56, 56, 56); padding: 20px; margin: 40px;"
-            [routerLink]="[ '/brands/'+cat.name ]" (click)="menuActivate()">
-            <div style="width: 100%; height: 100%;">
-                <img [src]="cat?.logo">
-                <p class="text-white">{{ cat?.name }}</p>
+<section class="menu" *ngIf="menuActive">
+    
+    <div class="menu-container">
+        <div class="menu-up-level">
+            <div class="item-category menu-tcherga">
+                <img src="../../../assets/images/tcherga-black-logo.svg" alt="tcherga" class="menu-brand-logo">
+                <img src="../../../assets/images/tcherga-bottles.png" alt="tcherga" class="menu-brand-bg">
+            </div>
+            <div class="item-category menu-menada">
+                <img src="../../../assets/images/menada-black-logo.svg" alt="menada" class="menu-brand-logo">
+                <img src="../../../assets/images/menada-bottles.png" alt="menada" class="menu-brand-bg">
+            </div>
+            <div class="item-category menu-inovino">
+                <img src="../../../assets/images/inovino-logo-black.svg" alt="inovino" class="menu-brand-logo">
+                <img src="../../../assets/images/inovino-bottles.png" alt="inovino" class="menu-brand-bg">
+            </div>
+            <div class="item-category menu-artistique">
+                <img src="../../../assets/images/artistique-black-logo.svg" alt="artistique" class="menu-brand-logo">
+                <img src="../../../assets/images/artist-bottles.png" alt="artistique" class="menu-brand-bg">
+            </div>
+        </div>
+        <div class="menu-down-level">
+            <div class="item menu-products" [routerLink]="[ '/brands']" (click)="closeMenu()">
+                <h3 class="menu-title">Other products</h3>
+            </div>
+            <div class="item menu-home" [routerLink]="[ '/home']" (click)="closeMenu()">
+                <h3 class="menu-title">Home</h3>
+            </div>
+            <div class="item menu-news" [routerLink]="[ '/news']" (click)="closeMenu()">
+                <h3 class="menu-title">News</h3>
+            </div>
+            <div class="item menu-recipes" [routerLink]="[ '/recipes']" (click)="closeMenu()">
+                <h3 class="menu-title">
+                    <span class="small-title">Our</span><br>
+                    <span>Recipes</span>
+                </h3>
             </div>
         </div>
     </div>
-    <div [routerLink]="[ '/recipes']" style="width: 150px; height: 50px; background-color: rgb(47, 163, 91);">
-        recipes 
+    <div class="return-button" (click)="menuActivate()">
+        <span>Come back</span>
     </div>
 </section>

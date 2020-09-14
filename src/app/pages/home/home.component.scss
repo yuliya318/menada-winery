@@ -233,6 +233,7 @@ section {
 // ____________________________ start menada-info-section
 .menada-info-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5.47vw;
   position: relative;
@@ -304,6 +305,7 @@ section {
 
 .products-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .product-large-container {
@@ -417,13 +419,16 @@ section {
   z-index: 3;
   position: relative;
 }
+.small-bottle-container {
+  align-items: flex-end;
+  justify-content: center;
+}
 .product-small-description {
-  padding-bottom: 1vw;
+  padding-bottom: 2vw;
 }
 .small-bottle-image {
   display: block;
   width: 6.29vw;
-  margin: auto;
   z-index: 3;
 }
 .small-bottle-image-bg {
@@ -470,6 +475,7 @@ section {
   padding: 5vw 0;
   margin-bottom: 7vw;
   overflow-y: hidden;
+  flex-wrap: wrap;
 }
 .region-block-bg {
   position: absolute;
@@ -623,6 +629,10 @@ section {
   line-height: 1.1;
   margin-bottom: 30px;
 }
+.wine-recipes {
+  display: flex;
+  flex-wrap: wrap;
+}
 .wine-recipe-container,
 .wine-recipe-hover {
   width: 25%;
@@ -655,25 +665,555 @@ section {
 .second-recipe {
   background-image: url(../../../assets/images/recipes/watermelon_thumb.jpg);
 }
-.recipe-title {
-  @include abril-maincolor-text;
-  font-size: 1.35vw;
-  letter-spacing: 2px;
-  line-height: 1.3;
-}
-.wine-recipe-hover {
-  width: 100%;
-  height: 100%;
-  padding: 0 20px;
-}
-.wine-recipe-hover:hover {
-  background-color: rgba(0, 0, 0, 0.678);
-  border: 10px solid #000;
-}
 .wine-hands {
   position: absolute;
   top: 0;
   left: 0;
   width: 48.15vw;
 }
-// ____________________________ end region-section
+// ____________________________ end wine-section
+
+
+@media screen and (max-width: $desktop-S) and (min-width: 1024px) {
+
+  .intro-grid {
+    padding: 70px 0 20px;
+  }
+  .item-intro-text,
+  .content-text {
+    max-width: 280px;
+  }
+  .intro-grid-item.right {
+    width: 55%;
+    padding-right: 3vw;
+  }
+
+  .product-large-text {
+    font-size: 12px;
+  }
+  .product-small-description-items {
+    width: 75%;
+  }
+  .small-bottle-image {
+    width: 8.1vw;
+  }
+
+  .region-title-block {
+    width: 35%;
+  } 
+  .region-text-block {
+    width: 65%;
+  }
+  .region-glass {
+    top: 135%;
+  }
+}
+
+@media screen and (max-width: $tablet-L)  {
+  // and (min-width: 768px)
+
+  .bg-left-leaf-video,
+  .bg-right-leaf-video {
+    display: none;
+  }
+  .intro-grape {
+    top: -25px;
+    z-index: 1;
+    left: 27%;
+  }
+  .intro-grid {
+    padding: 75px 0 20px;
+  }
+  .intro-item-content {
+    background-color: transparent;
+    width: 82%;
+    padding: 20px 0;
+    margin-left: 0;
+  }
+  .intro-menada-products {
+    width: 75%;
+  }
+  .product-info-title {
+    font-size: 18px;
+  }
+
+  .video-bottom-info img {
+    display: none;
+  }
+  .video-bottom-text {
+    margin: 0 0 0 1.3vw;
+    letter-spacing: 4px;
+  }
+  .video-description {
+    font-size: 14px;
+  }
+
+  .about-block,
+  .history-block {
+    width: 100%;
+  }
+  .about-block {
+    margin-bottom: 3vw;
+  }
+  .menada-info-title {
+    font-size: 4.02vw;
+  }
+
+  .products-title {
+    font-size: 4.46vw;
+  }
+  .products-title-small {
+    font-size: 2.25vw;
+    left: -3.1vw;
+  }
+  .product-large-container,
+  .products-small,
+  .product-small {
+    width: 100%;
+  }
+  .large-bottle-container {
+    width: 18.42vw;
+  }
+  .product-large-logo {
+    top: 4.4vw;
+    left: 6.1vw;
+    width: 17.58vw;
+  } 
+  .product-large-description {
+    bottom: 4.3vw;
+    right: 5.4vw;
+    width: 20.58vw;
+  }
+  .product-large-text {
+    font-size: 15px;
+  }
+  .product-large-bg-image {
+    top: 65%;
+    left: 5%;
+    height: 85%;
+    width: 90%;
+  }
+  .product-small {
+    margin: 2vw 0;
+  }
+  .product-small-bg {
+    top: 110%;
+  }
+  .product-small-description-items {
+    width: 70%;
+    padding: 20px 0;
+  }
+  .small-bottle-image {
+    width: 11.29vw;
+  }
+  .small-bottle-image-bg {
+    top: 10%;
+    left: 12%;
+    width: 75%;
+  }
+  .products-small-logo-title {
+    font-size: 18px;
+  }
+  .product-small-logo img {
+    margin: auto;
+  }
+
+  .bulgaria-map {
+    display: none;
+  }
+  .region-glass {
+    top: 180%;
+  }
+  .grape-sorts {
+    width: 33%;
+    padding: 3.94vw 3.17vw 3vw;
+  }
+  .region-block {
+    width: 67%;
+  }
+  .region-title-block,
+  .region-text-block {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+  }
+  .region-title-block {
+    margin-bottom: 2.5vw;
+    align-items: flex-start;
+    padding-left: 7vw;
+  }
+  .region-title {
+    position: relative;
+    font-size: 20px;
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+    line-height: 1.5em;
+  }
+  .region-title-bold {
+    font-size: 5.25vw;
+  }
+  .region-text-block .btn-line {
+    margin: 10px 0;
+  }
+  .region-video {
+    width: 59%;
+    margin-top: -11vw;
+  }
+  .region-block-bg {
+    top: 115%;
+    left: 35%;
+    z-index: 1;
+  }
+
+  .wine-title {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 7.57vw;
+  }
+  .wine-title span {
+    display: inline-block;
+  }
+  .wine-title-light {
+    font-size: 5.7vw;
+    letter-spacing: 0.6vw;
+  }
+  .wine-hands {
+    width: 42.15vw;
+  }
+  .wine-content {
+    width: 100%;
+    margin-top: 0;
+    padding: 13.17vw 2vw 0;
+  }
+  .recipe-bg {
+    display: none;
+  }
+  .our-recipes {
+    width: 100%;
+    margin-top: 3vw;
+    padding: 20px 0;
+    height: fit-content;
+  }
+  .our-recipes-title {
+    font-size: 4.32vw;
+    margin: 0 0 10px;
+  }
+  .first-recipe,
+  .second-recipe {
+    width: 50%;
+    height: 45vw;
+    margin-bottom: 2vw;
+  }
+  
+
+}
+
+
+@media screen and (max-width: $mobile-L) {
+
+  .btn-line .line {
+    display: none;
+  }
+  .btn-line {
+    background-color: black;
+    padding: 12px;
+    border-radius: 50px;
+    text-align: center;
+    display: flex;
+    width: fit-content;
+  }
+  
+
+  .intro-grape {
+    top: -25px;
+    left: auto;
+    right: -35px;
+    width: 330px;
+    z-index: 1;
+  }
+  .intro-grid {
+    padding: 65px 0 20px;
+    flex-wrap: wrap;
+  }
+  .intro-grid-item {
+    width: 100%;
+  }
+  .intro-item-title {
+    background-color: black;
+    margin-left: -35px;
+    padding: 15px;
+    width: fit-content;
+  }
+  .main-title {
+    font-size: 53px;
+  }
+  .small-title {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .light-title {
+    font-size: 38px;
+  }
+  .intro-item-content {
+    background-color: transparent;
+    width: 60%;
+    padding: 10px;
+    margin-left: 0;
+  }
+  .content-text {
+    display: none;
+  }
+  .intro-item-content .btn-line-text {
+    width: fit-content;
+    margin-top: 0;
+    font-size: 12px;
+  }
+  .menada-product-info .btn-line {
+    width: fit-content;
+    font-size: 12px;
+  }
+  .intro-menada-products {
+    width: 100%;
+    padding: 4.65vw;
+  }
+  .menada-products-title {
+    margin: 30px 0 10px;
+  }
+  .middle-title {
+    font-size: 27px;
+  }
+  .menada-products-wrap {
+    height: 31vw;
+    width: 100%;
+  }
+  .menada-product-image {
+    flex-basis: 6.2vw;
+  }
+  .menada-product-image:hover {
+    flex-basis: 7.5vw;
+  }
+
+  .video-bottom,
+  .video-content-item.right {
+    display: none;
+  }
+  .home-video-section {
+    padding: 20px 0 7vw;
+  }
+  .video-bottom-text {
+    letter-spacing: 3px;
+    line-height: 23px;
+  }
+  .video-aside-title.middle-title {
+    font-size: 18px;
+  }
+  .video-aside-title .small-title {
+    font-size: 16px;
+  }
+  .video-content-item.left {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .video-item-title {
+    font-size: 58px;
+    letter-spacing: 3px;
+  }
+  .video-content-item.left .video-item-text {
+    font-size: 14px;
+  }
+  .single-grape-main {
+    top: 22%;
+    left: 0%;
+    width: 50vw;
+    max-width: 250px;
+  }
+  .single-grape-small {
+    left: -0.8vw;
+  }
+
+
+  .menada-info-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .info-title-small {
+    font-size: 18px;
+  }
+  .menada-info-content {
+    width: 80%;
+    padding-left: 7.65vw;
+    margin: 9.1vw 0;
+  }
+  
+    
+  .products-btn,
+  .product-large-bottom {
+    display: none;
+  }
+  .product-large-bg-image {
+    top: 80%;
+    height: 80%;
+  }
+  .products-title {
+    font-size: 38px;
+  }
+  .products-title-small {
+    font-size: 17px;
+    left: -24px;
+  }
+  .products-title-line {
+    padding-top: 6.91vw;
+    padding-bottom: 7.69vw;
+    justify-content: center;
+  }
+  .large-bottle-container {
+    width: 20.42vw;
+    margin: 1vw 10vw;
+  }
+  .product-large-logo {
+    top: 6.4vw;
+    right: 7.1vw;
+    width: 35.58vw;
+    left: auto;
+  }
+  .product-large-description {
+    bottom: 17.3vw;
+    right: 7.9vw;
+    width: 38.58vw;
+  }
+  .product-small {
+    margin: 5.8vw 0;
+    padding-top: 5vw;
+  }
+  .small-bottle-image {
+    width: 19.29vw;
+  }
+  .product-small-description-items {
+    width: 75%;
+  }
+  .product-small-logo img {
+    margin: auto;
+  }
+  .product-small-bg {
+    top: 100%;
+  }
+
+
+  
+  .region-bg-image {
+    display: none;
+  }
+  .region-glass {
+    top: 90vw;
+    left: 40%;
+    width: 18.04vw;
+  }
+  .region-up-level {
+    flex-wrap: wrap;
+  }
+  .grape-sorts,
+  .region-block {
+    width: 100%;
+  }
+  .region-title-block {
+    margin-bottom: 0;
+    align-items: flex-start;
+    padding: 6vw 10vw;
+  }
+  .region-title {
+    position: relative;
+    font-size: 20px;
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+    line-height: 1.3em;
+  }
+  .region-title-bold {
+    font-size: 38px;
+    letter-spacing: 2.94vw;
+  }
+  .region-text-block .btn-line {
+    margin: 10px 0;
+    width: fit-content;
+    display: flex;
+  }
+  .grape-sorts {
+    margin-top: 0;
+    padding: 8vw;
+  }
+  .region-video {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 3vw;
+  }
+  
+
+
+}
+
+@media screen and (max-width: $mobile-S) {
+
+  .product-large-text,
+  .product-small-text,
+  .product-large-bg-image {
+    display: none;
+  }
+
+  .product-large-container {
+    background-image: url(../../../assets/images/inovino-bg-red.jpg);
+    @include bg-center;
+  }
+  .product-large {
+    background-color: transparent;
+  }
+  .product-small-bg {
+    top: 145%;
+  }
+
+  .region-video {
+    margin-bottom: 0;
+  }
+  .region-glass {
+    display: none;
+  }
+
+  .wine-hands {
+    display: none;
+  }
+  .wine-title {
+    width: 100%;
+    font-size: 14.57vw;
+  }
+  .wine-title-light {
+    font-size: 30px;
+  }
+  .wine-content {
+    flex-wrap: wrap;
+  }
+  .wine-content-item,
+  .wine-content-item.right {
+    width: 100%;
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+  .wine-recipes {
+    margin-bottom: 9vw;
+  }
+  .our-recipes-title {
+    font-size: 28px;
+  }
+  .first-recipe, 
+  .second-recipe {
+    width: 100%;
+    height: 75vw;
+    margin-bottom: 0;
+  }
+  .recipe-card-title {
+    font-size: 21px;
+  }
+  
+}

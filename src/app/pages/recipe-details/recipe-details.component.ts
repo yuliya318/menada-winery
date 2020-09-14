@@ -14,10 +14,7 @@ export class RecipeDetailsComponent implements OnInit {
   recipe: IRecipe;
   recipeIngreds: Array<string> = [];
   recipes: Array<IRecipe> = [];
-  firstRecipe: IRecipe;
-  secondRecipe: IRecipe;
 
-  // recipesAvailable = false;
 
   constructor(private recipeService: RecipeService,
     private firestore: AngularFirestore,
@@ -35,12 +32,12 @@ export class RecipeDetailsComponent implements OnInit {
     this.getRecipes();
   }
 
-  getRecipeDetails(recipe: string): void {
-    this.firestore.collection('recipes').ref.where('title', '==', recipe).onSnapshot(
+  getRecipeDetails(recipeTitle: string): void {
+    this.firestore.collection('recipes').ref.where('title', '==', recipeTitle).onSnapshot(
       snap => {
-        snap.forEach(prodData => {
-          const data = prodData.data() as IRecipe;
-          const id = prodData.id;
+        snap.forEach(document => {
+          const data = document.data() as IRecipe;
+          const id = document.id;
           this.recipe = ({ id, ...data });
           this.recipeIngreds = data.ingredients.split('*/');
         });
@@ -62,21 +59,15 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getIndex(recipe: boolean): number {
-    const index = this.recipes.indexOf(this.recipes.filter(elem => elem.title == this.recipe.title)[0]);
-    console.log(index);
-
-
-    // this.firstRecipe = this.recipes[index - 1];
-    // this.secondRecipe = this.recipes[index + 1]
-
+    const index = this.recipes.indexOf(this.recipes.filter(elem => elem.title === this.recipe.title)[0]);
     if (recipe) {
-      if (index == 0) {
+      if (index === 0) {
         return this.recipes.length - 1
       }
       return (index - 1);
     }
     else {
-      if (index == (this.recipes.length - 1)) {
+      if (index === (this.recipes.length - 1)) {
         return 0;
       }
       return (index + 1)

@@ -1,1 +1,26 @@
-<p>news works!</p>
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">News</li>
+        </ul>
+    </div>
+
+    <div class="news-container d-flex" *ngIf="news.length !== 0">
+        <div class="news-card-container" *ngFor="let article of news | orderBy:'date':false">
+            <div class="news-card">
+                <span class="news-card-date">{{ article?.date.toDate() | date: 'dd.MM' }}</span>
+                <div class="news-card-content">
+                    <p class="news-card-text">
+                        {{ article?.annotation }}
+                    </p>
+                    <a class="btn-line" [routerLink]="[ '/news/', article?.title]">
+                        <span class="line"></span>
+                        <span class="btn-line-text">Learn more</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

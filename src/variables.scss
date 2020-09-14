@@ -2,13 +2,19 @@ $mainBGColor: rgb(34, 34, 34);
 
 $mainLightColor: #e1a957;
 $mainDarkColor: #896f4b;
-// $textFontColor: #909090;
 
 $headingDarkColor: #0b0b0b;
 $smallFontsize: 14px;
-// $contentWidth: 85%;
 
 $darkBlockColor: #191919;
+$lightBlockColor: #323232;
+
+$desktop-S: 1439px;
+$tablet-L: 1023px;
+$tablet-M: 849px;
+$mobile-L: 767px;
+$mobile-M: 530px;
+$mobile-S: 440px;
 
 
 @mixin abril-maincolor-text {
@@ -36,4 +42,10 @@ $darkBlockColor: #191919;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+@mixin rotated-item {
+  position: absolute;
+  transform: rotate(-90deg);
 }

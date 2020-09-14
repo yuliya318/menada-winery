@@ -16,8 +16,8 @@
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let news of adminNews">
+            <tbody *ngIf="adminNews.length !== 0">
+                <tr *ngFor="let news of adminNews | orderBy:'date':true">
                     <th scope="row">{{ news?.date.toDate() | date: 'dd.MM'}}</th>
                     <td style="width: 55%;">{{ news?.annotation }}</td>
                     <td>

@@ -3,7 +3,6 @@ import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { CheckAgeComponent } from './pages/check-age/check-age.component';
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { AdminComponent } from './admin/admin.component';
 import { CheckAgeGuard } from './shared/guards/check-age.guard';
@@ -17,19 +16,28 @@ import { BrandProductsComponent } from './pages/brand-products/brand-products.co
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.component';
+import { NewsComponent } from './pages/news/news.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthAdminGuard } from './shared/guards/auth-admin.guard';
+import { AuthUserGuard } from './shared/guards/auth-user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'check-age', component: CheckAgeComponent },
   { path: 'home', component: HomeComponent, canActivate: [CheckAgeGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthUserGuard] },
   { path: 'brands', component: BrandsComponent },
   { path: 'brands/:category', component: BrandProductsComponent },
   { path: 'brands/:category/:name', component: ProductDetailsComponent }, 
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:name', component: RecipeDetailsComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'news/:name', component: NewsDetailsComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'admin', component: AdminComponent, canActivate: [AuthAdminGuard], children: [
     { path: '', redirectTo: 'category', pathMatch: 'full' },
     { path: 'category', component: AdminCategoryComponent },
     { path: 'product', component: AdminProductComponent },

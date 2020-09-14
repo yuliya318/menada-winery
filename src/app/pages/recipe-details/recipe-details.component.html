@@ -28,18 +28,25 @@
         </div>
         <div class="recipe-image-block">
             <img [src]="recipe?.image" alt="recipe" class="recipe-image">
+            <img src="../../../assets/images/region-video-bg.png" alt="wine-recipe" class="recipe-image-bg">
         </div>
         <div class="other-recipes" *ngIf="recipes.length !== 0">
-            <div class="first-recipe" [routerLink]="[ '/recipes/', recipes[getIndex(true)]?.title]"
+            <div class="first-recipe" 
                 [ngStyle]="{'background-image': 'url(' + recipes[getIndex(true)]?.image + ')'}">
                 <div class="recipe-card">
                     <h5 class="recipe-card-title">{{ recipes[getIndex(true)]?.title }}</h5>
+                    <div class="recipe-btn" [routerLink]="[ '/recipes/', recipes[getIndex(true)]?.title]">
+                        <a class="link-btn">Read recipe</a>
+                    </div>
                 </div>
             </div>
-            <div class="second-recipe" [routerLink]="[ '/recipes/', recipes[getIndex(false)]?.title]"
+            <div class="second-recipe" 
                 [ngStyle]="{'background-image': 'url(' + recipes[getIndex(false)]?.image + ')'}">
                 <div class="recipe-card">
                     <h5 class="recipe-card-title">{{ recipes[getIndex(false)]?.title }}</h5>
+                    <div class="recipe-btn" [routerLink]="[ '/recipes/', recipes[getIndex(false)]?.title]">
+                        <a class="link-btn">Read recipe</a>
+                    </div>
                 </div>
             </div>
 

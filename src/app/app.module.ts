@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CheckAgeComponent } from './pages/check-age/check-age.component';
 import { AdminComponent } from './admin/admin.component';
@@ -33,6 +32,9 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.component';
 import { NewsComponent } from './pages/news/news.component';
 import { NewsDetailsComponent } from './pages/news-details/news-details.component';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -41,7 +43,6 @@ import { NewsDetailsComponent } from './pages/news-details/news-details.componen
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent,
     ContactsComponent,
     CheckAgeComponent,
     AdminComponent,
@@ -57,6 +58,9 @@ import { NewsDetailsComponent } from './pages/news-details/news-details.componen
     RecipeDetailsComponent,
     NewsComponent,
     NewsDetailsComponent,
+    OrderByPipe,
+    LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

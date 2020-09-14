@@ -1,4 +1,5 @@
 
+
 <div class="main-content-block" (click)="startVideo()">
 
     <section class="home-intro-section main-wrap">
@@ -88,7 +89,7 @@
                         <span class="btn-line-text">Read more</span>
                     </a>
                 </div>
-                <div class="video-content-item" data-aos="fade-down" data-aos-duration="800" ngxParallaxScroll
+                <div class="video-content-item right" data-aos="fade-down" data-aos-duration="800" ngxParallaxScroll
                         [parallaxSpeed]='0.1'
                         [parallaxSmoothness]='0.1'
                         [parallaxDirection]='"reverse"'>
@@ -101,10 +102,11 @@
                 </div>
             </div>
         </div>
+
         <div class="video-bottom">
             <div class="video-bottom-content">
                 <div class="video-bottom-info d-flex">
-                    <h4 class="video-bottom-number">20</h4>
+                    <p class="video-bottom-number">20</p>
                     <p class="video-bottom-text">million bottles</p>
                     <img src="../../../assets/images/bottles.svg" alt="bottles">
                     <p class="video-bottom-text">per year</p>
@@ -114,18 +116,21 @@
                 </div>
             </div>
         </div>
+
         <div class="single-grape-main" data-aos="rotate-l90" data-aos-duration="1500" data-aos-offset="200">
             <img src="../../../assets/images/single-grape-main.png" alt="grape" ngxParallaxScroll
                 [parallaxSpeed]='0.1'
                 [parallaxSmoothness]='0.1'
                 [parallaxDirection]='"reverse"'>
         </div>
+
         <div class="single-grape-small" ngxParallaxScroll
         [parallaxSpeed]='0.1'
         [parallaxSmoothness]='0.1'
         [parallaxDirection]='"reverse"'>
             <img src="../../../assets/images/single-grape-small.png" alt="grape">
         </div>
+
         <div class="video-aside" data-aos="appearance" data-aos-delay="1000">
             <h5 class="video-aside-title middle-title">
                 <span>8000</span>
@@ -352,26 +357,26 @@
                 </div>
             </div>
         </div>
-        <div class="wine-recipes d-flex">
-            <div class="wine-recipe-container recipe-bg" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay=""></div>
-            <div class="wine-recipe-container our-recipes" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="400">
+        <div class="wine-recipes">
+            <div class="wine-recipe-container recipe-bg" data-aos="fade-up" data-aos-offset="400" data-aos-duration="900" data-aos-delay=""></div>
+            <div class="wine-recipe-container our-recipes" data-aos="fade-up" data-aos-offset="400" data-aos-duration="900" data-aos-delay="400">
                 <h5 class="our-recipes-title">Our recipes</h5>
                 <div class="wine-btn">
                     <a class="link-btn" [routerLink]="[ '/recipes' ]">Read more</a>
                 </div>
             </div>
-            <div class="wine-recipe-container first-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="800">
-                <div class="wine-recipe-hover" [routerLink]="[ '/recipes/Cucumber%20Cocktail' ]">
-                    <h5 class="recipe-title">Cucumber Cocktail</h5>
+            <div class="wine-recipe-container first-recipe" data-aos="fade-up" data-aos-offset="400" data-aos-duration="900" data-aos-delay="800">
+                <div class="recipe-card" [routerLink]="[ '/recipes/Cucumber%20Cocktail' ]">
+                    <h5 class="recipe-card-title">Cucumber Cocktail</h5>
                 </div>
             </div>
-            <div class="wine-recipe-container second-recipe" data-aos="fade-up" data-aos-offset="500" data-aos-duration="900" data-aos-delay="1200">
-                <div class="wine-recipe-hover" [routerLink]="[ '/recipes/recipes/Sangria%20with%20Watermelon%20and%20Raspberry' ]">
-                    <h5 class="recipe-title">Sangria with Watermelon and Raspberry</h5>
+            <div class="wine-recipe-container second-recipe" data-aos="fade-up" data-aos-offset="400" data-aos-duration="900" data-aos-delay="1200">
+                <div class="recipe-card" [routerLink]="[ '/recipes/recipes/Sangria%20with%20Watermelon%20and%20Raspberry' ]">
+                    <h5 class="recipe-card-title">Sangria with Watermelon and Raspberry</h5>
                 </div>
             </div>
         </div>
-        <div class="wine-hands" data-aos="fade-right" data-aos-duration="800" data-aos-offset="600">
+        <div class="wine-hands" data-aos="fade-right" data-aos-duration="800" data-aos-offset="500">
             <img src="../../../assets/images/wine-hands.png" alt="menada">
         </div>
     </section>

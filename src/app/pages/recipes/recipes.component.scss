@@ -13,3 +13,21 @@
   @include bg-center;
 }
 
+@media screen and (max-width: $tablet-L) {
+  .recipe-block {
+    width: 50%;
+    margin-top: 7vw;
+    height: 35vw;
+  }
+  .recipes-container div:nth-child(even){
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: $mobile-M) {
+  .recipe-block {
+    width: 100%;
+    height: 85vw;
+    margin-top: 0;
+  }
+}

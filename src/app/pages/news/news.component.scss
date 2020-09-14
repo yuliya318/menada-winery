@@ -1,0 +1,37 @@
+@import "../../../fonts.scss";
+@import "../../../variables.scss";
+
+.main-content-block {
+  background-image: url(../../../assets/images/region-video-bg.png);
+  @include bg-center;
+  background-position: top center;
+  margin-bottom: 2vw;
+}
+
+.news-card-container {
+  width: 25%;
+  padding: 0 2.5vw;
+  margin-bottom: 2vw;
+}
+.news-card-text {
+  @include play-small-text;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: $desktop-S) {
+  .news-container {
+    flex-wrap: wrap;
+  }
+  .news-card-container {
+    width: 50%;
+  }
+  .news-card-text {
+    min-height: 60px;
+  }
+}
+
+@media screen and (max-width: $mobile-L) {
+  .news-card-container {
+    width: 100%;
+  }
+}

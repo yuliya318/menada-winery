@@ -1,0 +1,76 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+.main-content-block{
+    padding: 1vw 0 9vw;
+}
+
+.login-container {
+    margin: auto;
+    width: 40vw;
+}
+.login-main-title {
+    @include abril-maincolor-text;
+    font-size: 3.61vw;
+    letter-spacing: 0.23vw;
+    padding-left: 8px;
+}
+.login-main-title-small {
+    font-size: 1.9vw;
+    letter-spacing: 3px;
+    color: silver;
+}
+
+
+.submit-btn {
+    margin-top: 3vw;
+}
+.link-btn {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    border: none;
+}
+
+@media screen and (max-width: $desktop-S) {
+
+    .login-container {
+        width: 55vw;
+    }
+
+}
+
+@media screen and (max-width: $tablet-L) {
+
+    .login-container {
+        width: 70vw;
+    }
+    .login-card-bg-leaf {
+        width: 60%;
+        bottom: -30vw;
+        right: -15vw;
+    }
+    .login-main-title {
+        font-size: 5.61vw;
+    }
+    .login-main-title-small {
+        font-size: 3.5vw;
+    }
+    
+}
+@media screen and (max-width: $mobile-L) {
+
+    .login-container {
+        width: 100%;
+    }
+    .login-main-title {
+        font-size: 8.61vw;
+    }
+    .login-main-title-small {
+        font-size: 5.5vw;
+    }
+    
+}
+
+
+
+

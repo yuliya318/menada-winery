@@ -1,0 +1,78 @@
+@import "../../../fonts.scss";
+@import "../../../variables.scss";
+
+.bread-crumbs {
+    padding-left: 3vw;
+    margin-bottom: 1vw;
+}
+.news-btn a {
+    @include play-small-text;
+    background-color: $mainLightColor;
+    color: #000;
+    margin-left: 30px;
+}
+.news-btn a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+.news-content-block {
+    width: 75%;
+    padding: 0 4vw 5vw 1.5vw;
+}
+.news-title {
+    @include abril-maincolor-text;
+    font-size: 31px;
+    letter-spacing: 3px;
+    line-height: 1.3em;
+    margin-bottom: 2.5vw;
+}
+.news-paragraph {
+    @include play-small-text;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #9c9c9c;
+}
+.news-image {
+    margin-top: 2vw;
+}
+
+.news-date-block {
+    width: 25%;
+    position: relative;
+}
+.news-date {
+    @include abril-maincolor-text;
+    font-size: 30px;
+    color: silver;
+    letter-spacing: 2px;
+    @include rotated-item;
+    top: 3vw;
+    right: 0;
+}
+.leaf-bg-image {
+    position: absolute;
+    top: 8vw;
+    right: -3vw;
+    z-index: -1;
+}
+
+@media screen and (max-width: $mobile-L) {
+    .news-container {
+        flex-wrap: wrap;
+    }
+    .news-date-block,
+    .news-content-block {
+        width: 100%;
+    }
+    .news-date {
+        transform: rotate(0deg);
+        position: relative;
+        margin: 0 2vw 6vw;
+    }
+    .news-title {
+        font-size: 25px;
+        margin: 15px 0 25px;
+    }
+}

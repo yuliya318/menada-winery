@@ -1,1 +1,27 @@
-<p>news-details works!</p>
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb link" [routerLink]="[ '/news' ]">News</li>
+            <li class="main-crumb link">
+                <div class="news-btn" [routerLink]="[ '/news' ]">
+                    <a class="link-btn">Back to all news</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="news-container d-flex">
+        <div class="news-date-block">
+            <p class="news-date">{{ article?.date.toDate() | date: 'dd.MM' }}</p>
+            <img src="../../../assets/images/page-leaf-bg.jpg" class="leaf-bg-image">
+        </div>
+        <div class="news-content-block">
+            <h2 class="news-title">{{ article?.title }}</h2>
+            <p class="news-paragraph" *ngFor="let parag of artParagraphs">{{ parag }}</p>
+            <img [src]="article?.image" class="news-image" alt="menada">
+        </div>
+    </div>
+
+</div>

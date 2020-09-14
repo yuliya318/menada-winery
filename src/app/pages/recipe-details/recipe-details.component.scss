@@ -1,14 +1,6 @@
 @import "../../../variables.scss";
 @import "../../../fonts.scss";
 
-
-// .main-content-block {
-//     background-image: url(../../../assets/images/region-video-bg.png);
-//     @include bg-center;
-//     background-position: contain;
-//     // background-blend-mode: lighten;
-//     backdrop-filter: opacity(10%);
-// }
 .bread-crumbs {
   padding-left: 3vw;
 }
@@ -22,9 +14,17 @@
 }
 .recipe-image-block {
   width: 50%;
+  position: relative;
 }
 .recipe-image {
   width: 100%;
+}
+.recipe-image-bg {
+  position: absolute;
+  width: 100%;
+  top: -8vw;
+  left: -8vw;
+  z-index: -1;
 }
 
 .recipe-content {
@@ -32,7 +32,7 @@
 }
 .recipe-content-title {
   @include abril-maincolor-text;
-  font-size: 26px;
+  font-size: 25px;
   color: grey;
   letter-spacing: 3px;
   line-height: 1.3;
@@ -74,3 +74,47 @@
   @include bg-center;
 }
 
+@media screen and (max-width: $tablet-L) {
+  .recipe-container {
+    flex-wrap: wrap;
+  }
+  .recipe-content,
+  .recipe-image-block,
+  .other-recipes {
+    width: 100%;
+    margin-bottom: 6vw;
+  }
+  .recipe-content {
+    margin-bottom: 6vw;
+  }
+  .recipe-image-bg {
+    top: -50vw;
+    left: 30vw;
+  }
+  .other-recipes{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .first-recipe,
+  .second-recipe {
+    width: 50%;
+    height: 50vw;
+  }
+  .first-recipe {
+    margin-top: 5vw;
+  }
+}
+
+@media screen and (max-width: $mobile-M) {
+
+  .recipe-image-bg {
+    top: -30vw;
+    left: 45vw;
+  }
+  .first-recipe,
+  .second-recipe {
+    width: 100%;
+    height: 75vw;
+  }
+
+}

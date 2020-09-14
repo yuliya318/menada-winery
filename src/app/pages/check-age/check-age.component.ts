@@ -10,6 +10,7 @@ import { CheckAgeService } from '../../shared/services/check-age.service';
 })
 export class CheckAgeComponent implements OnInit {
 
+  denay = false;
   constructor(private CheckAgeService: CheckAgeService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class CheckAgeComponent implements OnInit {
   }
 
   checkAge(answer: boolean): void {
-    this.CheckAgeService.allowAccess(answer);
+    if (answer) this.CheckAgeService.allowAccess(answer);
+    else this.denay = true;
   }
 }

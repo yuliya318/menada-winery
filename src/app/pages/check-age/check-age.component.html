@@ -6,8 +6,13 @@
         </div>
         <div class="check-age-block">
             <div class="check-age-content" data-aos="fade-left">
+                <h3 class="check-age-title">
+                    <span class="check-age-title-small">Age</span><br>
+                    <span>Check</span>
+                </h3>
                 <h5 class="check-age-text">Are you of legal drinking age in your country?</h5>
                 <div class="check-age-btns">
+                    <h5 class="denay-text" *ngIf="denay">Sorry, you must be of legal drinking age to enter this site</h5>
                     <div class="denay-btn">
                         <a class="link-btn" (click)="checkAge(false)">NO</a>
                     </div>
@@ -21,10 +26,7 @@
                     <span class="terms-text"> and </span> 
                     <a href="" class="terms-link">cookie policy</a>
                 </div>
-                <h3 class="check-age-title">
-                    <span class="check-age-title-small">Age</span><br>
-                    <span>Check</span>
-                </h3>
+                
             </div>
         </div>
     </section>

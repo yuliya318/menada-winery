@@ -175,3 +175,132 @@
 //     letter-spacing: 3px;
 //     color: #4d4d4d;
 // }
+
+
+@media screen and (max-width: $tablet-L)  {
+    
+    .product-container {
+        flex-wrap: wrap;
+    }
+    .product-image-block,
+    .product-info-block {
+        width: 100%;
+    }
+    .product-image {
+        width: 90%;
+        margin: auto;
+    }
+    .product-promille, .product-volume, .product-sort {
+        font-size: 2.65vw;
+    }
+    .sort-label {
+        border-radius: 50%;
+        width: 3.1vw;
+        height: 3.1vw;
+        margin: 0 10px;
+    }
+    .product-sort {
+        top: 13%;
+    }
+    .product-volume {
+        top: 10%;
+    }
+    .product-promille .small-text {
+        font-size: 16px;
+    }
+    .list-row {
+        padding: 2.54vw 0;
+    }
+    .list-title {
+        font-size: 2.9vw;
+    }
+    .list-name {
+        font-size: 3.11vw;
+        line-height: 1.2;
+    }
+    .list-text,
+    .list-left-part {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+    .list-icon {
+        width: 2.1vw;
+        min-width: 20px;
+    }
+    .product-price {
+        font-size: 2.8vw;
+    }
+    .recipes-block {
+        height: 16vw;
+        padding: 2.1vw 4vw;
+    }
+    .recipes-title {
+        font-size: 3.34vw;
+    }
+
+}
+
+@media screen and (max-width: $mobile-M) {
+
+    .product-image {
+        width: 100%;
+    }
+    .product-promille, .product-volume, .product-sort {
+        font-size: 4.65vw;
+    }
+    .product-sort {
+        left: -5%;
+    }
+    .product-list-bg {
+        display: none;
+    }
+    .list-left-part {
+        width: 35%;
+        padding-right: 3vw;
+    }
+    .list-right-part {
+        width: 65%;
+        padding-left: 3vw;
+    }
+    .list-line {
+        width: 97%;
+    }
+    .list-line.short {
+        width: 65%;
+    }
+    .list-row {
+        padding: 8.14vw 0;
+    }
+    .list-title {
+        font-size: 6.9vw;
+    }
+    .list-name {
+        font-size: 5.11vw;
+        line-height: 1.3;
+    }
+    .list-text {
+        color: $mainLightColor;
+    }
+    .price-container {
+        width: 100%;
+        padding: 6vw;
+    }
+    .product-price {
+        font-size: 35px;
+    }
+    .product-price img {
+        width: 10.3vw;
+    }
+    .recipes-block {
+        height: 55vw;
+        padding: 3.1vw 5vw;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .recipes-title {
+        font-size: 10.34vw;
+        text-align: center;
+    }
+}
+
+

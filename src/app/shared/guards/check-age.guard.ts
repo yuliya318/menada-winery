@@ -17,10 +17,8 @@ export class CheckAgeGuard implements CanActivate {
   
   checkAge(): boolean {
     const access = JSON.parse(localStorage.getItem('access'));
-    console.log('dfffvf', access);
     
     if (access != null && access === 'true'){
-      console.log('access', access);
       return true;
     }
     else{

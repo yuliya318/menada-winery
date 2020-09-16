@@ -22,6 +22,7 @@ export class RecipeDetailsComponent implements OnInit {
     private router: Router) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
+        debugger
         const recipeTitle = this.actRoute.snapshot.paramMap.get('name');
         this.getRecipeDetails(recipeTitle);
       }
@@ -59,6 +60,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getIndex(recipe: boolean): number {
+    debugger
     const index = this.recipes.indexOf(this.recipes.filter(elem => elem.title === this.recipe.title)[0]);
     if (recipe) {
       if (index === 0) {

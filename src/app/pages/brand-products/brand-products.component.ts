@@ -22,6 +22,7 @@ export class BrandProductsComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.categoryName = this.actRoute.snapshot.paramMap.get('category');
         this.getCatProducts(this.categoryName);
+        this.getCategoryInfo();
       }
     });
   }

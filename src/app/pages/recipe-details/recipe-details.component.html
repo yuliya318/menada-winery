@@ -30,7 +30,7 @@
             <img [src]="recipe?.image" alt="recipe" class="recipe-image">
             <img src="../../../assets/images/region-video-bg.png" alt="wine-recipe" class="recipe-image-bg">
         </div>
-        <div class="other-recipes" *ngIf="recipes.length !== 0">
+        <div class="other-recipes" *ngIf="recipes.length">
             <div class="first-recipe" 
                 [ngStyle]="{'background-image': 'url(' + recipes[getIndex(true)]?.image + ')'}">
                 <div class="recipe-card">

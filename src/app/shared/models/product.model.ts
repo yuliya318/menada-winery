@@ -16,6 +16,7 @@ export class Product implements IProduct {
         public taste: string,
         public temp: string,
         public price: number,
-        public image: string
+        public image: string,
+        public count: number = 1
     ) {}
 }

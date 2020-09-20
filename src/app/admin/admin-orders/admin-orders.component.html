@@ -1,4 +1,180 @@
-<p>admin-orders works!</p>
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>Orders</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(ordDetails)">Add order</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Date</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Sum</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="adminOrders.length !== 0">
+                <tr *ngFor="let order of adminOrders | orderBy:'date':true" [ngClass]="{ 'text-secondary': order?.status === 'Completed' }">
+                    <th scope="row">{{ order?.date.toDate() | date: 'H:mm dd.MM'}}</th>
+                    <td>{{ order?.userName }}</td>
+                    <td>{{ order?.userPhone }}</td>
+                    <td>{{ order?.totalSum }}</td>
+                    <td class="text-success" [ngClass]="{ 'text-warning': order?.status === 'In processing', 'text-secondary': order?.status === 'Completed' }">{{ order?.status }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning"
+                            (click)="changeEditStatus(order); openModal(ordDetails)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<ng-template #ordDetails>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Order</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide(); resetForm()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #orderForm="ngForm" novalidate>
+
+            <div class="form-row mb-6">
+                <div class="col-md-6">
+                    <label for="userName">Name</label>
+                    <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName"
+                        required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="userPhone">Phone number</label>
+                    <input type="text" class="form-control" id="userPhone" [(ngModel)]="userPhone" name="userPhone"
+                        required>
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col-md-4">
+                    <label for="userCity">City</label>
+                    <input type="text" class="form-control" id="userCity" [(ngModel)]="userCity" name="userCity"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="userStreet">Street</label>
+                    <input type="text" class="form-control" id="userStreet" [(ngModel)]="userStreet" name="userStreet"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="userHouse">House</label>
+                    <input type="text" class="form-control" id="userHouse" [(ngModel)]="userHouse" name="userHouse"
+                        required>
+                </div>
+            </div>
+
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <!-- <th scope="col">Image</th> -->
+                        <th scope="col">Name</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">Sum</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prod of products; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <!-- <td>
+                        <img [src]="prod.image" style="width: 70px;">
+                    </td> -->
+                        <td style="width: 40%;">{{ prod.catName | titlecase }}. {{ prod.name | titlecase }}</td>
+                        <td>
+                            <span class="font-weight-bold" (click)="productCount(prod, false)" style="font-size: 25px;">-</span>
+                            <input type="text" maxlength="3" class="count-input" [value]="prod.count" 
+                                (change)="getTotal()" style="width: 30px; margin: 0 10px; text-align: center;">
+                            <span class="font-weight-bold" (click)="productCount(prod, true)" style="font-size: 25px;">+</span>
+                        </td>
+                        <td>{{ prod.count * prod.price }}</td>
+                        <td><button class="btn btn-danger" (click)="deleteProduct(prod)">Del</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <input type="search" class="form-control" placeholder="Add product..." [(ngModel)]="searchString" name="searchString">
+                <div *ngIf="searchString" style="max-height: 150px; overflow-y: scroll; border: 1px solid lightgray; border-radius: 5px;">
+                    <ul>
+                        <li *ngFor="let prod of adminProducts | search:searchString" (click)="addProduct(prod)"> {{ prod.name }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col-md-4">
+                    <label for="totalSum">Total Sum</label>
+                    <input type="text" class="form-control" id="totalSum" [(ngModel)]="totalSum" name="totalSum"
+                        disabled>
+                </div>
+
+                <div class="col-md-4" *ngIf="editStatus">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" id="date" [value]="date.toDate() | date: 'H:mm dd.MM'"
+                        disabled>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="status">Choose status:</label>
+                    <select class="form-control" [(ngModel)]="status" name="status" id="status" required>
+                        <option>In processing</option>
+                        <option>Confirmed</option>
+                        <option>Collecting</option>
+                        <option>Shipped</option>
+                        <option>Completed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments</label>
+                <textarea [(ngModel)]="comments" name="comments" id="comments" class="form-control" rows="3"
+                    style="resize: none;"></textarea>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="orderForm.invalid" (click)="addOrder(); modalRef.hide()"
+            *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="orderForm.invalid" (click)="editOrder(); modalRef.hide()"
+            *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+<!-- 
+<ng-template #deleteN>
+    <div class="modal-header">
+        <h6 class="modal-title m-auto">Are you sure? This action can not be undone.</h6>
+    </div>
+    <div class="modal-body row">
+        <div class="col-6">
+            <button type="button" class="btn btn-dark w-100" (click)="modalRef.hide()">Cancel</button>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-danger w-100" (click)="deleteNews(); modalRef.hide()">Delete</button>
+        </div>
+    </div>
+</ng-template> -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

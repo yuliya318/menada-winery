@@ -35,6 +35,8 @@ import { NewsDetailsComponent } from './pages/news-details/news-details.componen
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BasketComponent } from './pages/basket/basket.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     OrderByPipe,
     LoginComponent,
     ProfileComponent,
+    BasketComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

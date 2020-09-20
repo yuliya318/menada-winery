@@ -5,7 +5,6 @@ export class Category implements ICategory {
         public id: string,
         public name: string,
         public logo: string,
-        public bottles: string,
         public bg: string,
         public description: string
     ) {}

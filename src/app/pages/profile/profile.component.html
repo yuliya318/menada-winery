@@ -1,2 +1,126 @@
-<p>profile works!</p>
-<button (click)="signOut()">Sign out</button>
+<div class="main-content-block">
+    <div class="sign-out-container">
+        <button (click)="signOut()" class="link-btn sign-out-btn">Sign out</button>
+    </div>
+    <div class="profile-container">
+        <img src="../../../assets/images/red-wine-glass.png" alt="red-wine" class="wine-glass">
+        <div class="profile-title-block">
+            <h4 class="profile-title">
+                <span>Welcome you, </span>
+                <span class="user-name">{{ userName | titlecase }}</span>
+            </h4>
+            <p class="profile-intro-text">We are glad to see you among our buyers. <br> In your personal cabinet, you
+                can add information about yourself, receive a birthday discount and see order history by your phone
+                number.</p>
+        </div>
+
+        <div class="profile-content-block">
+            <div class="login-card">
+                <form class="login-card-form">
+                    <h5 class="login-card-title" *ngIf="editStatus">Please, add some information about you</h5>
+                    <div class="login-card-form-row">
+                        <div class="login-card-label">
+                            <p class="login-card-label-text">First name</p>
+                        </div>
+                        <div class="login-card-field">
+                            <input type="text" [(ngModel)]="userData.firstName" name="userData.firstName"
+                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                    </div>
+
+                    <div class="login-card-form-row">
+                        <div class="login-card-field">
+                            <input type="text" [(ngModel)]="userData.lastName" name="userData.lastName"
+                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                        <div class="login-card-label">
+                            <p class="login-card-label-text">Last name</p>
+                        </div>
+                    </div>
+
+                    <div class="login-card-form-row" *ngIf="userPhone">
+                        <div class="login-card-label">
+                            <p class="login-card-label-text">Phone number</p>
+                        </div>
+                        <div class="login-card-field">
+                            <input type="text" [(ngModel)]="userData.phone" name="userData.phone"
+                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                    </div>
+
+                    <div class="login-card-form-row" *ngIf="userBday">
+                        <div class="login-card-field">
+                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday"
+                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                        <div class="login-card-label">
+                            <p class="login-card-label-text">Birthday</p>
+                        </div>
+                    </div>
+
+                    <div class="submit-btn" *ngIf="!editStatus">
+                        <button type="submit" class="link-btn login-card-submit-btn" (click)="changeEditStatus()">Edit
+                            my info</button>
+                    </div>
+                    <div class="submit-btn" *ngIf="editStatus">
+                        <button type="submit" class="link-btn login-card-submit-btn"
+                            (click)="updateUserData()">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- <div style="width: 100%; height: 300px; background-color: bisque;">
+            <div>
+                <p *ngFor="let order of userOrders | search: userData.phone">{{ order.totalSum }}</p>
+            </div>
+
+        </div> -->
+    </div>
+
+    <div class="orders-container">
+        <div class="orders-block" *ngIf="userOrders.length !== 0">
+            <div class="orders-table-block">
+                <h5 class="orders-title">Your orders</h5>
+                <div class="orders-content-empty" *ngIf="(userOrders | search: userData.phone).length === 0">
+                    <div class="empty-text">
+                        <span>Here empty</span>
+                        <img src="../../../assets/images/bee.png" alt="bee">
+                    </div>
+                    <p class="rectify-text">But it's never late to rectify it!:)</p>
+                    <a class="catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
+                </div>
+                <div class="orders-content" *ngIf="(userOrders | search: userData.phone).length !== 0">
+                    <div class="order-item"
+                        *ngFor="let order of userOrders | search: userData.phone | orderBy:'date':true; index as i">
+                        <div class="order-row">
+                            <div class="order-date">{{ order?.date.toDate() | date: 'dd.MM.y' }}</div>
+                            <div class="order-sum">${{ order?.totalSum }}</div>
+                            <div class="order-status">{{ order?.status }}</div>
+                            <div class="order-details" >
+                                <button (click)="showDetails(i)" class="link-btn">Details</button>
+                            </div>
+                        </div>
+                        <div class="order-products">
+                            <div class="product-row" *ngFor="let prod of order?.products">
+                                <div class="product-category">{{ prod?.catName | titlecase}}</div>
+                                <div class="product-name">{{ prod?.name }}</div>
+                                <div class="product-img">
+                                    <img [src]="prod?.image" alt="product">
+                                </div>
+                                <div class="product-count">{{ prod?.count }} pcs.</div>
+                                <div class="product-price">${{ prod?.price }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="orders-aside"></div>
+        </div>
+    </div>
+
+</div>

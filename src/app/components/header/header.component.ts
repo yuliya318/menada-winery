@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/shared/interfaces/category.interface';
+import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { CategoryService } from '../../shared/services/category.service';
+import { OrderService } from '../../shared/services/order.service';
 
 @Component({
   selector: 'app-header',
@@ -16,14 +18,19 @@ export class HeaderComponent implements OnInit {
   loginedStatus = false;
   urlName: string;
   menuName: string;
+  basketLabel = false;
+  labelText: string;
 
   constructor(private categoryService: CategoryService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getCategories();
     this.setUserStatus();
     this.checkUser();
+    this.checkBasketLabel();
+    this.setBasketLabel();
   }
 
   menuActivate(): void {
@@ -78,7 +85,25 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  private checkBasketLabel(): void {
+    this.orderService.basket.subscribe(
+      () => {
+        this.setBasketLabel();
+      }
+    );
+  }
 
+  setBasketLabel(): void {
+    if (localStorage.length > 0 && localStorage.getItem('order')) {
+      let localOrder = JSON.parse(localStorage.getItem('order'));
+      if (localOrder.length !== 0) {
+        this.basketLabel = true;
+        this.labelText = localOrder.length;
+      }
+      else this.basketLabel = false;
+    }
+    else this.basketLabel = false; 
+  }
 
 
 

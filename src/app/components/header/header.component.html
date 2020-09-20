@@ -6,9 +6,10 @@
     </div>
     <div class="header-panel">
 
-        <div class="header-item basket">
+        <div class="header-item basket" [routerLink]="[ '/basket' ]">
             <img src="../../../assets/images/wine-barrel.svg" class="header-item-image">
             <span class="header-item-label">Order</span>
+            <span class="basket-label" *ngIf="basketLabel">{{ labelText }}</span>
         </div>
 
         <div class="header-item login" [routerLink]="[ '/login' ]" *ngIf="!loginedStatus">
@@ -84,8 +85,9 @@
                 </h3>
             </div>
         </div>
+        <div class="return-button" (click)="menuActivate()">
+            <a>Come back</a>
+        </div>
     </div>
-    <div class="return-button" (click)="menuActivate()">
-        <span>Come back</span>
-    </div>
+    
 </section>

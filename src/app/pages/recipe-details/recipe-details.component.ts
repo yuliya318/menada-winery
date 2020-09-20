@@ -22,7 +22,6 @@ export class RecipeDetailsComponent implements OnInit {
     private router: Router) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        debugger
         const recipeTitle = this.actRoute.snapshot.paramMap.get('name');
         this.getRecipeDetails(recipeTitle);
       }

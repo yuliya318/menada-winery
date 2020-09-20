@@ -114,9 +114,14 @@
                             <span>${{ product?.price }}</span>
                             <img src="../../../assets/images/curl-right.svg">
                         </p>
-                        <div class="order-btn">
-                            <a class="link-btn">Order</a>
+                        <div class="order-btn" *ngIf="!orderStatus">
+                            <a class="link-btn" (click)="addBasket()">Order</a>
                         </div>
+                        <p class="list-text go-basket-text" *ngIf="orderStatus">This product is already in your basket!</p>
+                        <a class="go-basket" [routerLink]="[ '/basket' ]" *ngIf="orderStatus">
+                            <span>Go to the basket</span>
+                            <img src="../../../assets/images/arrow-right.svg" alt="basket">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -129,9 +134,6 @@
                     <a class="link-btn">View Recipes</a>
                 </div>
             </div>
-            <!-- <div class="aside-product-name">
-                {{ product?.name }}
-            </div> -->
         </div>
     </div>
 

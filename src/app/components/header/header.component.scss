@@ -8,6 +8,8 @@ header {
   flex-wrap: wrap;
   min-height: 120px;
   padding: 30px;
+  position: relative;
+  z-index: 20;
 }
 .header-logo-image {
   width: 150px;
@@ -36,6 +38,19 @@ header {
   bottom: 15px;
   left: -34px;
   text-align: left;
+}
+.basket-label {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #ce0d0d;
+  color: #fff;
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 13px;
 }
 .cabinet-image {
   margin-left: 9px;
@@ -78,8 +93,8 @@ header {
 }
 
 .menu {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: $lightBlockColor;
   position: absolute;
   top: 0;
@@ -101,6 +116,7 @@ header {
   width: 85%;
   height: 100%;
   margin: auto;
+  overflow: auto;
   padding: 3vw 0 2vw;
   display: flex;
   flex-direction: column;
@@ -109,10 +125,14 @@ header {
   @include bg-center;
   background-position: center left;
 }
+.menu-container::-webkit-scrollbar {
+  width: 0;
+}
 .menu-up-level,
 .menu-down-level {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .menu-up-level {
   justify-content: center;
@@ -189,7 +209,7 @@ header {
 }
 .menu-recipes {
   background-image: url(../../../assets/images/menu-recipes-bg.jpg);
-  width: 21vw;
+  width: 20vw;
   height: 32vh;
   margin-left: -5vw;
   z-index: 1;
@@ -199,7 +219,7 @@ header {
 }
 .menu-recipes .menu-title {
   font-size: 31px;
-  padding-right: 2vw;
+  padding: 0 2vw;
 }
 .small-title {
   font-size: 25px;
@@ -207,6 +227,58 @@ header {
 }
 
 
+
+
+
+@media screen and (max-width: $tablet-L) {
+  .menu-container {
+    padding: 5vw 0 5vw;
+  }
+  .menu-up-level {
+    justify-content: space-around;
+  }
+  .item-category {
+    width: 45%;
+  }
+  .menu-brand-bg {
+    width: 34%;
+  }
+  .menu-brand-logo {
+    top: 20%;
+    width: 55%;
+  }
+  .item {
+    width: 50%;
+  }
+  .menu-down-level {
+    margin-top: 5vw;
+  }
+  .menu-products,
+  .menu-home,
+  .menu-news,
+  .menu-recipes {
+    height: 24vh;
+    margin: 0;
+  }
+  .menu-products {
+    order: 3;
+  }
+  .menu-home {
+    order: 0;
+  }
+  .menu-news {
+    order: 2;
+  }
+  .menu-recipes {
+    order: 1;
+    justify-content: flex-start;
+  }
+  .return-button {
+    position: relative;
+    margin: 2vw 0;
+    text-align: center;  
+  }
+}
 
 
 
@@ -246,6 +318,36 @@ header {
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: $mobile-M) {
+  .menu-container {
+    width: 90%;
+  }
+  .item-category {
+    width: 50%;
+    height: 80vw;
+  }
+  .menu-brand-logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 75%;
+    margin: 7vw auto;
+  }
+  .menu-brand-bg {
+    width: 75%;
+    bottom: 0;
+    right: 12%;
+  }
+  .menu-home .menu-title {
+    font-size: 8vw;
+  }
+  .menu-products .menu-title {
+    font-size: 22px;
+    padding: 3.5vw;
+  }
+}
+
 
 @media screen and (max-width: $mobile-L) and (min-width: $mobile-S) {
   .header-logo-image {

@@ -112,6 +112,7 @@
     @include play-small-text;
     letter-spacing: 1px;
     color: #4d4d4d;
+    text-align: center;
 }
 
 .list-price-row {
@@ -142,6 +143,21 @@
 .order-btn .link-btn:hover {
     background-color: $mainLightColor;
     color: #000;
+}
+.go-basket {
+    color: $mainDarkColor;
+    display: flex;
+    align-self: center;
+    margin-top: 10px;
+    img {
+        display: inline-block;
+        margin-left: 10px;
+        width: 15px;
+    }
+}
+.go-basket-text {
+    color: forestgreen;
+    font-weight: bold;
 }
 
 .recipes-block {

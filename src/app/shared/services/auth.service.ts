@@ -23,7 +23,8 @@ export class AuthService {
           snap => {
             snap.forEach(userRef => {
               localStorage.setItem('user', JSON.stringify(userRef.data()));
-              this.documentID = userRef.id;
+              // this.documentID = userRef.id;
+              localStorage.setItem('userID', JSON.stringify(userRef.id));
               if (userRef.data().role === 'admin' && userRef.data().access) {
                 this.router.navigateByUrl('admin');
                 this.userStatusChanges.next('admin');
@@ -64,6 +65,9 @@ export class AuthService {
             data.get()
               .then(user => {
                 localStorage.setItem('user', JSON.stringify(user.data()))
+                // console.log(user.id);
+                // this.documentID = user.id;
+                localStorage.setItem('userID', JSON.stringify(user.id));
                 this.router.navigateByUrl('profile')
               })
               .catch(err => console.log(err));
@@ -74,8 +78,9 @@ export class AuthService {
   }
 
   updateUserData(userData): Promise<void> {
-    localStorage.setItem('user', JSON.stringify(userData));
-    return this.firestore.collection('users').doc(this.documentID).update({ ...userData })
+    let docID = JSON.parse(localStorage.getItem('userID'));
+    return this.firestore.collection('users').doc(docID).update(userData)
+    .then(() => localStorage.setItem('user', JSON.stringify(userData)))
     .catch(err => console.log(err));
   }
 

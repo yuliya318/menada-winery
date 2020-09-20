@@ -22,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthAdminGuard } from './shared/guards/auth-admin.guard';
 import { AuthUserGuard } from './shared/guards/auth-user.guard';
+import { BasketComponent } from './pages/basket/basket.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'brands', component: BrandsComponent },
   { path: 'brands/:category', component: BrandProductsComponent },
   { path: 'brands/:category/:name', component: ProductDetailsComponent }, 
+  { path: 'basket', component: BasketComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:name', component: RecipeDetailsComponent },
   { path: 'news', component: NewsComponent },

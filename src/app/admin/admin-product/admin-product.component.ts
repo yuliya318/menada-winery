@@ -76,7 +76,6 @@ export class AdminProductComponent implements OnInit {
         });
       }
     );
-    // this.adminProducts = this.productService.getFirestoreProducts();
   }
 
   uploadFile(event): void {

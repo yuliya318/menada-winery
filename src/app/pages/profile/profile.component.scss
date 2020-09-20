@@ -1,0 +1,253 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+.sign-out-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2vw;
+}
+.sign-out-btn,
+.login-card-submit-btn {
+    border: none;
+    background-color: $mainLightColor;
+    color: #000;
+}
+.sign-out-btn:hover,
+.login-card-submit-btn:hover {
+    border: none;
+    background-color: #000;
+    color: #fff;
+}
+
+.profile-container {
+    background-color: $darkBlockColor;
+    position: relative;
+    background-image: url(../../../assets/images/region-video-bg.png);
+    @include bg-center;
+    padding: 3vw 3vw 3vw 31vw;
+}
+.wine-glass {
+    position: absolute;
+    top: -11vw;
+    left: 3vw;
+    width: 38vw;
+    z-index: 0;
+}
+
+.profile-title {
+    @include abril-maincolor-text;
+    font-size: 3vw;
+    letter-spacing: 3px;
+    margin-bottom: 3vw;
+}
+.user-name {
+    font-size: 3.3vw;
+    color: silver;
+}
+.profile-intro-text {
+    @include play-small-text;
+    color: silver;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.profile-content-block {
+    background-image: url(../../../assets/images/age-check-bg.jpg);
+    @include bg-center;
+    margin: 3vw 0 1vw;
+    display: flex;
+    justify-content: flex-end;
+}
+.login-card {
+    width: 72%;
+    border: none;
+    background-color: rgba(34,34,34,.75);
+}
+.login-card-title {
+    color: $mainLightColor;
+}
+.login-card-form-row {
+    width: 90%;
+}
+.login-card-input {
+    background: #505050;
+    color: #c7c7c7;
+    text-align: center;
+}
+.input-edit {
+    background: #3c3c3c;
+    color: #c7c7c7;
+    box-shadow: 0 0 7px #c19950;
+}
+.login-card-label {
+    padding: 10px 15px;
+    width: 33%;
+}
+.login-card-label-text {
+    color: $mainLightColor;
+}
+.login-card-submit-btn {
+    margin-top: 2vw;
+}
+.login-card-title {
+    text-align: center;
+}
+
+.orders-container {
+    background-color: $darkBlockColor;
+    padding: 0 3vw 4vw;
+    // margin: 5vw 0;
+}
+.orders-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+.orders-table-block,
+.orders-aside {
+    background-color: #323230;
+    background-image: url(../../../assets/images/profile-orders-bg.jpg);
+    @include bg-center;
+    background-position: top left;
+    background-size: contain;
+    width: 70%;
+    min-height: 400px;
+    color: #8e8e8e;
+}
+.orders-aside {
+    background-image: url(../../../assets/images/profile-hands.png);
+    width: 30%;
+    background-size: cover;
+}
+.orders-title {
+    @include abril-maincolor-text;
+    font-size: 2.75vw;
+    text-align: right;
+    padding: 2vw 4vw;
+    margin: 0;
+    letter-spacing: 3px;
+}
+.order-item {
+    margin: 2vw 0;
+}
+.orders-content-empty {
+    @include item-centred;
+    min-height: 220px;
+}
+.empty-text {
+    margin-bottom: 30px;
+    img {
+        width: 130px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+.rectify-text,
+.catalog-text {
+    font-size: 14px;
+}
+.catalog-text {
+    color: $mainLightColor;
+    text-decoration: underline;
+}
+
+.order-row,
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+        width: 25%;
+        text-align: center;
+    }
+}
+.order-details {
+    button {
+        border: none;
+    }
+}
+.order-products {
+    background-color: #1a1a1a7a;
+    margin: 1vw 3vw;
+    display: none;
+    padding: 0.5vw;
+}
+.details-active {
+    display: block;
+}
+.product-row {
+    align-items: center;
+    div {
+        width: 15%;
+    } 
+}
+.product-row .product-name {
+    width: 40%;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: $tablet-L) {
+    .login-card {
+        width: 100%;
+    }
+    .profile-content-block {
+        margin: 3vw 0 3vw -6vw;
+        width: 113%;
+    }
+}
+
+@media screen and (max-width: $mobile-L) {
+    .profile-container {
+        padding: 8vw 5vw;
+    }
+    .profile-content-block {
+        margin: 3vw 0;
+        width: 100%;
+        background-image: none;
+    }
+    .login-card {
+        background-color: rgba(34, 34, 34, 0.65);
+        padding: 4vw 2vw;
+    }
+    .wine-glass {
+        top: 11vw;
+        width: 100%;
+        z-index: 1;
+    }
+    .profile-title-block,
+    .profile-content-block {
+        position: relative;
+        z-index: 2;
+    }
+    .login-card-form-row {
+        width: 100%;
+    }
+    .profile-title {
+        font-size: 27px;
+        text-align: center;
+    }
+    .user-name {
+        font-size: 33px;
+    }
+    .profile-intro-text {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 4vw;
+    }
+    .login-card-label {
+        order: 0;
+        padding: 0px 15px;
+        width: 100%;
+    }
+    .login-card-field {
+        order: 1;
+    }
+}
+
+

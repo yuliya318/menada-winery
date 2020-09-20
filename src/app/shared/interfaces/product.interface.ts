@@ -14,4 +14,5 @@ export interface IProduct {
     temp: string;
     price: number;
     image: string;
+    count?: number;
 }

@@ -1,0 +1,48 @@
+<div class="main-content-block">
+
+    <input type="text" [(ngModel)]="userName" name="userName" placeholder="userName" style="margin: 15px;">
+    <input type="text" [(ngModel)]="userPhone" name="userPhone" placeholder="userPhone" style="margin: 15px;">
+    <input type="text" [(ngModel)]="userCity" name="userCity" placeholder="userCity" style="margin: 15px;">
+    <input type="text" [(ngModel)]="userStreet" name="userStreet" placeholder="userStreet" style="margin: 15px;">
+    <input type="text" [(ngModel)]="userHouse" name="userHouse" placeholder="userHouse" style="margin: 15px;">
+    <input type="text" [(ngModel)]="comments" name="comments" placeholder="comments" style="margin: 15px;">
+
+    <table class="table text-center" style="background-color: beige;">
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col" colspan="2">Товар</th>
+                <th scope="col">Ціна</th>
+                <th scope="col">Кількість</th>
+                <th scope="col">Загалом</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of orderProducts; index as i">
+                <td><span (click)="deleteProduct(prod)" class="m-2 text-danger">x</span></td>
+                <td>
+                    <img [src]="prod.image" class="m-auto" style="width: 100px;height: 100px;">
+                </td>
+                <td><span> {{ prod.nameUA }} </span></td>
+                <td>${{ prod.price }}</td>
+                <td>
+                    <div class="counter m-auto d-flex">
+                        <img class="count-icons" src="../../../assets/images/minus.svg" style="width: 20px;"
+                            (click)="productCount(prod, false)" alt="minus">
+                        <input type="text" maxlength="3" class="count-input" [(ngModel)]="prod.count" name="prod.count" (change)="changeProdCount(prod)" style="width: 20px; margin: 0 10px">
+                        <img class="count-icons" src="../../../assets/images/plus.svg" style="width: 20px;"
+                            (click)="productCount(prod, true)" alt="plus">
+                    </div>
+                </td>
+                <td class="font-weight-bold">${{ prod.price * prod.count }}</td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td class="font-weight-bold font-italic text-right">Сума: </td>
+                <td class="font-weight-bold font-italic">${{ totalSum }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="addOrder()">Confirm order</button>
+</div>

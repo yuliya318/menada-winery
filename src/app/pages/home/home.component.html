@@ -51,7 +51,7 @@
                             <p class="product-info-text">
                                 {{ productText }}
                             </p>
-                            <a class="btn-line">
+                            <a class="btn-line" [routerLink]="[ '/brands/menada' ]">
                                 <span class="line"></span>
                                 <span class="btn-line-text">Learn more</span>
                             </a>
@@ -84,7 +84,7 @@
                     <p class="video-item-text">
                         estate grown grapes used in wine making process
                     </p>
-                    <a class="btn-line">
+                    <a class="btn-line" href="https://www.menada-winery.com/en/about" target="_blanc">
                         <span class="line"></span>
                         <span class="btn-line-text">Read more</span>
                     </a>
@@ -112,7 +112,7 @@
                     <p class="video-bottom-text">per year</p>
                 </div>
                 <div class="video-btn" data-aos="appearance" data-aos-delay="1000">
-                    <a class="link-btn">View all</a>
+                    <a class="link-btn" [routerLink]="[ '/brands' ]">View all</a>
                 </div>
             </div>
         </div>
@@ -160,7 +160,8 @@
                     known as the Thracian Valley. The winery owns over 426 ha of vineyards and is one of the leading
                     producers of high quality wines and spirits in the country.
                 </p>
-                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800" 
+                    href="https://www.menada-winery.com/en/about" target="_blanc">
                     <span class="line"></span>
                     <span class="btn-line-text">Read more</span>
                 </a>
@@ -177,7 +178,8 @@
                     1901 under the name Loza Cooperative. In 2002, Domain Menada became part of the French holding
                     company Belvedere Group (renamed Marie Brizard Wine & Spirits Bulgaria in in July 2015).
                 </p>
-                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800">
+                <a class="btn-line" data-aos="appearance" data-aos-delay="1200" data-aos-duration="800"
+                    href="https://www.menada-winery.com/en/history" target="_blanc">
                     <span class="line"></span>
                     <span class="btn-line-text">Read more</span>
                 </a>
@@ -191,7 +193,7 @@
                 <span class="products-title-small">our</span>
                 <span>Products</span>
             </h2>
-            <div class="products-btn">
+            <div class="products-btn" [routerLink]="[ '/brands' ]">
                 <a class="link-btn">View all products</a>
             </div>
         </div>
@@ -214,13 +216,13 @@
                         <p class="product-large-text">
                             InoVino is unforgettable.It’s an irreplaceable part of our personal ritual, the good ending of every day – a glass of nice wine to celebrate both the small and the grand victories.
                         </p>
-                        <div class="product-btn">
+                        <div class="product-btn" [routerLink]="[ '/brands/inovino' ]">
                             <a class="link-btn">Read more</a>
                         </div>
                     </div>
                 </div>
                 <div class="product-large-bottom" data-aos="fade-up" data-aos-delay="800">
-                    <a class="more-products">
+                    <a class="more-products" [routerLink]="[ '/brands' ]">
                         <span>Discover all our</span><br>
                         <span class="more-products-bold">products</span>
                     </a>
@@ -238,7 +240,7 @@
                             <p class="product-small-text">
                                 Tcherga04 is the wine of the contemporary urban people – then, now and forever – it’s the spirit of Bulgaria in a glass of wine. A glass of wine that holds a unique blend of varieties showcasing the colourful diversity of the Bulgarian soul.
                             </p>
-                            <div class="product-btn">
+                            <div class="product-btn" [routerLink]="[ '/brands/tcherga' ]">
                                 <a class="link-btn">Read more</a>
                             </div>
                         </div>
@@ -266,7 +268,7 @@
                             <p class="product-small-text">
                                 Contemporary, yet always comprising in itself the good taste and quality that it is long known for, MENADA is an heir of ancient traditions. Transformed, with a brand new look, MENADA lives by the saw that what is important is hidden from the eyes - in our case, inside the bottle.
                             </p>
-                            <div class="product-btn">
+                            <div class="product-btn" [routerLink]="[ '/brands/menada' ]">
                                 <a class="link-btn">Read more</a>
                             </div>
                         </div>
@@ -291,7 +293,7 @@
                     <p class="region-text">The climate and diversity of soils in the Stara Zagora region present great opportunities for viticulture and winemaking.</p>
                     <br>
                     <p class="region-text">Our winery benefits from fantastic geography and weather conditions that allow us to grow both exotic international grapes as well as local traditional grape varieties.</p>
-                    <a class="btn-line">
+                    <a class="btn-line" href="https://www.menada-winery.com/en/region" target="_blanc">
                         <span class="line"></span>
                         <span class="btn-line-text">Learn more</span>
                     </a>
@@ -350,7 +352,7 @@
                 </div>
                 <div class="wine-content-item right">
                     <p class="wine-content-text">The art of viticulture and winemaking has evolved. Nonetheless, during all those centuries, one important aspect remains unchanged: the connection of wine to gastronomy, to local traditions and to social celebrations.</p>
-                    <a class="btn-line">
+                    <a class="btn-line" href="https://www.menada-winery.com/en/lifestyle" target="_blanc">
                         <span class="line"></span>
                         <span class="btn-line-text">Learn more</span>
                     </a>

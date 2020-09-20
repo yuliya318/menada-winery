@@ -111,6 +111,7 @@
     background-size: contain;
     width: 70%;
     min-height: 400px;
+    color: #8e8e8e;
 }
 .orders-aside {
     background-image: url(../../../assets/images/profile-hands.png);
@@ -131,7 +132,6 @@
 .orders-content-empty {
     @include item-centred;
     min-height: 220px;
-    color: #8e8e8e;
 }
 
 

@@ -1,19 +1,7 @@
 <section>
     <img src="../../../assets/images/wine-wave-bg.png" alt="wine-wave" class="section-bg">
 
-    <div class="main-content-block" *ngIf="orderProducts.length === 0">
-        <div class="orders-content-empty">
-            <div class="orders-empty-text">
-                <span>Here empty</span>
-                <img src="../../../assets/images/bee-light.png" alt="bee">
-            </div>
-            <p class="orders-rectify-text">But it's never late to rectify it!:)</p>
-            <a class="orders-catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
-        </div>
-    </div>
-
-    <div class="main-content-block" *ngIf="orderProducts.length !== 0">
-
+    <div class="main-content-block" *ngIf="orderProducts">
         <h3 class="basket-title">Confirm your order</h3>
         <h5 class="basket-info-title">Fill in all details, please</h5>
 
@@ -180,4 +168,30 @@
         <button (click)="addOrder()">Confirm order</button> -->
 
     </div>
+
+    <div class="main-content-block" *ngIf="!orderProducts">
+        <div class="orders-content-empty">
+            <div class="orders-empty-text">
+                <span>Here empty</span>
+                <img src="../../../assets/images/bee-light.png" alt="bee">
+            </div>
+            <p class="orders-rectify-text">But it's never late to rectify it!:)</p>
+            <a class="orders-catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
+        </div>
+    </div>
+
+    
+
 </section>
+
+<div class="order-completed-container hidden">
+    <div class="order-completed-block">
+        <h3 class="order-completed-title">Your order successfully confirmed</h3>
+        <h4 class="order-completed-text">Please wait, our operator will contact you.</h4>
+        <div class="order-completed-icons">
+            <img src="../../../assets/images/curl-left.svg" alt="curl">
+            <img src="../../../assets/images/curl-right.svg" alt="curl">
+        </div>
+        <a class="link-btn" (click)="closeOrderModal()">Ok</a>
+    </div>
+</div>

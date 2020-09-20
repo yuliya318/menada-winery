@@ -80,7 +80,14 @@ export class BasketComponent implements OnInit {
       .then( () => {
         this.getBasket();
         this.resetForm();
+        document.body.style.overflowY = 'hidden';
+        document.querySelector('.order-completed-container').classList.toggle('hidden');
       })
+  }
+
+  closeOrderModal(): void {
+    document.querySelector('.order-completed-container').classList.toggle('hidden');
+    document.body.style.overflowY = 'auto';
   }
 
   resetForm(): void {

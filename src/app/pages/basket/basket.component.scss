@@ -1,0 +1,176 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+section {
+    position: relative;
+}
+.section-bg {
+    position: absolute;
+    width: 100%;
+    height: 55vw;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.orders-content-empty {
+    margin-bottom: 15vw;
+}
+
+
+.basket-title {
+    @include abril-maincolor-text;
+    font-size: 3.5vw;
+    letter-spacing: 0.3vw;
+}
+.basket-info-title {
+    @include abril-maincolor-text;
+    color: silver;
+    font-size: 1.7vw;
+    letter-spacing: 0.13vw;
+    margin: 0;
+    line-height: 2;
+}
+.basket-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5vw 0;
+}
+.user-info-block,
+.products-info-block {
+    width: 40%;
+    background-color:#17171778;
+    height: fit-content;
+}
+.user-info-block {
+    margin-bottom: 2vw;
+}
+.form-card {
+    background-color: transparent;
+    border: none;
+}
+.form-card-title,
+.products-title {
+    @include abril-maincolor-text;
+    color: $mainLightColor;
+    font-size: 21px;
+    text-align: center;
+}
+.products-title {
+    margin: 0;
+    letter-spacing: 2px;
+}
+.form-card-input {
+    background-color: #505050;
+    color: #d9d9d9;
+    text-align: center;
+}
+.form-card-textarea {
+    resize: none;
+    border-radius: 20px;
+    min-height: 90px;
+    width: 95%;
+    text-align: left;
+    line-height: 1.2;
+}
+.form-card-row {
+    padding: 15px 0;
+    width: 90%;
+}
+.form-card-label-text {
+    color: silver;
+}
+
+.products-info-block {
+    width: 58%;
+    margin-top: 10vw;
+    padding: 3vw 2vw;
+}
+.product-table {
+    margin: 2vw 0 1vw;
+}
+.product-header,
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: silver;
+    font-size: 17px;
+    margin-bottom: 0.5vw;
+    div {
+        text-align: center;
+    }
+}
+.product-row {
+    font-size: 15px;
+}
+.product-delete {
+    width: 5%;
+    font-size: 20px;
+    color: $mainLightColor;
+}
+.product-name {
+    width: 25%;
+}
+.product-img {
+    width: 16%;
+}
+.product-price,
+.product-total {
+    width: 17.5%;
+}
+.product-count {
+    width: 19%;
+    @include item-centred;
+    flex-direction: row;
+}
+.count-input {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    text-align: center;
+    background-color: #505050;
+    color: #d9d9d9;
+    border: none;
+    border-radius: 3px;
+}
+.count-icons {
+    display: inline-block;
+    width: 20px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: flex-end;
+    @include abril-maincolor-text;
+    letter-spacing: 2px;
+}
+.product-bottom-text {
+    font-size: 20px;
+    color: #c7c7c7;
+}
+.product-total-number {
+    font-size: 25px;
+    padding: 0 1vw 0 2vw;
+}
+
+.submit-btn-block {
+    display: flex;
+    align-items: flex-end;
+}
+.confirm-btn {
+    border: none;
+    font-size: 20px;
+    @include abril-maincolor-text;
+    letter-spacing: 2px;
+    height: fit-content;
+}
+.confirm-btn:hover {
+    color: black;
+    font-weight: bold;
+}
+.confirm-icon {
+    width: 60px;
+    margin-right: 10px;
+}

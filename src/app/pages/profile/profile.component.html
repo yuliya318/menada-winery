@@ -15,71 +15,65 @@
         </div>
 
         <div class="profile-content-block">
-            <div class="login-card">
-                <form class="login-card-form">
-                    <h5 class="login-card-title" *ngIf="editStatus">Please, add some information about you</h5>
-                    <div class="login-card-form-row">
-                        <div class="login-card-label">
-                            <p class="login-card-label-text">First name</p>
+            <div class="form-card">
+                <form class="form-card-form">
+                    <h5 class="form-card-title" *ngIf="editStatus">Please, add some information about you</h5>
+                    <div class="form-card-row">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">First name</p>
                         </div>
-                        <div class="login-card-field">
+                        <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.firstName" name="userData.firstName"
-                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
                                 [ngClass]="{'input-edit': editStatus}">
                         </div>
                     </div>
 
-                    <div class="login-card-form-row">
-                        <div class="login-card-field">
+                    <div class="form-card-row">
+                        <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.lastName" name="userData.lastName"
-                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
                                 [ngClass]="{'input-edit': editStatus}">
                         </div>
-                        <div class="login-card-label">
-                            <p class="login-card-label-text">Last name</p>
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Last name</p>
                         </div>
                     </div>
 
-                    <div class="login-card-form-row" *ngIf="userPhone">
-                        <div class="login-card-label">
-                            <p class="login-card-label-text">Phone number</p>
+                    <div class="form-card-row" *ngIf="userPhone">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Phone number</p>
                         </div>
-                        <div class="login-card-field">
+                        <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.phone" name="userData.phone"
-                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
                                 [ngClass]="{'input-edit': editStatus}">
                         </div>
                     </div>
 
-                    <div class="login-card-form-row" *ngIf="userBday">
-                        <div class="login-card-field">
+                    <div class="form-card-row" *ngIf="userBday">
+                        <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday"
-                                class="login-card-input" [disabled]="!editStatus" autocomplete="off"
+                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
                                 [ngClass]="{'input-edit': editStatus}">
                         </div>
-                        <div class="login-card-label">
-                            <p class="login-card-label-text">Birthday</p>
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Birthday</p>
                         </div>
                     </div>
 
                     <div class="submit-btn" *ngIf="!editStatus">
-                        <button type="submit" class="link-btn login-card-submit-btn" (click)="changeEditStatus()">Edit
+                        <button type="submit" class="link-btn form-card-submit-btn" (click)="changeEditStatus()">Edit
                             my info</button>
                     </div>
                     <div class="submit-btn" *ngIf="editStatus">
-                        <button type="submit" class="link-btn login-card-submit-btn"
+                        <button type="submit" class="link-btn form-card-submit-btn"
                             (click)="updateUserData()">Save</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <!-- <div style="width: 100%; height: 300px; background-color: bisque;">
-            <div>
-                <p *ngFor="let order of userOrders | search: userData.phone">{{ order.totalSum }}</p>
-            </div>
-
-        </div> -->
     </div>
 
     <div class="orders-container">
@@ -87,12 +81,12 @@
             <div class="orders-table-block">
                 <h5 class="orders-title">Your orders</h5>
                 <div class="orders-content-empty" *ngIf="(userOrders | search: userData.phone).length === 0">
-                    <div class="empty-text">
+                    <div class="orders-empty-text">
                         <span>Here empty</span>
                         <img src="../../../assets/images/bee.png" alt="bee">
                     </div>
-                    <p class="rectify-text">But it's never late to rectify it!:)</p>
-                    <a class="catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
+                    <p class="orders-rectify-text">But it's never late to rectify it!:)</p>
+                    <a class="orders-catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
                 </div>
                 <div class="orders-content" *ngIf="(userOrders | search: userData.phone).length !== 0">
                     <div class="order-item"

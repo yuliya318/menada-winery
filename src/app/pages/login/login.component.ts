@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   changeFocus(index: number): void {
-    document.getElementsByClassName('login-card-label-text')[index].classList.toggle('login-focus-color');
+    document.getElementsByClassName('form-card-label-text')[index].classList.toggle('form-focus-color');
   }
 
   changeEnterStatus(): void {

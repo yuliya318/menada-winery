@@ -7,13 +7,13 @@
     margin-bottom: 2vw;
 }
 .sign-out-btn,
-.login-card-submit-btn {
+.form-card-submit-btn {
     border: none;
     background-color: $mainLightColor;
     color: #000;
 }
 .sign-out-btn:hover,
-.login-card-submit-btn:hover {
+.form-card-submit-btn:hover {
     border: none;
     background-color: #000;
     color: #fff;
@@ -58,20 +58,20 @@
     display: flex;
     justify-content: flex-end;
 }
-.login-card {
+.form-card {
     width: 72%;
     border: none;
     background-color: rgba(34,34,34,.75);
 }
-.login-card-title {
+.form-card-title {
     color: $mainLightColor;
 }
-.login-card-form-row {
+.form-card-row {
     width: 90%;
 }
-.login-card-input {
+.form-card-input {
     background: #505050;
-    color: #c7c7c7;
+    color: #d9d9d9;
     text-align: center;
 }
 .input-edit {
@@ -79,17 +79,17 @@
     color: #c7c7c7;
     box-shadow: 0 0 7px #c19950;
 }
-.login-card-label {
+.form-card-label {
     padding: 10px 15px;
     width: 33%;
 }
-.login-card-label-text {
+.form-card-label-text {
     color: $mainLightColor;
 }
-.login-card-submit-btn {
+.form-card-submit-btn {
     margin-top: 2vw;
 }
-.login-card-title {
+.form-card-title {
     text-align: center;
 }
 
@@ -111,7 +111,6 @@
     background-size: contain;
     width: 70%;
     min-height: 400px;
-    color: #8e8e8e;
 }
 .orders-aside {
     background-image: url(../../../assets/images/profile-hands.png);
@@ -132,23 +131,9 @@
 .orders-content-empty {
     @include item-centred;
     min-height: 220px;
+    color: #8e8e8e;
 }
-.empty-text {
-    margin-bottom: 30px;
-    img {
-        width: 130px;
-        display: inline-block;
-        margin-left: 10px;
-    }
-}
-.rectify-text,
-.catalog-text {
-    font-size: 14px;
-}
-.catalog-text {
-    color: $mainLightColor;
-    text-decoration: underline;
-}
+
 
 .order-row,
 .product-row {
@@ -193,7 +178,7 @@
 
 
 @media screen and (max-width: $tablet-L) {
-    .login-card {
+    .form-card {
         width: 100%;
     }
     .profile-content-block {
@@ -211,7 +196,7 @@
         width: 100%;
         background-image: none;
     }
-    .login-card {
+    .form-card {
         background-color: rgba(34, 34, 34, 0.65);
         padding: 4vw 2vw;
     }
@@ -225,7 +210,7 @@
         position: relative;
         z-index: 2;
     }
-    .login-card-form-row {
+    .form-card-row {
         width: 100%;
     }
     .profile-title {
@@ -240,12 +225,12 @@
         text-align: center;
         margin-top: 4vw;
     }
-    .login-card-label {
+    .form-card-label {
         order: 0;
         padding: 0px 15px;
         width: 100%;
     }
-    .login-card-field {
+    .form-card-field {
         order: 1;
     }
 }

@@ -70,16 +70,4 @@ export class ProfileComponent implements OnInit {
     document.querySelectorAll('.order-item')[ind].lastElementChild.classList.toggle('details-active');
   }
 
-  // ordersCount(array: Array<IOrder>): Array<IOrder> {
-  //   let newArr = array.filter(elem => {
-  //     for (let key in elem) {
-  //       // const value = String(elem[key]).toLowerCase();
-  //       // if (key != 'image') {
-  //         if (elem[key].includes(request)) return true
-  //       // }
-  //     }
-  //     return false;
-  //   });
-  //   return newArr;
-  // }
 }

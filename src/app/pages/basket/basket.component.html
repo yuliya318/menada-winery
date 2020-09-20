@@ -1,48 +1,183 @@
-<div class="main-content-block">
+<section>
+    <img src="../../../assets/images/wine-wave-bg.png" alt="wine-wave" class="section-bg">
 
-    <input type="text" [(ngModel)]="userName" name="userName" placeholder="userName" style="margin: 15px;">
-    <input type="text" [(ngModel)]="userPhone" name="userPhone" placeholder="userPhone" style="margin: 15px;">
-    <input type="text" [(ngModel)]="userCity" name="userCity" placeholder="userCity" style="margin: 15px;">
-    <input type="text" [(ngModel)]="userStreet" name="userStreet" placeholder="userStreet" style="margin: 15px;">
-    <input type="text" [(ngModel)]="userHouse" name="userHouse" placeholder="userHouse" style="margin: 15px;">
-    <input type="text" [(ngModel)]="comments" name="comments" placeholder="comments" style="margin: 15px;">
+    <div class="main-content-block" *ngIf="orderProducts.length === 0">
+        <div class="orders-content-empty">
+            <div class="orders-empty-text">
+                <span>Here empty</span>
+                <img src="../../../assets/images/bee-light.png" alt="bee">
+            </div>
+            <p class="orders-rectify-text">But it's never late to rectify it!:)</p>
+            <a class="orders-catalog-text" [routerLink]="[ '/brands' ]">Go to the catalog</a>
+        </div>
+    </div>
 
-    <table class="table text-center" style="background-color: beige;">
-        <thead>
-            <tr>
-                <th></th>
-                <th scope="col" colspan="2">Товар</th>
-                <th scope="col">Ціна</th>
-                <th scope="col">Кількість</th>
-                <th scope="col">Загалом</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let prod of orderProducts; index as i">
-                <td><span (click)="deleteProduct(prod)" class="m-2 text-danger">x</span></td>
-                <td>
-                    <img [src]="prod.image" class="m-auto" style="width: 100px;height: 100px;">
-                </td>
-                <td><span> {{ prod.nameUA }} </span></td>
-                <td>${{ prod.price }}</td>
-                <td>
-                    <div class="counter m-auto d-flex">
-                        <img class="count-icons" src="../../../assets/images/minus.svg" style="width: 20px;"
-                            (click)="productCount(prod, false)" alt="minus">
-                        <input type="text" maxlength="3" class="count-input" [(ngModel)]="prod.count" name="prod.count" (change)="changeProdCount(prod)" style="width: 20px; margin: 0 10px">
-                        <img class="count-icons" src="../../../assets/images/plus.svg" style="width: 20px;"
-                            (click)="productCount(prod, true)" alt="plus">
+    <div class="main-content-block" *ngIf="orderProducts.length !== 0">
+
+        <h3 class="basket-title">Confirm your order</h3>
+        <h5 class="basket-info-title">Fill in all details, please</h5>
+
+        <div class="basket-container">
+            <div class="user-info-block">
+                <div class="form-card">
+                    <form class="form-card-form">
+                        <h5 class="form-card-title">Contact and delivery details</h5>
+                        <div class="form-card-row">
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">Name</p>
+                            </div>
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userName" name="userName" class="form-card-input"
+                                    (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userPhone" name="userPhone" class="form-card-input"
+                                    (focus)="changeFocus(1)" (blur)="changeFocus(1)">
+                            </div>
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">Phone number</p>
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">City</p>
+                            </div>
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userCity" name="userCity" class="form-card-input"
+                                    (focus)="changeFocus(2)" (blur)="changeFocus(2)">
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userStreet" name="userStreet"
+                                    class="form-card-input" (focus)="changeFocus(3)" (blur)="changeFocus(3)">
+                            </div>
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">Street</p>
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">House</p>
+                            </div>
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userHouse" name="userHouse" class="form-card-input"
+                                    (focus)="changeFocus(4)" (blur)="changeFocus(4)">
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
+                            <div class="form-card-field">
+                                <textarea [(ngModel)]="comments" name="comments" class="form-card-input form-card-textarea"
+                                    (focus)="changeFocus(4)" (blur)="changeFocus(4)"></textarea>
+                            </div>
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">Comments</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="products-info-block">
+                <h5 class="products-title">Products</h5>
+                <div class="product-table">
+                    <div class="product-header">
+                        <div class="product-delete"></div>
+                        <div class="product-img"></div>
+                        <div class="product-name">Name</div>
+                        <div class="product-price">Price</div>
+                        <div class="product-count">Quant.</div>
+                        <div class="product-total">Total</div>
                     </div>
-                </td>
-                <td class="font-weight-bold">${{ prod.price * prod.count }}</td>
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td class="font-weight-bold font-italic text-right">Сума: </td>
-                <td class="font-weight-bold font-italic">${{ totalSum }}</td>
-            </tr>
-        </tbody>
-    </table>
+                    <div class="product-row" *ngFor="let prod of orderProducts; index as i">
+                        <div class="product-delete">
+                            <span (click)="deleteProduct(prod)" class="m-2 text-danger">x</span>
+                        </div>
+                        <div class="product-img">
+                            <img [src]="prod?.image" alt="product">
+                        </div>
+                        <div class="product-name">{{ prod?.catName | titlecase }}.<br>{{ prod?.name }}</div>
+                        <div class="product-price">${{ prod?.price }}</div>
+                        <div class="product-count">
+                            <img class="count-icons" src="../../../assets/images/minus.svg" 
+                                (click)="productCount(prod, false)" alt="minus">
+                            <input type="text" maxlength="3" class="count-input" [(ngModel)]="prod.count" name="prod.count" (change)="changeProdCount(prod)">
+                            <img class="count-icons" src="../../../assets/images/plus.svg"
+                                (click)="productCount(prod, true)" alt="plus">
+                        </div>
+                        <div class="product-total">${{ prod.price * prod.count }}</div>
+                    </div>
+                    <div class="product-bottom">
+                        <p class="product-bottom-text">Total sum:</p>
+                        <p class="product-total-number">${{ totalSum }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-btn-block" (click)="addOrder()">
+                <img src="../../../assets/images/curl-left.svg" alt="curl" class="confirm-icon">
+                <button type="submit" class="link-btn confirm-btn">Confirm order</button>
+            </div>
+        </div>
 
-    <button (click)="addOrder()">Confirm order</button>
-</div>
+
+
+
+
+
+
+
+
+        <!-- <input type="text" [(ngModel)]="userName" name="userName" placeholder="userName" style="margin: 15px;">
+        <input type="text" [(ngModel)]="userPhone" name="userPhone" placeholder="userPhone" style="margin: 15px;">
+        <input type="text" [(ngModel)]="userCity" name="userCity" placeholder="userCity" style="margin: 15px;">
+        <input type="text" [(ngModel)]="userStreet" name="userStreet" placeholder="userStreet" style="margin: 15px;">
+        <input type="text" [(ngModel)]="userHouse" name="userHouse" placeholder="userHouse" style="margin: 15px;">
+        <input type="text" [(ngModel)]="comments" name="comments" placeholder="comments" style="margin: 15px;">
+     -->
+        <!-- <table class="table text-center" style="background-color: beige;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col" colspan="2">Товар</th>
+                    <th scope="col">Ціна</th>
+                    <th scope="col">Кількість</th>
+                    <th scope="col">Загалом</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of orderProducts; index as i">
+                    <td><span (click)="deleteProduct(prod)" class="m-2 text-danger">x</span></td>
+                    <td>
+                        <img [src]="prod.image" class="m-auto" style="width: 100px;height: 100px;">
+                    </td>
+                    <td><span> {{ prod.nameUA }} </span></td>
+                    <td>${{ prod.price }}</td>
+                    <td>
+                        <div class="counter m-auto d-flex">
+                            <img class="count-icons" src="../../../assets/images/minus.svg" style="width: 20px;"
+                                (click)="productCount(prod, false)" alt="minus">
+                            <input type="text" maxlength="3" class="count-input" [(ngModel)]="prod.count" name="prod.count" (change)="changeProdCount(prod)" style="width: 20px; margin: 0 10px">
+                            <img class="count-icons" src="../../../assets/images/plus.svg" style="width: 20px;"
+                                (click)="productCount(prod, true)" alt="plus">
+                        </div>
+                    </td>
+                    <td class="font-weight-bold">${{ prod.price * prod.count }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td class="font-weight-bold font-italic text-right">Сума: </td>
+                    <td class="font-weight-bold font-italic">${{ totalSum }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="addOrder()">Confirm order</button> -->
+
+    </div>
+</section>

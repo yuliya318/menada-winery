@@ -52,6 +52,7 @@ export class BasketComponent implements OnInit {
   deleteProduct(product: IProduct): void {
     this.orderService.deleteProduct(product);
     this.getBasket();
+    if (this.orderProducts.length === 0) this.resetForm();
   }
 
   createOrder(): IOrder {
@@ -89,5 +90,9 @@ export class BasketComponent implements OnInit {
     this.userStreet = '';
     this.userHouse = '';
     this.comments = '';
+  }
+
+  changeFocus(index: number): void {
+    document.getElementsByClassName('form-card-label-text')[index].classList.toggle('form-focus-color');
   }
 }

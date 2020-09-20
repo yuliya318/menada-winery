@@ -4,81 +4,81 @@
             <span>Enter </span>
             <span class="login-main-title-small">the site</span>
         </h4>
-        <div class="login-card">
-            <form class="login-card-form" *ngIf="enterStatus">
-                <h5 class="login-card-title">Login in, please</h5>
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >Email</p>
+        <div class="form-card">
+            <form class="form-card-form" *ngIf="enterStatus">
+                <h5 class="form-card-title">Login in, please</h5>
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >Email</p>
                     </div>
-                    <div class="login-card-field">
-                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="login-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                    <div class="form-card-field">
+                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
                     </div>
                 </div>
 
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >Password</p>
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >Password</p>
                     </div>
-                    <div class="login-card-field">
-                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="login-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
+                    <div class="form-card-field">
+                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
                     </div>
                 </div>
 
                 <div class="submit-btn">
                     <button type="submit" class="link-btn" (click)="signInUser()">Sign in</button>
                 </div>
-                <div class="login-card-change-status">
-                    <a (click)="changeEnterStatus()">Don't have an Account? <span class="login-card-change-link">Sign up Now</span></a>
+                <div class="form-card-change-status">
+                    <a (click)="changeEnterStatus()">Don't have an Account? <span class="form-card-change-link">Sign up Now</span></a>
                 </div>
             </form>
-            <form class="login-card-form" *ngIf="!enterStatus">
-                <h5 class="login-card-title">Register, please</h5>
+            <form class="form-card-form" *ngIf="!enterStatus">
+                <h5 class="form-card-title">Register, please</h5>
 
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >First name</p>
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >First name</p>
                     </div>
-                    <div class="login-card-field">
-                        <input type="text" [(ngModel)]="uFirstName" name="uFirstName" class="login-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                    <div class="form-card-field">
+                        <input type="text" [(ngModel)]="uFirstName" name="uFirstName" class="form-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
                     </div>
                 </div>
 
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >Last name</p>
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >Last name</p>
                     </div>
-                    <div class="login-card-field">
-                        <input type="text" [(ngModel)]="uLastName" name="uLastName" class="login-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
-                    </div>
-                </div>
-
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >Email</p>
-                    </div>
-                    <div class="login-card-field">
-                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="login-card-input" (focus)="changeFocus(2)" (blur)="changeFocus(2)">
+                    <div class="form-card-field">
+                        <input type="text" [(ngModel)]="uLastName" name="uLastName" class="form-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
                     </div>
                 </div>
 
-                <div class="login-card-form-row">
-                    <div class="login-card-label">
-                        <p class="login-card-label-text" >Password</p>
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >Email</p>
                     </div>
-                    <div class="login-card-field">
-                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="login-card-input" (focus)="changeFocus(3)" (blur)="changeFocus(3)">
+                    <div class="form-card-field">
+                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(2)" (blur)="changeFocus(2)">
+                    </div>
+                </div>
+
+                <div class="form-card-row">
+                    <div class="form-card-label">
+                        <p class="form-card-label-text" >Password</p>
+                    </div>
+                    <div class="form-card-field">
+                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(3)" (blur)="changeFocus(3)">
                     </div>
                 </div>
 
                 <div class="submit-btn">
                     <button type="submit" class="link-btn" (click)="signUpUser()">Sign up</button>
                 </div>
-                <div class="login-card-change-status">
-                    <a (click)="changeEnterStatus()">Do you have an Account? <span class="login-card-change-link">Sign in Now</span></a>
+                <div class="form-card-change-status">
+                    <a (click)="changeEnterStatus()">Do you have an Account? <span class="form-card-change-link">Sign in Now</span></a>
                 </div>
             </form>
-            <img src="../../../assets/images/page-leaf-bg.jpg" alt="grape-leaf" class="login-card-bg-leaf">
+            <img src="../../../assets/images/page-leaf-bg.jpg" alt="grape-leaf" class="form-card-bg-leaf">
         </div>
     </div>
 </div>

@@ -53,6 +53,9 @@ export class OrderService {
       let prodArr = JSON.parse(localStorage.getItem('order'));
       return prodArr;
     }
+    else {
+      return []
+    }
   }
 
   getTotalSum(prodArr: Array<IProduct>): number {
@@ -82,6 +85,8 @@ export class OrderService {
 
   postFirestoreOrder(order: IOrder): Promise<DocumentReference>{
     localStorage.removeItem('order');
+    console.log(JSON.parse(localStorage.getItem('order')));
+    
     this.basket.next('check');
     return this.firestore.collection('orders').add(order);
   }

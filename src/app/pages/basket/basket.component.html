@@ -1,7 +1,7 @@
 <section>
     <img src="../../../assets/images/wine-wave-bg.png" alt="wine-wave" class="section-bg">
 
-    <div class="main-content-block" *ngIf="orderProducts">
+    <div class="main-content-block" *ngIf="orderProducts.length">
         <h3 class="basket-title">Confirm your order</h3>
         <h5 class="basket-info-title">Fill in all details, please</h5>
 
@@ -169,7 +169,7 @@
 
     </div>
 
-    <div class="main-content-block" *ngIf="!orderProducts">
+    <div class="main-content-block" *ngIf="!orderProducts.length">
         <div class="orders-content-empty">
             <div class="orders-empty-text">
                 <span>Here empty</span>

@@ -12,7 +12,7 @@ import { Order } from '../../shared/models/order.model';
 export class BasketComponent implements OnInit {
 
   orderProducts: Array<IProduct> = [];
-  totalSum: number;
+  totalSum: number = 0;
 
   orderID = '1';
   userName: string;
@@ -82,6 +82,7 @@ export class BasketComponent implements OnInit {
         this.resetForm();
         document.body.style.overflowY = 'hidden';
         document.querySelector('.order-completed-container').classList.toggle('hidden');
+        this.orderProducts = [];
       })
   }
 

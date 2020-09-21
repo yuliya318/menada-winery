@@ -17,7 +17,7 @@ export class AdminProductComponent implements OnInit {
   modalRef: BsModalRef;
   adminCategories: Array<ICategory> = [];
   adminProducts: Array<IProduct> = [];
-
+  category: ICategory
   editStatus = false;
   imageStatus = false;
   deleteProdID: string;
@@ -155,6 +155,7 @@ export class AdminProductComponent implements OnInit {
     this.prodPrice = product.price;
     this.prodImage = product.image;
     this.imageStatus = true;
+    this.setCategory()
   }
 
   deleteProduct(): void {

@@ -66,8 +66,6 @@ export class AuthService {
             data.get()
               .then(user => {
                 localStorage.setItem('user', JSON.stringify(user.data()))
-                // console.log(user.id);
-                // this.documentID = user.id;
                 localStorage.setItem('userID', JSON.stringify(user.id));
                 this.router.navigateByUrl('profile')
               })

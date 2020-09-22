@@ -16,7 +16,7 @@
 
         <div class="profile-content-block">
             <div class="form-card">
-                <form class="form-card-form">
+                <form #userForm="ngForm" novalidate class="form-card-form">
                     <h5 class="form-card-title" *ngIf="editStatus">Please, add some information about you</h5>
                     <div class="form-card-row">
                         <div class="form-card-label">
@@ -24,16 +24,14 @@
                         </div>
                         <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.firstName" name="userData.firstName"
-                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
-                                [ngClass]="{'input-edit': editStatus}">
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}" pattern="[a-zA-z]{2,}">
                         </div>
                     </div>
 
                     <div class="form-card-row">
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="userData.lastName" name="userData.lastName"
-                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
-                                [ngClass]="{'input-edit': editStatus}">
+                            <input type="text" [(ngModel)]="userData.lastName" name="userData.lastName" pattern="[a-zA-z]{2,}"
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
                         </div>
                         <div class="form-card-label">
                             <p class="form-card-label-text">Last name</p>
@@ -45,20 +43,58 @@
                             <p class="form-card-label-text">Phone number</p>
                         </div>
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="userData.phone" name="userData.phone"
-                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
-                                [ngClass]="{'input-edit': editStatus}">
+                            <input type="text" [(ngModel)]="userData.phone" name="userData.phone" pattern="\+\d{11,12}" placeholder="e.g. +351112223344"
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
                         </div>
                     </div>
 
                     <div class="form-card-row" *ngIf="userBday">
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday"
-                                class="form-card-input" [disabled]="!editStatus" autocomplete="off"
-                                [ngClass]="{'input-edit': editStatus}">
+                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday" pattern="\d{2}\.\d{2}\.\d{4}"
+                                placeholder="DD.MM.YYYY" class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
                         </div>
                         <div class="form-card-label">
                             <p class="form-card-label-text">Birthday</p>
+                        </div>
+                    </div>
+
+                    <div class="form-card-row" *ngIf="userCountry">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Country</p>
+                        </div>
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="userData.country" name="userData.country"
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                    </div>
+
+                    <div class="form-card-row" *ngIf="userCity">
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="userData.city" name="userData.city" class="form-card-input"
+                                [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">City</p>
+                        </div>
+                    </div>
+
+                    <div class="form-card-row" *ngIf="userStreet">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Street</p>
+                        </div>
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="userData.street" name="userData.street"
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                    </div>
+
+                    <div class="form-card-row" *ngIf="userHouse">
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="userData.house" name="userData.house"
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                        </div>
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">House</p>
                         </div>
                     </div>
 
@@ -68,7 +104,7 @@
                     </div>
                     <div class="submit-btn" *ngIf="editStatus">
                         <button type="submit" class="link-btn form-card-submit-btn"
-                            (click)="updateUserData()">Save</button>
+                            (click)="updateUserData(userForm)">Save</button>
                     </div>
                 </form>
             </div>
@@ -95,7 +131,7 @@
                             <div class="order-date">{{ order?.date.toDate() | date: 'dd.MM.y' }}</div>
                             <div class="order-sum">${{ order?.totalSum }}</div>
                             <div class="order-status">{{ order?.status }}</div>
-                            <div class="order-details" >
+                            <div class="order-details">
                                 <button (click)="showDetails(i)" class="link-btn">Details</button>
                             </div>
                         </div>

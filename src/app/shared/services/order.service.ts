@@ -44,7 +44,7 @@ export class OrderService {
     }
     localStorage.setItem('order', JSON.stringify(this.localProducts));
     this.basket.next('check');
-    // product.count = 1;
+    product.count = 1;
   }
 
 
@@ -64,18 +64,22 @@ export class OrderService {
         return total + (prod.price * prod.count);
       }, 0);
     }
+    else return 0;
   }
 
   deleteProduct(product: IProduct): void {
     const index = this.localProducts.findIndex(prod => prod.id === product.id);
     this.localProducts.splice(index, 1);
-    localStorage.setItem('order', JSON.stringify(this.localProducts));
+    if (this.localProducts.length === 0) {
+      localStorage.removeItem('order');
+    } 
+    else localStorage.setItem('order', JSON.stringify(this.localProducts));
     this.basket.next('check');
   }
 
-  updateBasket(prodArr: Array<IProduct>): void {
-    localStorage.setItem('order', JSON.stringify(prodArr));
-  }
+  // updateBasket(prodArr: Array<IProduct>): void {
+  //   localStorage.setItem('order', JSON.stringify(prodArr));
+  // }
 
   // --------------------------- Firecould ---------------------------------
 
@@ -85,8 +89,7 @@ export class OrderService {
 
   postFirestoreOrder(order: IOrder): Promise<DocumentReference>{
     localStorage.removeItem('order');
-    console.log(JSON.parse(localStorage.getItem('order')));
-    
+    this.localProducts = [];
     this.basket.next('check');
     return this.firestore.collection('orders').add(order);
   }

@@ -8,7 +8,7 @@
         <div class="basket-container">
             <div class="user-info-block">
                 <div class="form-card">
-                    <form class="form-card-form">
+                    <form #orderForm="ngForm" novalidate class="form-card-form">
                         <h5 class="form-card-title">Contact and delivery details</h5>
                         <div class="form-card-row">
                             <div class="form-card-label">
@@ -16,14 +16,14 @@
                             </div>
                             <div class="form-card-field">
                                 <input type="text" [(ngModel)]="userName" name="userName" class="form-card-input"
-                                    (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                                    (focus)="changeFocus(0)" (blur)="changeFocus(0)" required pattern="[a-zA-z]{2,}">
                             </div>
                         </div>
 
                         <div class="form-card-row">
                             <div class="form-card-field">
                                 <input type="text" [(ngModel)]="userPhone" name="userPhone" class="form-card-input"
-                                    (focus)="changeFocus(1)" (blur)="changeFocus(1)">
+                                    (focus)="changeFocus(1)" (blur)="changeFocus(1)" required pattern="\+\d{11,12}">
                             </div>
                             <div class="form-card-label">
                                 <p class="form-card-label-text">Phone number</p>
@@ -32,41 +32,51 @@
 
                         <div class="form-card-row">
                             <div class="form-card-label">
-                                <p class="form-card-label-text">City</p>
+                                <p class="form-card-label-text">Country</p>
                             </div>
                             <div class="form-card-field">
-                                <input type="text" [(ngModel)]="userCity" name="userCity" class="form-card-input"
-                                    (focus)="changeFocus(2)" (blur)="changeFocus(2)">
+                                <input type="text" [(ngModel)]="userCountry" name="userCountry" class="form-card-input"
+                                    (focus)="changeFocus(2)" (blur)="changeFocus(2)" required pattern="[a-zA-z]{3,}">
                             </div>
                         </div>
 
                         <div class="form-card-row">
                             <div class="form-card-field">
-                                <input type="text" [(ngModel)]="userStreet" name="userStreet"
-                                    class="form-card-input" (focus)="changeFocus(3)" (blur)="changeFocus(3)">
+                                <input type="text" [(ngModel)]="userCity" name="userCity" class="form-card-input"
+                                    (focus)="changeFocus(3)" (blur)="changeFocus(3)" required pattern="[a-zA-z]{2,}">
                             </div>
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">City</p>
+                            </div>
+                        </div>
+
+                        <div class="form-card-row">
                             <div class="form-card-label">
                                 <p class="form-card-label-text">Street</p>
                             </div>
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userStreet" name="userStreet"
+                                    class="form-card-input" (focus)="changeFocus(4)" (blur)="changeFocus(4)" required pattern="[a-zA-z]{2,}">
+                            </div>
                         </div>
 
                         <div class="form-card-row">
+                            <div class="form-card-field">
+                                <input type="text" [(ngModel)]="userHouse" name="userHouse" class="form-card-input"
+                                    (focus)="changeFocus(5)" (blur)="changeFocus(5)" required pattern="\w{1,}">
+                            </div>
                             <div class="form-card-label">
                                 <p class="form-card-label-text">House</p>
                             </div>
-                            <div class="form-card-field">
-                                <input type="text" [(ngModel)]="userHouse" name="userHouse" class="form-card-input"
-                                    (focus)="changeFocus(4)" (blur)="changeFocus(4)">
-                            </div>
                         </div>
 
                         <div class="form-card-row">
+                            <div class="form-card-label">
+                                <p class="form-card-label-text">Comments</p>
+                            </div>
                             <div class="form-card-field">
                                 <textarea [(ngModel)]="comments" name="comments" class="form-card-input form-card-textarea"
                                     (focus)="changeFocus(4)" (blur)="changeFocus(4)"></textarea>
-                            </div>
-                            <div class="form-card-label">
-                                <p class="form-card-label-text">Comments</p>
                             </div>
                         </div>
                     </form>
@@ -108,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="submit-btn-block" (click)="addOrder()">
+            <div class="submit-btn-block" (click)="addOrder(orderForm)">
                 <img src="../../../assets/images/curl-left.svg" alt="curl" class="confirm-icon">
                 <button type="submit" class="link-btn confirm-btn">Confirm order</button>
             </div>

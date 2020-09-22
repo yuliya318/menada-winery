@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -28,17 +29,37 @@ export class LoginComponent implements OnInit {
     this.enterStatus = !this.enterStatus;
   }
 
-  signInUser(): void {
-    this.authService.signIn(this.uEmail, this.uPassword);
-    this.resetForm();
+  signInUser(form: NgForm): void {
+    if (form.invalid) {
+      this.checkInvalid();
+    }
+    else {
+      this.authService.signIn(this.uEmail, this.uPassword);
+      this.resetForm();
+    }
   }
 
-  signUpUser(): void {
-    this.authService.signUp(this.uEmail, this.uPassword, this.uFirstName, this.uLastName);
-    this.resetForm();
+  signUpUser(form: NgForm): void {
+    if (form.invalid) {
+      this.checkInvalid();
+    }
+    else {
+      this.authService.signUp(this.uEmail, this.uPassword, this.uFirstName, this.uLastName);
+      this.resetForm();
+    }
   }
 
-
+  checkInvalid(): void {
+    let allInputs = document.querySelectorAll('.form-card-input');
+    allInputs.forEach(element => {
+      element.classList.remove('form-input-invalid');
+    });
+    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+    invalidInputs.forEach(element => {
+      element.classList.add('form-input-invalid')
+    });
+  }
+  
   
 
   resetForm(): void {

@@ -309,6 +309,9 @@ body{
 .form-focus-color {
   color: $mainLightColor;
 }
+.form-input-invalid {
+  border: 3px solid #d02424;
+}
 .form-card-change-status {
   @include play-small-text;
   font-style: 11px;

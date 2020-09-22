@@ -5,5 +5,8 @@ export interface IUser {
     email: string;
     phone?: string;
     birthday?: string;
-    orders?: Array<any>;
+    country?: string;
+    city?: string;
+    street?: string;
+    house?: string;
 }

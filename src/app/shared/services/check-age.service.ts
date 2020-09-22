@@ -14,7 +14,6 @@ export class CheckAgeService {
     if (answer) {
       localStorage.setItem('access', JSON.stringify('true'));
       this.router.navigateByUrl('home');
-      this.startVideo.next('start');
     }
   }
 }

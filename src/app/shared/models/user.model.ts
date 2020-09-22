@@ -8,6 +8,9 @@ export class User implements IUser {
         public email: string,
         public phone?: string,
         public birthday?: string,
-        public orders?: Array<any>
+        public country?: string,
+        public city?: string,
+        public street?: string,
+        public house?: string
     ) {}
 }

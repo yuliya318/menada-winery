@@ -5,14 +5,14 @@
             <span class="login-main-title-small">the site</span>
         </h4>
         <div class="form-card">
-            <form class="form-card-form" *ngIf="enterStatus">
+            <form #signInForm="ngForm" novalidate class="form-card-form" *ngIf="enterStatus">
                 <h5 class="form-card-title">Login in, please</h5>
                 <div class="form-card-row">
                     <div class="form-card-label">
                         <p class="form-card-label-text" >Email</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)" required>
                     </div>
                 </div>
 
@@ -21,18 +21,19 @@
                         <p class="form-card-label-text" >Password</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
+                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)" required>
                     </div>
                 </div>
 
                 <div class="submit-btn">
-                    <button type="submit" class="link-btn" (click)="signInUser()">Sign in</button>
+                    <button type="submit" class="link-btn" (click)="signInUser(signInForm)">Sign in</button>
                 </div>
                 <div class="form-card-change-status">
                     <a (click)="changeEnterStatus()">Don't have an Account? <span class="form-card-change-link">Sign up Now</span></a>
                 </div>
             </form>
-            <form class="form-card-form" *ngIf="!enterStatus">
+
+            <form #signUpForm="ngForm" novalidate class="form-card-form" *ngIf="!enterStatus">
                 <h5 class="form-card-title">Register, please</h5>
 
                 <div class="form-card-row">
@@ -40,7 +41,8 @@
                         <p class="form-card-label-text" >First name</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="text" [(ngModel)]="uFirstName" name="uFirstName" class="form-card-input" (focus)="changeFocus(0)" (blur)="changeFocus(0)">
+                        <input type="text" [(ngModel)]="uFirstName" name="uFirstName" class="form-card-input" (focus)="changeFocus(0)" 
+                        (blur)="changeFocus(0)" required pattern="[a-zA-z]{2,}">
                     </div>
                 </div>
 
@@ -49,7 +51,8 @@
                         <p class="form-card-label-text" >Last name</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="text" [(ngModel)]="uLastName" name="uLastName" class="form-card-input" (focus)="changeFocus(1)" (blur)="changeFocus(1)">
+                        <input type="text" [(ngModel)]="uLastName" name="uLastName" class="form-card-input" (focus)="changeFocus(1)" 
+                        (blur)="changeFocus(1)" required pattern="[a-zA-z]{2,}">
                     </div>
                 </div>
 
@@ -58,7 +61,8 @@
                         <p class="form-card-label-text" >Email</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(2)" (blur)="changeFocus(2)">
+                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(2)" 
+                        (blur)="changeFocus(2)" required pattern=".+@.+\..">
                     </div>
                 </div>
 
@@ -67,12 +71,13 @@
                         <p class="form-card-label-text" >Password</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(3)" (blur)="changeFocus(3)">
+                        <input type="password" [(ngModel)]="uPassword" name="uPassword" class="form-card-input" (focus)="changeFocus(3)" 
+                        (blur)="changeFocus(3)" required pattern=".{6,}">
                     </div>
                 </div>
 
                 <div class="submit-btn">
-                    <button type="submit" class="link-btn" (click)="signUpUser()">Sign up</button>
+                    <button type="submit" class="link-btn" (click)="signUpUser(signUpForm)">Sign up</button>
                 </div>
                 <div class="form-card-change-status">
                     <a (click)="changeEnterStatus()">Do you have an Account? <span class="form-card-change-link">Sign in Now</span></a>

@@ -60,26 +60,8 @@ export class HomeComponent implements OnInit {
     AOS.init({
       duration: 1200,
       disable: window.innerWidth < 1024,
-      once: true
+      once: false
     });
-    this.getVideoAllow();
-  }
-
-  getVideoAllow() : void {
-    this.CheckAgeService.startVideo.subscribe(
-      () => {
-        this.startVideo();
-      }
-    )
-  }
-  startVideo(): void {
-    let video = document.getElementsByTagName('video');
-    console.log('video', video);
-    video[0].play();
-    video[1].play();
-    video[2].play();
-    video[3].play();
-    video[4].play();
   }
 
   changeProdInfo(prod: any): void {

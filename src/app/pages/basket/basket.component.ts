@@ -3,6 +3,8 @@ import { OrderService } from '../../shared/services/order.service';
 import { IOrder } from '../../shared/interfaces/order.interface';
 import { IProduct } from '../../shared/interfaces/product.interface';
 import { Order } from '../../shared/models/order.model';
+import { IUser } from '../../shared/interfaces/user.interface';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-basket',
@@ -14,9 +16,11 @@ export class BasketComponent implements OnInit {
   orderProducts: Array<IProduct> = [];
   totalSum: number = 0;
 
+  userData: IUser;
   orderID = '1';
   userName: string;
   userPhone: string;
+  userCountry: string;
   userCity: string;
   userStreet: string;
   userHouse: string;
@@ -28,11 +32,24 @@ export class BasketComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBasket();
+    this.getUserDetails();
   }
 
   private getBasket(): void {
     this.orderProducts = this.orderService.getProdFromLocal();
     this.getTotal();
+  }
+
+  private getUserDetails(): void {
+    if (localStorage.length > 0 && localStorage.getItem('user')) {
+      let user = JSON.parse(localStorage.getItem('user'));
+      this.userName = user.firstName;
+      user.phone ? this.userPhone = user.phone : this.userPhone = '';
+      user.country ? this.userCountry = user.country : this.userCountry = '';
+      user.city ? this.userCity = user.city : this.userCity = '';
+      user.street ? this.userStreet = user.street : this.userStreet = '';
+      user.house ? this.userHouse = user.house : this.userHouse = '';
+    }
   }
 
   private getTotal(): void {
@@ -57,7 +74,7 @@ export class BasketComponent implements OnInit {
 
   createOrder(): IOrder {
     const date = new Date();
-    const newOrder = new Order (
+    const newOrder = new Order(
       this.orderID,
       this.userName,
       this.userPhone,
@@ -73,17 +90,33 @@ export class BasketComponent implements OnInit {
     return newOrder;
   }
 
-  addOrder(): void {
-    const order = this.createOrder();
-    delete order.id;
-    this.orderService.postFirestoreOrder({ ...order })
-      .then( () => {
-        this.getBasket();
-        this.resetForm();
-        document.body.style.overflowY = 'hidden';
-        document.querySelector('.order-completed-container').classList.toggle('hidden');
-        this.orderProducts = [];
-      })
+  addOrder(form: NgForm): void {
+    if (form.invalid) {
+      this.checkInvalid();
+    }
+    else {
+      const order = this.createOrder();
+      delete order.id;
+      this.orderService.postFirestoreOrder({ ...order })
+        .then(() => {
+          this.getBasket();
+          this.resetForm();
+          document.body.style.overflowY = 'hidden';
+          document.querySelector('.order-completed-container').classList.toggle('hidden');
+          this.orderProducts = [];
+        })
+    }
+  }
+
+  checkInvalid(): void {
+    let allInputs = document.querySelectorAll('.form-card-input');
+    allInputs.forEach(element => {
+      element.classList.remove('form-input-invalid')
+    });
+    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+    invalidInputs.forEach(element => {
+      element.classList.add('form-input-invalid')
+    });
   }
 
   closeOrderModal(): void {

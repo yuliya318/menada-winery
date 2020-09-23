@@ -6,6 +6,7 @@ export class User implements IUser {
         public firstName: string,
         public lastName: string,
         public email: string,
+        public bDayConfirmed: boolean = false,
         public phone?: string,
         public birthday?: string,
         public country?: string,

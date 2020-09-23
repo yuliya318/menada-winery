@@ -5,6 +5,7 @@ import { IProduct } from '../../shared/interfaces/product.interface';
 import { Order } from '../../shared/models/order.model';
 import { IUser } from '../../shared/interfaces/user.interface';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-basket',
@@ -28,11 +29,15 @@ export class BasketComponent implements OnInit {
   status: string;
   comments: string;
 
-  constructor(private orderService: OrderService) { }
+  promoStatus = false;
+  bDayDiscount = 0;
+
+  constructor(private authService: AuthService,
+              private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.getBasket();
     this.getUserDetails();
+    this.getBasket();
   }
 
   private getBasket(): void {
@@ -49,11 +54,23 @@ export class BasketComponent implements OnInit {
       user.city ? this.userCity = user.city : this.userCity = '';
       user.street ? this.userStreet = user.street : this.userStreet = '';
       user.house ? this.userHouse = user.house : this.userHouse = '';
+      this.userData = user;
+      if (user.birthday) this.getUserBday(user.birthday);
     }
+  }
+  getUserBday(userBday: string): void {
+    this.promoStatus = false;
+    this.bDayDiscount = 0;
+    let days = this.authService.getUserBday(userBday);
+    if (days <= 3 && days >= -3) this.promoStatus = true;
   }
 
   private getTotal(): void {
     this.totalSum = this.orderService.getTotalSum(this.orderProducts);
+    if (this.promoStatus) {
+      this.bDayDiscount = Math.round(this.totalSum * 0.2);
+      this.totalSum = Math.floor(this.totalSum * 0.8);
+    };
   }
 
   productCount(product: IProduct, status: boolean): void {
@@ -78,6 +95,7 @@ export class BasketComponent implements OnInit {
       this.orderID,
       this.userName,
       this.userPhone,
+      this.userCountry,
       this.userCity,
       this.userStreet,
       this.userHouse,
@@ -85,6 +103,7 @@ export class BasketComponent implements OnInit {
       this.totalSum,
       date,
       this.status,
+      this.bDayDiscount,
       this.comments
     );
     return newOrder;
@@ -95,17 +114,31 @@ export class BasketComponent implements OnInit {
       this.checkInvalid();
     }
     else {
-      const order = this.createOrder();
+      const order = this.createOrder() as IOrder;
       delete order.id;
       this.orderService.postFirestoreOrder({ ...order })
         .then(() => {
           this.getBasket();
-          this.resetForm();
           document.body.style.overflowY = 'hidden';
           document.querySelector('.order-completed-container').classList.toggle('hidden');
           this.orderProducts = [];
+          if (localStorage.length > 0 && localStorage.getItem('user')) {
+            this.createUserData();
+            this.authService.updateUserData({ ...this.userData })
+            .catch( err => console.log(err) );
+          }
+          this.resetForm();
         })
     }
+  }
+
+  createUserData(): void {
+    if (!this.userData.phone) this.userData.phone = this.userPhone;
+    if (!this.userData.country) this.userData.country = this.userCountry;
+    if (!this.userData.city) this.userData.city = this.userCity;
+    if (!this.userData.street) this.userData.street = this.userStreet;
+    if (!this.userData.house) this.userData.house = this.userHouse;
+    if (this.promoStatus) this.userData.bDayConfirmed = true;
   }
 
   checkInvalid(): void {
@@ -127,6 +160,7 @@ export class BasketComponent implements OnInit {
   resetForm(): void {
     this.userName = '';
     this.userPhone = '';
+    this.userCountry = '';
     this.userCity = '';
     this.userStreet = '';
     this.userHouse = '';

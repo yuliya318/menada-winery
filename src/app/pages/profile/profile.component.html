@@ -12,6 +12,14 @@
             <p class="profile-intro-text">We are glad to see you among our buyers. <br> In your personal cabinet, you
                 can add information about yourself, receive a birthday discount and see order history by your phone
                 number.</p>
+            <br>
+            <p class="profile-intro-text bday-text" *ngIf="promoStatus">Oh, <span *ngIf="birthDay || bDaySoon">it's</span> your birthday 
+                <span *ngIf="bDaySoon">soon...</span> 
+                <span *ngIf="bDayAfter">was recently...</span> 
+                <span *ngIf="birthDay">today!</span> 
+                Our sincere congratulations! <br> 
+                What's celebration without wine? Right, it's impossible. <br> 
+                Achieve your little present - 20% discount for all orders in period 3 days before and after your feast.</p>
         </div>
 
         <div class="profile-content-block">
@@ -50,8 +58,8 @@
 
                     <div class="form-card-row" *ngIf="userBday">
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday" pattern="\d{2}\.\d{2}\.\d{4}"
-                                placeholder="DD.MM.YYYY" class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday" pattern="\d{4}\/\d{2}\/\d{2}"
+                                placeholder="YYYY/MM/DD" class="form-card-input" [disabled]="!editStatus || bDayConfirmed" [ngClass]="{'input-edit': editStatus}">
                         </div>
                         <div class="form-card-label">
                             <p class="form-card-label-text">Birthday</p>

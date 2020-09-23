@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   userData: IUser;
   userPhone: boolean;
   userBday: boolean;
+  bDayConfirmed = false;
   userCountry: boolean;
   userCity: boolean;
   userStreet: boolean;
@@ -23,25 +24,52 @@ export class ProfileComponent implements OnInit {
   userName: string;
   userOrders: Array<IOrder> = [];
 
+  birthDay = false;
+  bDaySoon = false;
+  bDayAfter = false;
+  promoStatus = false;
+
   constructor(private authService: AuthService,
-              private orderService: OrderService) { }
+    private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getUserData();
     this.getOrders();
   }
 
+
   getUserData(): void {
     if (localStorage.length > 0 && localStorage.getItem('user')) {
-      this.userData = JSON.parse(localStorage.getItem('user'));
-      this.userName = this.userData.firstName;
-      this.userData.phone ? this.userPhone = true : this.userPhone = false;
-      this.userData.birthday ? this.userBday = true : this.userBday = false;
-      this.userData.country ? this.userCountry = true : this.userCountry = false;
-      this.userData.city ? this.userCity = true : this.userCity = false;
-      this.userData.street ? this.userStreet = true : this.userStreet = false;
-      this.userData.house ? this.userHouse = true : this.userHouse = false;
+      let user = JSON.parse(localStorage.getItem('user'));
+      this.userName = user.firstName;
+      user.phone ? this.userPhone = true : this.userPhone = false;
+      user.birthday ? this.userBday = true : this.userBday = false;
+      user.country ? this.userCountry = true : this.userCountry = false;
+      user.city ? this.userCity = true : this.userCity = false;
+      user.street ? this.userStreet = true : this.userStreet = false;
+      user.house ? this.userHouse = true : this.userHouse = false;
+      if (user.bDayConfirmed) this.bDayConfirmed = true;
+      this.userData = user;
+      if (this.userData.birthday) this.getUserBday(this.userData.birthday);
     }
+  }
+
+  getUserBday(userBday: string): void {
+    this.birthDay = false;
+    this.bDaySoon = false;
+    this.bDayAfter = false;
+    this.promoStatus = false;
+    let days = this.authService.getUserBday(userBday);
+    // const currentYear = new Date().getFullYear();
+    // const bDay = new Date(this.userData.birthday).getDate();
+    // const bMonth = new Date(this.userData.birthday).getMonth();
+    // const birthday = Date.parse(`${currentYear}/${bMonth + 1}/${bDay}`);
+    // const currentDate = Date.parse(new Date().toString());
+    // let days = Math.floor((currentDate - birthday) / 86400000);
+    if (days >= -3 && days < 0) this.bDaySoon = true;
+    if (days <= 3 && days > 0) this.bDayAfter = true;
+    if (days === 0) this.birthDay = true;
+    if (days <= 3 && days >= -3) this.promoStatus = true;
   }
 
   private getOrders(): void {
@@ -62,11 +90,11 @@ export class ProfileComponent implements OnInit {
     }
     else {
       this.authService.updateUserData({ ...this.userData })
-      .then(() => {
-        this.getUserData();
-        this.editStatus = false;
-        this.removeInvalid();
-      })
+        .then(() => {
+          this.getUserData();
+          this.editStatus = false;
+          this.removeInvalid();
+        })
     }
   }
 

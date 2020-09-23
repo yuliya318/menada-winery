@@ -50,6 +50,9 @@
     line-height: 1.2;
     letter-spacing: 1px;
 }
+.bday-text {
+    color: #7adc7a;
+}
 
 .profile-content-block {
     background-image: url(../../../assets/images/age-check-bg.jpg);
@@ -78,6 +81,10 @@
     background: #3c3c3c;
     color: #c7c7c7;
     box-shadow: 0 0 7px #c19950;
+}
+.input-edit:disabled {
+    background:  #656565;
+    box-shadow: none;
 }
 .form-card-label {
     padding: 10px 15px;

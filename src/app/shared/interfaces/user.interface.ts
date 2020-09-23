@@ -3,6 +3,7 @@ export interface IUser {
     firstName: string;
     lastName: string;
     email: string;
+    bDayConfirmed: boolean;
     phone?: string;
     birthday?: string;
     country?: string;

@@ -140,19 +140,32 @@ section {
     width: 20px;
 }
 
-.product-bottom {
+.product-bottom,
+.product-discount {
     display: flex;
     justify-content: flex-end;
     @include abril-maincolor-text;
     letter-spacing: 2px;
 }
-.product-bottom-text {
+.product-bottom-text,
+.product-discount-text {
     font-size: 20px;
     color: #c7c7c7;
 }
-.product-total-number {
+.product-total-number,
+.product-discount-number {
     font-size: 25px;
     padding: 0 1vw 0 2vw;
+}
+.product-discount {
+    margin: 2vw 0;
+}
+.product-discount-text {
+    font-size: 17px;
+    color: #7adc7a;
+}
+.product-discount-number {
+    font-size: 22px;
 }
 
 .submit-btn-block {

@@ -83,4 +83,14 @@ export class AuthService {
     .catch(err => console.log(err));
   }
 
+  getUserBday(userBday: string): number {
+    const currentYear = new Date().getFullYear();
+    const bDay = new Date(userBday).getDate();
+    const bMonth = new Date(userBday).getMonth();
+    const birthday = Date.parse(`${currentYear}/${bMonth + 1}/${bDay}`);
+    const currentDate = Date.parse(new Date().toString());
+    let days = Math.floor((currentDate - birthday) / 86400000);
+    return days;
+  }
+
 }

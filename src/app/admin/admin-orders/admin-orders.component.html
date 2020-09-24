@@ -23,7 +23,7 @@
                     <td>{{ order?.userName }}</td>
                     <td>{{ order?.userPhone }}</td>
                     <td>{{ order?.totalSum }}</td>
-                    <td class="text-success" [ngClass]="{ 'text-warning': order?.status === 'In processing', 'text-secondary': order?.status === 'Completed' }">{{ order?.status }}</td>
+                    <td class="text-success" [ngClass]="{ 'text-warning': order?.status === 'In processing', 'text-muted': order?.status === 'Completed' }">{{ order?.status }}</td>
                     <td>
                         <button type="button" class="btn btn-warning"
                             (click)="changeEditStatus(order); openModal(ordDetails)">Edit</button>
@@ -59,8 +59,14 @@
                 </div>
             </div>
 
-            <div class="form-row mb-4">
-                <div class="col-md-4">
+            <div class="form-row mb-3">
+                <div class="col-md-3">
+                    <label for="userCountry">Country</label>
+                    <input type="text" class="form-control" id="userCountry" [(ngModel)]="userCountry" name="userCountry"
+                        required>
+                </div>
+
+                <div class="col-md-3">
                     <label for="userCity">City</label>
                     <input type="text" class="form-control" id="userCity" [(ngModel)]="userCity" name="userCity"
                         required>
@@ -72,7 +78,7 @@
                         required>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="userHouse">House</label>
                     <input type="text" class="form-control" id="userHouse" [(ngModel)]="userHouse" name="userHouse"
                         required>
@@ -103,7 +109,7 @@
                                 (change)="getTotal()" style="width: 30px; margin: 0 10px; text-align: center;">
                             <span class="font-weight-bold" (click)="productCount(prod, true)" style="font-size: 25px;">+</span>
                         </td>
-                        <td>{{ prod.count * prod.price }}</td>
+                        <td>{{ totalSum }}</td>
                         <td><button class="btn btn-danger" (click)="deleteProduct(prod)">Del</button></td>
                     </tr>
                 </tbody>
@@ -118,20 +124,28 @@
                 </div>
             </div>
 
-            <div class="form-row mb-4">
-                <div class="col-md-4">
+            <div class="form-row mb-6">
+                <div class="col-md-6" *ngIf="editStatus">
+                    <label for="discount">Discount</label>
+                    <input type="text" class="form-control" id="discount" [(ngModel)]="discount" name="discount"
+                        disabled>
+                </div>
+
+                <div class="col-md-6" *ngIf="editStatus">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" id="date" [value]="date.toDate() | date: 'H:mm dd.MM'"
+                        disabled>
+                </div>
+            </div>
+
+            <div class="form-row mb-6">
+                <div class="col-md-6">
                     <label for="totalSum">Total Sum</label>
                     <input type="text" class="form-control" id="totalSum" [(ngModel)]="totalSum" name="totalSum"
                         disabled>
                 </div>
 
-                <div class="col-md-4" *ngIf="editStatus">
-                    <label for="date">Date</label>
-                    <input type="text" class="form-control" id="date" [value]="date.toDate() | date: 'H:mm dd.MM'"
-                        disabled>
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="status">Choose status:</label>
                     <select class="form-control" [(ngModel)]="status" name="status" id="status" required>
                         <option>In processing</option>

@@ -26,6 +26,7 @@ export class AdminOrdersComponent implements OnInit {
   orderID: string;
   userName: string;
   userPhone: string;
+  userCountry: string;
   userCity: string;
   userStreet: string;
   userHouse: string;
@@ -33,7 +34,10 @@ export class AdminOrdersComponent implements OnInit {
   totalSum: number;
   date: Date;
   status: string;
+  discount = 0;
   comments?: string;
+
+  promoStatus = false;
 
   constructor(private modalService: BsModalService,
     private orderService: OrderService,
@@ -77,6 +81,7 @@ export class AdminOrdersComponent implements OnInit {
     this.orderID = order.id;
     this.userName = order.userName;
     this.userPhone = order.userPhone;
+    this.userCountry = order.userCountry;
     this.userCity = order.userCity;
     this.userStreet = order.userStreet;
     this.userHouse = order.userHouse;
@@ -84,7 +89,9 @@ export class AdminOrdersComponent implements OnInit {
     this.totalSum = order.totalSum;
     this.date = order.date;
     this.status = order.status;
+    this.discount = order.discount;
     this.comments = order.comments;
+    if (this.discount !== 0) this.promoStatus = true;
   }
 
   addProduct(product: IProduct): void {
@@ -104,6 +111,7 @@ export class AdminOrdersComponent implements OnInit {
       this.orderID,
       this.userName,
       this.userPhone,
+      this.userCountry,
       this.userCity,
       this.userStreet,
       this.userHouse,
@@ -111,6 +119,7 @@ export class AdminOrdersComponent implements OnInit {
       this.totalSum,
       this.date,
       this.status,
+      this.discount,
       this.comments
     );
     return newOrder;
@@ -141,12 +150,14 @@ export class AdminOrdersComponent implements OnInit {
     this.orderID = '';
     this.userName = '';
     this.userPhone = '';
+    this.userCountry = '';
     this.userCity = '';
     this.userStreet = '';
     this.userHouse = '';
     this.products = [];
     this.totalSum = 0;
     this.status = '';
+    this.discount = 0;
     this.comments = '';
     this.editStatus = false;
     this.getOrders();
@@ -154,6 +165,10 @@ export class AdminOrdersComponent implements OnInit {
 
   private getTotal(): void {
     this.totalSum = this.orderService.getTotalSum(this.products);
+    if (this.promoStatus) {
+      this.discount = Math.round(this.totalSum * 0.2);
+      this.totalSum = Math.floor(this.totalSum * 0.8);
+    }
   }
 
   productCount(product: IProduct, status: boolean): void {

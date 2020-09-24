@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     AOS.init({
       duration: 1200,
       disable: window.innerWidth < 1024,
-      once: false
+      once: true
     });
   }
 

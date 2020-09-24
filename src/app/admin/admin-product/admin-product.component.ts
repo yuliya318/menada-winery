@@ -17,7 +17,6 @@ export class AdminProductComponent implements OnInit {
   modalRef: BsModalRef;
   adminCategories: Array<ICategory> = [];
   adminProducts: Array<IProduct> = [];
-  category: ICategory
   editStatus = false;
   imageStatus = false;
   deleteProdID: string;

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ICategory } from '../../shared/interfaces/category.interface';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-brand-products',
@@ -54,6 +55,19 @@ export class BrandProductsComponent implements OnInit {
         });
       }
     );
+  }
+
+  changeActiveStatus(sort: string): void {
+    let indArr: Array<number> = [];
+    this.catProducts.forEach( (element, index) => {
+      if (element.sort === sort) {
+        indArr.push(index);
+      }
+    });
+    let products = document.querySelectorAll('.product-content');
+    indArr.forEach( index => {
+      products[index].classList.toggle('product-active-border');
+    })
   }
 
 }

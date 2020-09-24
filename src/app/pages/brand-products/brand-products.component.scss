@@ -5,6 +5,7 @@
 .brand-products-content {
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
 }
 .brand-info-container {
     width: 35%;
@@ -33,6 +34,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 5vw;
+
 }
 
 .product:nth-child(odd) {
@@ -61,7 +63,8 @@
     border: 5px solid transparent;
     position: relative;
 }
-.product-content:hover {
+.product-content:hover,
+.product-active-border {
     border-color: $mainLightColor;
 }
 .product-title {
@@ -107,6 +110,54 @@
     height: 1.1vw;
     margin: 0 10px;
 }
+
+.wine-filter {
+    @include rotated-item;
+    transform-origin: 0 0;
+    bottom: 20vw;
+    left: -5vw;
+    display: flex;
+    height: fit-content;
+}
+.wine-fliter-title {
+    font-size: 14px;
+    color: #595959;
+    letter-spacing: 7git px;
+    line-height: 2.5;
+    margin-right: 10px;
+}
+.filter-btn {
+    border: none;
+    background-color: black;
+    @include abril-maincolor-text;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding: 9px 20px;
+    margin: 0 8px;
+    span {
+        display: inline-block;
+    }
+}
+.btn-sort-label {
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+.red {
+    background-color: #d42c28;
+}
+.rose {
+    background-color: #d96461;
+}
+.white {
+    background-color: #e1a957;
+}
+
+
+
 
 @media screen and (max-width: $tablet-M)  {
 

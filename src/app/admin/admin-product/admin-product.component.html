@@ -56,10 +56,10 @@
             <div class="form-row mb-4">
                 <div class="col-md-4">
                     <label for="categoryChoose">Choose category:</label>
-                    <select class="form-control" [(ngModel)]="category" name="category" (change)="setCategory()"
+                    <select class="form-control" [(ngModel)]="catName" name="catName" (change)="setCategory()"
                         id="categoryChoose" required>
-                        <option *ngFor="let category of adminCategories" [selected]="catID===category.id">
-                            {{ category.name | titlecase}}
+                        <option *ngFor="let category of adminCategories">
+                            {{ category.name }}
                         </option>
                     </select>
                 </div>

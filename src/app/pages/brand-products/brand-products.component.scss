@@ -112,17 +112,18 @@
 }
 
 .wine-filter {
-    @include rotated-item;
+    position: fixed;
+    transform: rotate(-90deg);
     transform-origin: 0 0;
-    bottom: 20vw;
-    left: -5vw;
+    bottom: -1vw;
+    left: 3vw;
     display: flex;
     height: fit-content;
 }
 .wine-fliter-title {
     font-size: 14px;
     color: #595959;
-    letter-spacing: 7git px;
+    letter-spacing: 7px;
     line-height: 2.5;
     margin-right: 10px;
 }
@@ -194,6 +195,18 @@
         width: 2.1vw;
         height: 2.1vw;
     }
+    .filter-btn {
+        font-size: 14px;
+        padding: 5px 17px;
+    }
+
+}
+
+@media screen and (max-width: $mobile-L)  {
+
+    .wine-filter {
+        display: none;
+    }
 
 }
 
@@ -218,7 +231,6 @@
     .product-sort {
         left: -3%;
     }
-
-
+    
 
 }

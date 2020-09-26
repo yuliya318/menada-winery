@@ -300,7 +300,15 @@
     .price-container {
         width: 100%;
         padding: 6vw;
+
     }
+    .price-container .list-text {
+        color: silver;
+    }
+    .price-container .go-basket-text {
+        color: #7adc7a;
+    }
+
     .product-price {
         font-size: 35px;
     }

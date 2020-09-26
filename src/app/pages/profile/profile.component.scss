@@ -24,6 +24,7 @@
     position: relative;
     background-image: url(../../../assets/images/region-video-bg.png);
     @include bg-center;
+    background-size: contain;
     padding: 3vw 3vw 3vw 31vw;
 }
 .wine-glass {
@@ -158,7 +159,7 @@
 }
 .order-products {
     background-color: #1a1a1a7a;
-    margin: 1vw 3vw;
+    margin: 1vw 3vw 4vw;
     display: none;
     padding: 0.5vw;
 }
@@ -192,6 +193,12 @@
         margin: 3vw 0 3vw -6vw;
         width: 113%;
     }
+    .product-category {
+        display: none;
+    }
+    .product-row .product-name {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: $mobile-L) {
@@ -208,7 +215,7 @@
         padding: 4vw 2vw;
     }
     .wine-glass {
-        top: 11vw;
+        top: 65vw;
         width: 100%;
         z-index: 1;
     }
@@ -240,6 +247,45 @@
     .form-card-field {
         order: 1;
     }
+
+    .orders-table-block, 
+    .orders-aside {
+        width: 100%;
+        min-height: 250px;
+    }
+    .orders-title {
+        font-size: 23px;
+    }
+    .order-row {
+        padding: 10px;
+        div {
+            width: 33%;
+        }
+    }
+    .order-row .order-details {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .order-products {
+        margin: 1vw 3vw 10vw;
+    }
 }
 
 
+@media screen and (max-width: $mobile-M) {
+
+    .product-row {
+        margin: 5vw 2vw;
+    }
+    .product-row .product-name {
+        width: 70%;
+    }
+    .product-row .product-img {
+        width: 30%;
+    }
+    .product-row .product-count,
+    .product-row .product-price {
+        width: 50%;
+        margin-top: 5px;
+    }
+}

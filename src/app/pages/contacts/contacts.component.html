@@ -1,1 +1,174 @@
-<p>contacts works!</p>
+<div class="main-content-block">
+    <div class="bread-crumbs">
+        <ul class="bread-crumbs-list">
+            <li class="small-crumb link" [routerLink]="[ '/home' ]">Home</li>
+            <li class="small-crumb">/</li>
+            <li class="main-crumb">Contacts</li>
+        </ul>
+    </div>
+
+    <div class="contacts-container">
+        <div class="contacts-info-container">
+
+            <div class="office-contacts contacts-links">
+                <div class="contacts-link-aside"></div>
+
+                <h4 class="contact-links-title">
+                    <span class="contact-links-title-small">Head</span> <br>
+                    <span>Office</span>
+                </h4>
+
+                <div class="contacts-links-item">
+                    <a href="tel:+35924899450">
+                        <img src="../../../assets/images/footer-phone.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            <span class="contacts-link-big-text">+359</span> 24899450
+                        </span>
+                    </a>
+                </div>
+
+                <div class="contacts-links-item">
+                    <a href="mailto:office.bulgaria@mbws.com" class="contacts-links-mail">
+                        <img src="../../../assets/images/footer-mail.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            office.bulgaria@mbws.com
+                        </span>
+                    </a>
+                </div>
+
+                <div class="contacts-links-item">
+                    <a href="https://www.google.com/maps/place/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81+%D0%BF%D0%B0%D1%80%D0%BA/@42.626886,23.377104,15z/data=!4m5!3m4!1s0x0:0xa99a6079f95e99ad!8m2!3d42.6277378!4d23.3744328?hl=bg"
+                        target="_blank">
+                        <img src="../../../assets/images/footer-pin.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            Address: Sofia, “Mladost” 4, Business park
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="production-contacts contacts-links">
+                <div class="contacts-link-aside"></div>
+
+                <h4 class="contact-links-title">
+                    <span class="contact-links-title-small">Production</span> <br>
+                    <span>Facility</span>
+                </h4>
+
+                <div class="contacts-links-item">
+                    <a href="tel:+35942604191">
+                        <img src="../../../assets/images/footer-phone.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            <span class="contacts-link-big-text">+359</span> 42604191
+                        </span>
+                    </a>
+                </div>
+
+                <div class="contacts-links-item">
+                    <a href="mailto:domain.menada@mbws.com" class="contacts-links-mail">
+                        <img src="../../../assets/images/footer-mail.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            domain.menada@mbws.com
+                        </span>
+                    </a>
+                </div>
+
+                <div class="contacts-links-item">
+                    <a href="https://www.google.bg/search?biw=1920&bih=984&tbm=lcl&ei=upJLWufFDoie6ATCvo-wDg&q=%D1%81%D1%82%D0%B0%D1%80%D0%B0+%D0%B7%D0%B0%D0%B3%D0%BE%D1%80%D0%B0%2C+%22%D1%85.%D0%B4.%D0%B0%D1%81%D0%B5%D0%BD%D0%BE%D0%B2%22+1&oq=%D1%81%D1%82%D0%B0%D1%80%D0%B0+%D0%B7%D0%B0%D0%B3%D0%BE%D1%80%D0%B0%2C+%22%D1%85.%D0%B4.%D0%B0%D1%81%D0%B5%D0%BD%D0%BE%D0%B2%22+1&gs_l=psy-ab.3..35i39k1.84648.84648.0.85685.1.1.0.0.0.0.82.82.1.1.0....0...1c.1.64.psy-ab..0.1.82....0.0VO3dS240-Y#rlfi=hd:;si:,42.42010967376744,25.62626105026243;mv:!1m3!1d3447.859544001235!2d25.627806002655007!3d42.41823651218859!3m2!1i1500!2i899!4f13.1"
+                        target="_blank">
+                        <img src="../../../assets/images/footer-pin.svg" alt="icon" class="contacts-link-image">
+                        <span class="contacts-link-text">
+                            Address: Stara Zagora, “H.D.Asenov” 1 <br> 6000 Stara Zagora
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <img src="../../../assets/images/contacts-leaf-bg.jpg" class="contacts-leaf-bg">
+        </div>
+        
+        <div class="contacts-form-container">
+            <div class="form-card">
+                <form #inqForm="ngForm" novalidate class="form-card-form">
+                    <h5 class="form-card-title">Get in touch</h5>
+                    <div class="form-card-row">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Name</p>
+                        </div>
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="inqName" name="inqName" class="form-card-input"
+                                (focus)="changeFocus(0)" (blur)="changeFocus(0)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-card-row">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Phone</p>
+                        </div>
+                        <div class="form-card-field">
+                            <input type="text" [(ngModel)]="inqPhone" name="inqPhone" class="form-card-input"
+                                (focus)="changeFocus(1)" (blur)="changeFocus(1)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-card-row">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Email</p>
+                        </div>
+                        <div class="form-card-field">
+                            <input type="email" [(ngModel)]="inqEmail" name="inqEmail" class="form-card-input"
+                                (focus)="changeFocus(2)" (blur)="changeFocus(2)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-card-row">
+                        <div class="form-card-label">
+                            <p class="form-card-label-text">Message</p>
+                        </div>
+                        <div class="form-card-field">
+                            <textarea [(ngModel)]="inqMessage" name="inqMessage" class="form-card-input form-card-textarea"
+                                (focus)="changeFocus(3)" (blur)="changeFocus(3)" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="submit-btn">
+                        <button type="submit" class="link-btn confirm-btn" (click)="addInquiry(inqForm)">SUBMIT</button>
+                        <p class="success-text hidden">Inquiry sent successfully</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- 
+<form #inqForm="ngForm" novalidate>
+
+    <div class="form-group">
+        <label for="inqName">Name</label>
+        <input type="text" class="form-control" id="inqName" [(ngModel)]="inqName" name="inqName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inqPhone">Phone</label>
+        <input type="text" class="form-control" id="inqPhone" [(ngModel)]="inqPhone" name="inqPhone" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inqEmail">Email</label>
+        <input type="text" class="form-control" id="inqEmail" [(ngModel)]="inqEmail" name="inqEmail" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inqMessage">Message</label>
+        <textarea [(ngModel)]="inqMessage" name="inqMessage" id="inqMessage" class="form-control" rows="3"
+            style="resize: none;" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark confirm-btn" [disabled]="inqForm.invalid"
+        (click)="addInquiry()">Add</button>
+    <p class="success-text hidden">Inquiry sent successfully</p>
+
+</form> -->

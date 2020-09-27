@@ -302,6 +302,13 @@ body{
   color: #a3a3a3;
   letter-spacing: 2px;
 }
+.form-card-textarea {
+  resize: none;
+  border-radius: 20px;
+  min-height: 90px;
+  text-align: left;
+  line-height: 1.2;
+}
 .form-card-input:focus {
   border-color: $mainLightColor;
   outline: none;
@@ -333,6 +340,49 @@ body{
   z-index: -1;
   transform: rotate(200deg);
 }
+
+
+
+.contacts-links {
+  width: 100%;
+  padding: 0 1.56vw;
+  height: 270px;
+}
+.contacts-links a{
+  color: $mainLightColor;
+}
+.contacts-links-item{
+  padding: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  height: 33%;
+}
+.contacts-links div:nth-last-of-type(1){
+  border-bottom: none;
+}
+.contacts-links-item a{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacts-link-image {
+  width: 30px;
+  display: inline-block;
+}
+.contacts-link-text {
+  display: inline-block;
+  font-size: $smallFontsize;
+  padding-left: 10px;
+  width: fit-content;
+  text-align: center;
+}
+.contacts-link-big-text {
+  font-size: 18px;
+}
+
+
+
+
 
 
 .orders-content-empty {
@@ -379,7 +429,16 @@ html, body { height: 100%; }
 body { margin: 0; }
 
 
-
+@media screen and (max-width: $desktop-S) and (min-width: 1024px) {
+    
+  .contacts-links-item {
+    padding: 20px 0;
+  }
+  .contacts-link-text {
+    font-size: 12px;
+  }
+  
+}
 
 @media screen and (max-width: $desktop-S){
 

@@ -23,6 +23,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthAdminGuard } from './shared/guards/auth-admin.guard';
 import { AuthUserGuard } from './shared/guards/auth-user.guard';
 import { BasketComponent } from './pages/basket/basket.component';
+import { AdminInquiriesComponent } from './admin/admin-inquiries/admin-inquiries.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
     { path: 'orders', component: AdminOrdersComponent },
     { path: 'news', component: AdminNewsComponent },
     { path: 'recipes', component: AdminRecipesComponent },
+    { path: 'inquiries', component: AdminInquiriesComponent },
   ] },
 ];
 

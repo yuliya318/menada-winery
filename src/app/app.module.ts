@@ -37,6 +37,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { SearchPipe } from './shared/pipes/search.pipe';
+import { AdminInquiriesComponent } from './admin/admin-inquiries/admin-inquiries.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { SearchPipe } from './shared/pipes/search.pipe';
     ProfileComponent,
     BasketComponent,
     SearchPipe,
+    AdminInquiriesComponent,
   ],
   imports: [
     BrowserModule,

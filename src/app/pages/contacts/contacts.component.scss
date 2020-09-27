@@ -1,0 +1,171 @@
+@import "../../../variables.scss";
+@import "../../../fonts.scss";
+
+.contacts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 2vw 0;
+}
+.contacts-form-container {
+    width: 45%;
+}
+.contacts-info-container {
+    width: 30%;
+    position: relative;
+}
+.form-card {
+    border: none;
+}
+.form-card-title {
+    color: $mainLightColor;
+    margin: 3vw 0;
+    font-size: 28px;
+}
+.form-card-row {
+    padding: 1.5vw 0;
+}
+.submit-btn {
+    margin: 2vw 0;
+}
+.success-text {
+    color: #7adc7a;
+    letter-spacing: 3px;
+    @include play-small-text;
+    text-decoration: underline;
+}
+
+.office-contacts,
+.production-contacts,
+.contacts-link-aside {
+    position: relative;
+    width: 100%;
+    background-color: $darkBlockColor;
+}
+.office-contacts,
+.office-contacts .contacts-link-aside {
+    background-color: #0b0b0b;
+}
+.contacts-link-aside {
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 100%;
+}
+.contact-links-title {
+    @include abril-maincolor-text;
+    @include rotated-item;
+    bottom: -40px;
+    left: -70px;
+    transform-origin: top left;
+    color: silver;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+.contact-links-title-small {
+    font-size: 18px;
+}
+.contacts-leaf-bg {
+    position: absolute;
+    top: 0;
+    left: -26vw;
+    z-index: -1;
+}
+
+@media screen and (max-width: $tablet-L)  {
+
+    .main-content-block {
+        width: 90%;
+    }
+    .contacts-info-container,
+    .contacts-form-container {
+        width: 50%;
+    }
+    .form-card-row {
+        padding: 5px 0 15px;
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    .form-card-label {
+        order: 0;
+        padding: 0px 15px;
+        width: 100%;
+    }
+    .form-card-field {
+        order: 1;
+        width: 100%;
+    }
+    .form-card-label-text {
+        margin: 1.5vw 0;
+        text-align: left;
+    }
+    .contacts-link-aside {
+        display: none;
+    }
+    .contact-links-title {
+        position: relative;
+        transform: rotate(0deg);
+        bottom: 0;
+        left: 0;
+        padding: 1.5vw;
+        text-align: center;
+    }
+    .contacts-links {
+        padding: 1.56vw;
+        height: fit-content;
+    }
+    .contacts-links-item {
+        height: fit-content;
+    }
+
+}
+
+
+@media screen and  (max-width: $mobile-L)  {
+
+    .contacts-container {
+        margin: 7vw 0;
+    }
+    .contacts-info-container,
+    .contacts-form-container {
+        width: 100%;
+    }
+    .contact-links-title {
+        font-size: 27px;
+    }
+    .form-card {
+        padding: 2vw 4vw 8vw;
+    }
+    .form-card-title {
+        margin: 8vw 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+    display: none;
+}

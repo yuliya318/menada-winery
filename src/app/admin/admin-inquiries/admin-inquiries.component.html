@@ -1,0 +1,108 @@
+<div class="card bg-light mb-3 w-100">
+    <div class="card-header">
+        <div class="row p-2">
+            <h3>Inquiries</h3>
+            <button type="button" class="btn btn-dark ml-auto" (click)="openModal(addInq)">Add inquiry</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover border text-center">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="adminInquiries.length !== 0">
+                <tr *ngFor="let inq of adminInquiries | orderBy:'date':true" [ngClass]="{ 'text-secondary': inq?.status === 'Resolved' }">
+                    <th scope="row">{{ inq?.date.toDate() | date: 'H:mm dd.MM'}}</th>
+                    <td>{{ inq?.name }}</td>
+                    <td>{{ inq?.phone }}</td>
+                    <td>{{ inq?.message }}</td>
+                    <td class="text-success" [ngClass]="{ 'text-warning': inq?.status === 'In processing', 
+                        'text-muted': inq?.status === 'Resolved' }">
+                        {{ inq?.status }}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning"
+                            (click)="changeEditStatus(inq); openModal(addInq)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #addInq>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Inquiry</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #inqForm="ngForm" novalidate>
+            <div class="form-group" *ngIf="editStatus">
+                <label for="inqDate">Date</label>
+                <input type="text" class="form-control" id="inqDate" [value]="inqDate.toDate() | date: 'H:mm dd.MM'"
+                    disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="inqName">Name</label>
+                <input type="text" class="form-control" id="inqName" [(ngModel)]="inqName" name="inqName"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="inqPhone">Phone</label>
+                <input type="text" class="form-control" id="inqPhone" [(ngModel)]="inqPhone" name="inqPhone"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="inqEmail">Email</label>
+                <input type="text" class="form-control" id="inqEmail" [(ngModel)]="inqEmail" name="inqEmail"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="inqMessage">Message</label>
+                <textarea [(ngModel)]="inqMessage" name="inqMessage" id="inqMessage" class="form-control" rows="3"
+                    style="resize: none;" [disabled]="editStatus"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="inqComments">Admin comments</label>
+                <textarea [(ngModel)]="inqComments" name="inqComments" id="inqComments" class="form-control" rows="3"
+                    style="resize: none;"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Choose status:</label>
+                <select class="form-control" [(ngModel)]="inqStatus" name="inqStatus" id="status" required>
+                    <option>In processing</option>
+                    <option>Under consideration</option>
+                    <option>Resolved</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide(); resetForm()">Close</button>
+        <button type="submit" class="btn btn-dark" [disabled]="inqForm.invalid" (click)="addInquiry(); modalRef.hide()"
+            *ngIf="!editStatus">Add</button>
+        <button type="submit" class="btn btn-dark" [disabled]="inqForm.invalid" (click)="editInquiry(); modalRef.hide()"
+            *ngIf="editStatus">Save</button>
+    </div>
+</ng-template>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

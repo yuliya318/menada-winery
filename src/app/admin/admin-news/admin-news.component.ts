@@ -81,7 +81,7 @@ export class AdminNewsComponent implements OnInit {
       this.newsAnnot,
       this.newsTitle,
       this.newsText,
-      this.newsImage
+      this.newsImage,
     );
     return newArticle;
   }
@@ -95,7 +95,7 @@ export class AdminNewsComponent implements OnInit {
   }
 
   editNews(): void {
-    let newArticle = this.createNews();
+    const newArticle = this.createNews();
     this.newsService.updateFirestoreNews({ ...newArticle })
       .then(() => this.getNews());
     this.resetForm();

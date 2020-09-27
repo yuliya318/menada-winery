@@ -5,6 +5,9 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ICategory } from '../../shared/interfaces/category.interface';
 import { element } from 'protractor';
 
+enum WineTypes { Red, White, Rosé };
+
+
 @Component({
   selector: 'app-brand-products',
   templateUrl: './brand-products.component.html',
@@ -15,6 +18,8 @@ export class BrandProductsComponent implements OnInit {
   catProducts: Array<IProduct> = [];
   categoryName: string;
   category: ICategory;
+
+  wineTypes = WineTypes;
 
   constructor(private firestore: AngularFirestore,
     private actRoute: ActivatedRoute,
@@ -57,17 +62,15 @@ export class BrandProductsComponent implements OnInit {
     );
   }
 
+  
   changeActiveStatus(sort: string): void {
-    let indArr: Array<number> = [];
+    let products = document.getElementsByClassName('product-content');
     this.catProducts.forEach( (element, index) => {
       if (element.sort === sort) {
-        indArr.push(index);
+      products[index].classList.toggle('product-active-border');
       }
     });
-    let products = document.querySelectorAll('.product-content');
-    indArr.forEach( index => {
-      products[index].classList.toggle('product-active-border');
-    })
+    document.getElementsByClassName('filter-btn')[this.wineTypes[sort]].classList.toggle('product-active-border');
   }
 
 }

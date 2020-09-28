@@ -54,10 +54,12 @@ export class AdminInquiriesComponent implements OnInit {
   }
 
   createInquiry(): IInquiry {
-    const date = new Date();
+    if (!this.editStatus) {
+      this.inqDate = new Date();
+    }
     const newInquiry = new Inquiry (
       this.inqID,
-      date,
+      this.inqDate,
       this.inqName,
       this.inqPhone,
       this.inqEmail,

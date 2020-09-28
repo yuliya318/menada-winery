@@ -24,6 +24,7 @@ export class AdminNewsComponent implements OnInit {
   deleteNewsID: string;
 
   newsID = '1';
+  newsDate: Date;
   newsAnnot: string;
   newsTitle: string;
   newsText: string;
@@ -74,10 +75,12 @@ export class AdminNewsComponent implements OnInit {
   }
 
   createNews(): INews {
-    const date = new Date();
+    if (!this.editStatus) {
+      this.newsDate = new Date();
+    }
     const newArticle = new News (
       this.newsID,
-      date,
+      this.newsDate,
       this.newsAnnot,
       this.newsTitle,
       this.newsText,
@@ -104,6 +107,7 @@ export class AdminNewsComponent implements OnInit {
   changeEditStatus(news: INews): void {
     this.editStatus = true;
     this.newsID = news.id;
+    this.newsDate = news.date;
     this.newsAnnot = news.annotation;
     this.newsTitle = news.title;
     this.newsText = news.text;
@@ -121,6 +125,7 @@ export class AdminNewsComponent implements OnInit {
 
   private resetForm(): void {
     this.newsID = '1';
+    this.newsDate = new Date;
     this.newsAnnot = '';
     this.newsTitle = '';
     this.newsText = '';

@@ -126,10 +126,10 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   addOrder(): void {
-    const order = this.createOrder();
+    let order = this.createOrder();
     delete order.id;
-    const date = new Date();
-    order.date = date;
+    // const date = new Date();
+    order.date = new Date();
     this.orderService.postFirestoreOrder({ ...order })
       .then(() => {
         this.getOrders();
@@ -156,6 +156,7 @@ export class AdminOrdersComponent implements OnInit {
     this.userHouse = '';
     this.products = [];
     this.totalSum = 0;
+    this.date = new Date;
     this.status = '';
     this.discount = 0;
     this.comments = '';

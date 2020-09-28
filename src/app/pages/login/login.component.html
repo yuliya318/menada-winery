@@ -61,8 +61,8 @@
                         <p class="form-card-label-text" >Email</p>
                     </div>
                     <div class="form-card-field">
-                        <input type="email" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(2)" 
-                        (blur)="changeFocus(2)" required pattern=".+@.+\..">
+                        <input type="text" [(ngModel)]="uEmail" name="uEmail" class="form-card-input" (focus)="changeFocus(2)" 
+                        (blur)="changeFocus(2)" required pattern="^\w+[\w-\._]*@[a-z]+\.[a-z]{2,3}$">
                     </div>
                 </div>
 

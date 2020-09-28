@@ -12,8 +12,10 @@ import { NgForm } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
+  searchString = '...';
+
   userData: IUser;
-  userPhone: boolean;
+  userPhone = false;
   userBday: boolean;
   bDayConfirmed = false;
   userCountry: boolean;
@@ -42,7 +44,10 @@ export class ProfileComponent implements OnInit {
     if (localStorage.length > 0 && localStorage.getItem('user')) {
       let user = JSON.parse(localStorage.getItem('user'));
       this.userName = user.firstName;
-      user.phone ? this.userPhone = true : this.userPhone = false;
+      if (user.phone) {
+        this.userPhone = true;
+        this.searchString = user.phone;
+      } 
       user.birthday ? this.userBday = true : this.userBday = false;
       user.country ? this.userCountry = true : this.userCountry = false;
       user.city ? this.userCity = true : this.userCity = false;
@@ -60,12 +65,6 @@ export class ProfileComponent implements OnInit {
     this.bDayAfter = false;
     this.promoStatus = false;
     let days = this.authService.getUserBday(userBday);
-    // const currentYear = new Date().getFullYear();
-    // const bDay = new Date(this.userData.birthday).getDate();
-    // const bMonth = new Date(this.userData.birthday).getMonth();
-    // const birthday = Date.parse(`${currentYear}/${bMonth + 1}/${bDay}`);
-    // const currentDate = Date.parse(new Date().toString());
-    // let days = Math.floor((currentDate - birthday) / 86400000);
     if (days >= -3 && days < 0) this.bDaySoon = true;
     if (days <= 3 && days > 0) this.bDayAfter = true;
     if (days === 0) this.birthDay = true;

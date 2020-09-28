@@ -12,7 +12,7 @@ export class CheckAgeService {
 
   allowAccess(answer: boolean): void {
     if (answer) {
-      localStorage.setItem('access', JSON.stringify('true'));
+      localStorage.setItem('access', JSON.stringify(true));
       this.router.navigateByUrl('home');
     }
   }

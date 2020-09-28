@@ -97,7 +97,7 @@
                         </div>
                         <div class="form-card-field">
                             <input type="text" [(ngModel)]="inqName" name="inqName" class="form-card-input"
-                                (focus)="changeFocus(0)" (blur)="changeFocus(0)" required>
+                                (focus)="changeFocus(0)" (blur)="changeFocus(0)" required pattern="[a-zA-z]{2,}">
                         </div>
                     </div>
 
@@ -106,8 +106,8 @@
                             <p class="form-card-label-text">Phone</p>
                         </div>
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="inqPhone" name="inqPhone" class="form-card-input"
-                                (focus)="changeFocus(1)" (blur)="changeFocus(1)" required>
+                            <input type="text" [(ngModel)]="inqPhone" name="inqPhone" class="form-card-input" placeholder="e.g. +351112223344" 
+                                (focus)="changeFocus(1)" (blur)="changeFocus(1)" required pattern="\+\d{11,12}">
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@
                         </div>
                         <div class="form-card-field">
                             <input type="email" [(ngModel)]="inqEmail" name="inqEmail" class="form-card-input"
-                                (focus)="changeFocus(2)" (blur)="changeFocus(2)" required>
+                                (focus)="changeFocus(2)" (blur)="changeFocus(2)" required pattern="^\w+[\w-\._]*@[a-z]+\.[a-z]{2,3}$">
                         </div>
                     </div>
 

@@ -89,7 +89,6 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <!-- <th scope="col">Image</th> -->
                         <th scope="col">Name</th>
                         <th scope="col">Count</th>
                         <th scope="col">Sum</th>
@@ -99,9 +98,6 @@
                 <tbody>
                     <tr *ngFor="let prod of products; index as i">
                         <th scope="row">{{i + 1}}</th>
-                        <!-- <td>
-                        <img [src]="prod.image" style="width: 70px;">
-                    </td> -->
                         <td style="width: 40%;">{{ prod.catName | titlecase }}. {{ prod.name | titlecase }}</td>
                         <td>
                             <span class="font-weight-bold" (click)="productCount(prod, false)" style="font-size: 25px;">-</span>
@@ -119,7 +115,7 @@
                 <input type="search" class="form-control" placeholder="Add product..." [(ngModel)]="searchString" name="searchString">
                 <div *ngIf="searchString" style="max-height: 150px; overflow-y: scroll; border: 1px solid lightgray; border-radius: 5px;">
                     <ul>
-                        <li *ngFor="let prod of adminProducts | search:searchString" (click)="addProduct(prod)"> {{ prod.name }}</li>
+                        <li *ngFor="let prod of adminProducts | searchProduct:searchString" (click)="addProduct(prod)"> {{ prod.name }}</li>
                     </ul>
                 </div>
             </div>

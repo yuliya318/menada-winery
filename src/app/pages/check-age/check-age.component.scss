@@ -5,10 +5,12 @@
     width: 100vw;
     height: 120vh;
     @include item-centred;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 30;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
     background-color: $mainBGColor;
     @include play-small-text;
 }

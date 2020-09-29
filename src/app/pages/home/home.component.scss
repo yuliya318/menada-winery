@@ -14,6 +14,9 @@ section {
 }
 
 // ____________________________ start home-intro-section
+.home-intro-section {
+  padding-bottom: 60px;
+}
 .intro-grape {
   position: absolute;
   top: -130px;
@@ -22,10 +25,19 @@ section {
   max-width: 685px;
   z-index: 3;
 }
-.intro-video {
+.intro-video,
+.intro-bg {
   width: 100%;
   position: absolute;
   top: 0;
+  display: block;
+}
+.intro-bg {
+  display: none;
+  height: 100%;
+  @include bg-center;
+  background-position: top right;
+  background-image: url(../../../assets/images/homepage-hero-bg.jpg);
 }
 
 .intro-grid {
@@ -114,7 +126,7 @@ section {
 // ____________________________ start home-video-section
 
 .home-video-section {
-  padding-top: 60px;
+  // padding-top: 60px;
   position: relative;
 }
 .bg-right-leaf-video {
@@ -216,7 +228,7 @@ section {
 
 .single-grape-main {
   position: absolute;
-  top: 3vw;
+  top: 0;
   left: -30px;
   width: 34.95vw;
   max-width: 671px;
@@ -225,7 +237,7 @@ section {
   position: absolute;
   width: 34.95vw;
   max-width: 671px;
-  top: 20vh;
+  top: 15vh;
   left: -7.8vw;
 }
 // ____________________________ end home-video-section
@@ -566,6 +578,9 @@ section {
 .menada-region-video {
   width: 100%;
   box-shadow: 0px 0px 15px #000;
+}
+.region-video-poster {
+  display: none;
 }
 .region-glass {
   position: absolute;
@@ -925,6 +940,12 @@ section {
     width: fit-content;
   }
   
+  .intro-video {
+    display: none;
+  }
+  .intro-bg {
+    display: block;
+  }
 
   .intro-grape {
     top: -25px;
@@ -1000,7 +1021,7 @@ section {
     display: none;
   }
   .home-video-section {
-    padding: 20px 0 7vw;
+    padding: 0 0 7vw;
   }
   .video-bottom-text {
     letter-spacing: 3px;
@@ -1026,13 +1047,13 @@ section {
     font-size: 14px;
   }
   .single-grape-main {
-    top: 22%;
+    top: 12%;
     left: 0%;
     width: 50vw;
     max-width: 250px;
   }
   .single-grape-small {
-    left: -0.8vw;
+    left: -10.8vw;
   }
 
 
@@ -1146,14 +1167,25 @@ section {
     padding: 8vw;
   }
   .region-video {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 3vw;
+    // width: 100%;
+    // margin-top: 0;
+    // margin-bottom: 3vw;
+    display: none;
   }
-  
+  .region-video-poster {
+    display: block;
+    width: 100%;
+  }
 
 
 }
+
+@media screen and (max-width: $mobile-M) {
+  .region-glass {
+    display: none;
+  }
+}
+
 
 @media screen and (max-width: $mobile-S) {
 
@@ -1177,9 +1209,7 @@ section {
   .region-video {
     margin-bottom: 0;
   }
-  .region-glass {
-    display: none;
-  }
+  
 
   .wine-hands {
     display: none;

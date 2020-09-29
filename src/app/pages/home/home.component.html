@@ -59,9 +59,10 @@
                 </div>
 
             </div>
-            <video loop [muted]="true" autoplay preload="metadata" class="intro-video">
+            <video loop [muted]="true" autoplay preload="metadata" class="intro-video" >
                 <source src="../../../assets/images/home-bg.mp4" type="video/mp4">
             </video>
+            <div class="intro-bg"></div>
         </div>
     </section>
 
@@ -325,6 +326,9 @@
                 <video loop [muted]="true" autoplay preload="metadata" class="menada-region-video">
                     <source src="../../../assets/images/menada_region.mp4" type="video/mp4">
                 </video>
+            </div>
+            <div class="region-video-poster">
+                <img src="../../../assets/images/region-menada-bg.png">
             </div>
             <div class="region-glass" data-aos="appearance" data-aos-delay="1200" ngxParallaxScroll
                 [parallaxSpeed]='0.1'

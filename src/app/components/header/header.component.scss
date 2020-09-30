@@ -146,6 +146,7 @@ header {
 .item {
   @include bg-center;
   box-shadow: 0 0 15px #101010;
+  cursor: pointer;
 }
 .item-category {
   background-color: white;
@@ -153,6 +154,7 @@ header {
   height: 17vw;
   box-shadow: 0 0 20px #000;
   position: relative;
+  cursor: pointer;
 }
 .item-category:nth-child(odd) {
   margin-top: 6vw;

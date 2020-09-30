@@ -105,7 +105,7 @@
                                 (change)="getTotal()" style="width: 30px; margin: 0 10px; text-align: center;">
                             <span class="font-weight-bold" (click)="productCount(prod, true)" style="font-size: 25px;">+</span>
                         </td>
-                        <td>{{ totalSum }}</td>
+                        <td>{{ prod.price * prod.count }}</td>
                         <td><button class="btn btn-danger" (click)="deleteProduct(prod)">Del</button></td>
                     </tr>
                 </tbody>

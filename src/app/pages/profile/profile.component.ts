@@ -85,7 +85,8 @@ export class ProfileComponent implements OnInit {
 
   updateUserData(form: NgForm): void {
     if (form.invalid) {
-      this.checkInvalid();
+      // this.checkInvalid();
+      this.authService.checkInvalid();
     }
     else {
       this.authService.updateUserData({ ...this.userData })
@@ -97,13 +98,13 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  checkInvalid(): void {
-    this.removeInvalid();
-    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
-    invalidInputs.forEach(element => {
-      element.classList.add('form-input-invalid')
-    });
-  }
+  // checkInvalid(): void {
+  //   this.removeInvalid();
+  //   let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+  //   invalidInputs.forEach(element => {
+  //     element.classList.add('form-input-invalid')
+  //   });
+  // }
   removeInvalid(): void {
     let allInputs = document.querySelectorAll('.form-card-input');
     allInputs.forEach(element => {

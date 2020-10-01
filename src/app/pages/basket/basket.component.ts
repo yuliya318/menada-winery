@@ -111,7 +111,8 @@ export class BasketComponent implements OnInit {
 
   addOrder(form: NgForm): void {
     if (form.invalid) {
-      this.checkInvalid();
+      // this.checkInvalid();
+      this.authService.checkInvalid();
     }
     else {
       const order = this.createOrder() as IOrder;
@@ -141,16 +142,16 @@ export class BasketComponent implements OnInit {
     if (this.promoStatus) this.userData.bDayConfirmed = true;
   }
 
-  checkInvalid(): void {
-    let allInputs = document.querySelectorAll('.form-card-input');
-    allInputs.forEach(element => {
-      element.classList.remove('form-input-invalid')
-    });
-    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
-    invalidInputs.forEach(element => {
-      element.classList.add('form-input-invalid')
-    });
-  }
+  // checkInvalid(): void {
+  //   let allInputs = document.querySelectorAll('.form-card-input');
+  //   allInputs.forEach(element => {
+  //     element.classList.remove('form-input-invalid')
+  //   });
+  //   let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+  //   invalidInputs.forEach(element => {
+  //     element.classList.add('form-input-invalid')
+  //   });
+  // }
 
   closeOrderModal(): void {
     document.querySelector('.order-completed-container').classList.toggle('hidden');

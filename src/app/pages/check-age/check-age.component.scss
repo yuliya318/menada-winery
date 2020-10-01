@@ -18,7 +18,7 @@
 .check-age {
     width: 75%;
     min-height: 75vh;
-    margin-top: -20vh;
+    // margin-top: -20vh;
     background-image: url(../../../assets/images/age-check-bg.jpg);
     @include bg-center;
 }
@@ -92,7 +92,7 @@
     top: 7vw;
     left: -3vw;
     @include abril-maincolor-text;
-    font-size: 52px;
+    font-size: 50px;
     letter-spacing: 10px;
 }
 .check-age-title-small {

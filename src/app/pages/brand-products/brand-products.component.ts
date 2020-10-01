@@ -27,7 +27,8 @@ export class BrandProductsComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.categoryName = this.actRoute.snapshot.paramMap.get('category');
-        this.getCatProducts(this.categoryName);
+        // this.getCatProducts(this.categoryName);
+        this.test(this.categoryName);
         this.getCategoryInfo();
       }
     });
@@ -48,6 +49,32 @@ export class BrandProductsComponent implements OnInit {
         });
       }
     );
+  }
+
+  test(categoryName: string): void {
+    this.catProducts = [];
+    this.firestore.collection('products').snapshotChanges().subscribe(
+      collection => {
+        let products = collection.map( prod => {
+          const data = prod.payload.doc.data() as IProduct;
+          const id = prod.payload.doc.id;
+          return { id, ...data };
+        });
+        this.catProducts = products.filter( elem => {
+          if (elem.catName === categoryName) return true;
+          return false;
+        })
+      }
+    )
+    // this.categoryService.getFirestoreCategories().subscribe(
+    //   collection => {
+    //     this.adminCategories = collection.map(category => {
+    //       const data = category.payload.doc.data() as ICategory;
+    //       const id = category.payload.doc.id;
+    //       return { id, ...data };
+    //     });
+    //   }
+    // );
   }
 
   getCategoryInfo(): void {

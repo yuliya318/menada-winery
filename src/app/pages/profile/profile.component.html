@@ -32,14 +32,14 @@
                         </div>
                         <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.firstName" name="userData.firstName"
-                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}" pattern="[a-zA-z]{2,}">
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}" pattern="[a-zA-z]{2,}" required>
                         </div>
                     </div>
 
                     <div class="form-card-row">
                         <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.lastName" name="userData.lastName" pattern="[a-zA-z]{2,}"
-                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}" required>
                         </div>
                         <div class="form-card-label">
                             <p class="form-card-label-text">Last name</p>
@@ -52,13 +52,13 @@
                         </div>
                         <div class="form-card-field">
                             <input type="text" [(ngModel)]="userData.phone" name="userData.phone" pattern="\+\d{11,12}" placeholder="e.g. +351112223344"
-                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}">
+                                class="form-card-input" [disabled]="!editStatus" [ngClass]="{'input-edit': editStatus}" required>
                         </div>
                     </div>
 
                     <div class="form-card-row" *ngIf="userBday">
                         <div class="form-card-field">
-                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday" pattern="\d{4}\/\d{2}\/\d{2}"
+                            <input type="text" [(ngModel)]="userData.birthday" name="userData.birthday" pattern="\d{4}\/\d{2}\/\d{2}" required
                                 placeholder="YYYY/MM/DD" class="form-card-input" [disabled]="!editStatus || bDayConfirmed" [ngClass]="{'input-edit': editStatus}">
                         </div>
                         <div class="form-card-label">

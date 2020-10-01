@@ -3,6 +3,7 @@ import { InquiryService } from '../../shared/services/inquiry.service';
 import { IInquiry } from '../../shared/interfaces/inquiry.interface';
 import { Inquiry } from '../../shared/models/inquiry.model';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-contacts',
@@ -19,7 +20,8 @@ export class ContactsComponent implements OnInit {
   inqStatus: string;
   inqComments: string = '';
 
-  constructor(private inquiryService: InquiryService) { }
+  constructor(private inquiryService: InquiryService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getUserDetails();
@@ -51,7 +53,8 @@ export class ContactsComponent implements OnInit {
 
   addInquiry(form: NgForm): void {
     if (form.invalid) {
-      this.checkInvalid();
+      // this.checkInvalid();
+      this.authService.checkInvalid();
     }
     else {
       let newInquiry = this.createInquiry();
@@ -66,16 +69,16 @@ export class ContactsComponent implements OnInit {
     
   }
 
-  checkInvalid(): void {
-    let allInputs = document.querySelectorAll('.form-card-input');
-    allInputs.forEach(element => {
-      element.classList.remove('form-input-invalid');
-    });
-    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
-    invalidInputs.forEach(element => {
-      element.classList.add('form-input-invalid')
-    });
-  }
+  // checkInvalid(): void {
+  //   let allInputs = document.querySelectorAll('.form-card-input');
+  //   allInputs.forEach(element => {
+  //     element.classList.remove('form-input-invalid');
+  //   });
+  //   let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+  //   invalidInputs.forEach(element => {
+  //     element.classList.add('form-input-invalid')
+  //   });
+  // }
 
   changeFocus(index: number): void {
     document.getElementsByClassName('form-card-label-text')[index].classList.toggle('form-focus-color');

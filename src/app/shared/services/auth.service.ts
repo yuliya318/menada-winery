@@ -37,7 +37,10 @@ export class AuthService {
           }
         );
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        this.checkInvalid();
+      });
   }
 
   signOut(): void {
@@ -91,6 +94,19 @@ export class AuthService {
     const currentDate = Date.parse(new Date().toString());
     let days = Math.floor((currentDate - birthday) / 86400000);
     return days;
+  }
+
+
+
+  checkInvalid(): void {
+    let allInputs = document.querySelectorAll('.form-card-input');
+    allInputs.forEach(element => {
+      element.classList.remove('form-input-invalid');
+    });
+    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+    invalidInputs.forEach(element => {
+      element.classList.add('form-input-invalid')
+    });
   }
 
 }

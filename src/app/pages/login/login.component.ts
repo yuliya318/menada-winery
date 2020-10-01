@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
 
   signInUser(form: NgForm): void {
     if (form.invalid) {
-      this.checkInvalid();
+      // this.checkInvalid();
+      this.authService.checkInvalid();
     }
     else {
       this.authService.signIn(this.uEmail, this.uPassword);
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
 
   signUpUser(form: NgForm): void {
     if (form.invalid) {
-      this.checkInvalid();
+      // this.checkInvalid();
+      this.authService.checkInvalid();
     }
     else {
       this.authService.signUp(this.uEmail, this.uPassword, this.uFirstName, this.uLastName);
@@ -49,16 +51,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  checkInvalid(): void {
-    let allInputs = document.querySelectorAll('.form-card-input');
-    allInputs.forEach(element => {
-      element.classList.remove('form-input-invalid');
-    });
-    let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
-    invalidInputs.forEach(element => {
-      element.classList.add('form-input-invalid')
-    });
-  }
+  // checkInvalid(): void {
+  //   let allInputs = document.querySelectorAll('.form-card-input');
+  //   allInputs.forEach(element => {
+  //     element.classList.remove('form-input-invalid');
+  //   });
+  //   let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
+  //   invalidInputs.forEach(element => {
+  //     element.classList.add('form-input-invalid')
+  //   });
+  // }
   
   
 

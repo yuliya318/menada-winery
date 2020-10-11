@@ -67,17 +67,6 @@
             </div>
 
 
-            <!-- <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!bottlesStatus">
-                <input (change)="uploadFile($event, 'bottles')" type="file" class="custom-file-input"
-                    id="categoryBottles" [(ngModel)]="categoryBottles" name="categoryBottles" required>
-                <label class="custom-file-label" for="categoryBottles">Bottles image...</label>
-            </div>
-            <div class="image mb-3 d-flex" *ngIf="bottlesStatus" style="width: 200px; height: 200px;">
-                <img [src]="categoryBottles" alt="" style="width: 100%; height: 100%;">
-                <span (click)="deleteImage('bottles')" class="d-block ml-3 text-center font-weight-bold"
-                    style="color: #6c757d;"> X </span>
-            </div> -->
-
             <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!bgStatus">
                 <input (change)="uploadFile($event, false)" type="file" class="custom-file-input" id="categoryBg"
                     [(ngModel)]="categoryBg" name="categoryBg" required>

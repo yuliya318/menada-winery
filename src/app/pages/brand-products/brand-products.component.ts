@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ICategory } from '../../shared/interfaces/category.interface';
-import { element } from 'protractor';
 
 enum WineTypes { Red, White, Rosé };
 

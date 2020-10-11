@@ -77,12 +77,6 @@ export class OrderService {
     this.basket.next('check');
   }
 
-  // updateBasket(prodArr: Array<IProduct>): void {
-  //   localStorage.setItem('order', JSON.stringify(prodArr));
-  // }
-
-  // --------------------------- Firecould ---------------------------------
-
   getFirestoreOrders(): Observable<DocumentChangeAction<unknown>[]>{
     return this.firestore.collection('orders').snapshotChanges()
   }
@@ -95,8 +89,6 @@ export class OrderService {
   }
 
   updateFirestoreOrder(order: IOrder): Promise<void> {
-    console.log('hkjhkhk');
-    
     return this.firestore.collection('orders').doc(order.id).update(order);
   }
  

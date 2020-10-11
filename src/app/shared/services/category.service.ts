@@ -14,8 +14,6 @@ export class CategoryService {
     return this.firestore.collection('categories').snapshotChanges();
   }
 
-  
-
   postFirestoreCategory(category: ICategory): Promise<DocumentReference>{
     return this.firestore.collection('categories').add(category);
   }
@@ -26,24 +24,3 @@ export class CategoryService {
 
   
 }
-
-  // private categories: Array<ICategory> = [];
-
-
-// async  getFirestoreCategories(): Promise<ICategory[]> {
-  //   this.firestore.collection('categories').snapshotChanges().subscribe(
-  //     collection => {
-  //       this.categories = collection.map(category => {
-  //         const data = category.payload.doc.data() as ICategory;
-  //         const id = category.payload.doc.id;
-  //         return { id, ...data };
-  //       });
-  //     }
-  //   )
-  //   return this.categories;
-  // }
-
-  // getCategories(): Array<ICategory> {
-  //   this.getFirestoreCategories()
-  //     .then
-  // }

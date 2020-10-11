@@ -23,7 +23,6 @@ export class AuthService {
           snap => {
             snap.forEach(userRef => {
               localStorage.setItem('user', JSON.stringify(userRef.data()));
-              // this.documentID = userRef.id;
               localStorage.setItem('userID', JSON.stringify(userRef.id));
               if (userRef.data().role === 'admin' && userRef.data().access) {
                 this.router.navigateByUrl('admin');

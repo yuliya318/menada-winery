@@ -103,6 +103,7 @@ export class HeaderComponent implements OnInit {
       else this.basketLabel = false;
     }
     else this.basketLabel = false; 
+    
   }
 
 

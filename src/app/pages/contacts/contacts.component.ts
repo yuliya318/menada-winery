@@ -53,7 +53,6 @@ export class ContactsComponent implements OnInit {
 
   addInquiry(form: NgForm): void {
     if (form.invalid) {
-      // this.checkInvalid();
       this.authService.checkInvalid();
     }
     else {
@@ -68,17 +67,6 @@ export class ContactsComponent implements OnInit {
     }
     
   }
-
-  // checkInvalid(): void {
-  //   let allInputs = document.querySelectorAll('.form-card-input');
-  //   allInputs.forEach(element => {
-  //     element.classList.remove('form-input-invalid');
-  //   });
-  //   let invalidInputs = document.querySelectorAll('.form-card-field .ng-invalid');
-  //   invalidInputs.forEach(element => {
-  //     element.classList.add('form-input-invalid')
-  //   });
-  // }
 
   changeFocus(index: number): void {
     document.getElementsByClassName('form-card-label-text')[index].classList.toggle('form-focus-color');

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
-import { CheckAgeService } from '../../shared/services/check-age.service';
 
 @Component({
   selector: 'app-home',
@@ -54,12 +53,12 @@ export class HomeComponent implements OnInit {
   productName = '<span>A revolution in design.</span><br><span>Tradition in quality.</span>';
   productText = 'To be even closer to the people of today, the beloved to generation of Bulgarians MENADA, has stepped outside its boundaries to reappear in a whole new vision - bold, modern, distinguishable.';
 
-  constructor(private CheckAgeService: CheckAgeService) { }
+  constructor() { }
 
   ngOnInit(): void {
     AOS.init({
       duration: 1200,
-      disable: window.innerWidth < 1024,
+      disable: window.innerWidth < 768,
       once: true
     });
   }

@@ -20,12 +20,10 @@ export class AdminCategoryComponent implements OnInit {
   editStatus = false;
   logoStatus = false;
   bgStatus = false;
-  // bottlesStatus = false;
 
   categoryID = '1';
   categoryName: string;
   categoryLogo: string;
-  // categoryBottles: string;
   categoryBg: string;
   categoryDescr: string;
 
@@ -62,16 +60,6 @@ export class AdminCategoryComponent implements OnInit {
     const task = this.afStorage.upload(filePath, file);
     task.then(image => {
       this.afStorage.ref(`category-img/${image.metadata.name}`).getDownloadURL().subscribe(url => {
-        // if (variable == "logo") {
-        //   this.categoryLogo = url;
-        //   this.logoStatus = true;
-        // } else if (variable == "bottles") {
-        //   this.categoryBottles = url;
-        //   this.bottlesStatus = true;
-        // } else if (variable == "bg") {
-        //   this.categoryBg = url;
-        //   this.bgStatus = true;
-        // }
         imageVar ? this.categoryLogo = url : this.categoryBg = url;
         imageVar ? this.logoStatus = true : this.bgStatus = true;
       });
@@ -79,18 +67,6 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   deleteImage(imageVar: boolean): void {
-    // if (variable == "logo") {
-    //   this.logoStatus = false;
-    //   this.categoryLogo = '';
-    // }
-    // else if (variable == "bottles") {
-    //   this.bottlesStatus = false;
-    //   this.categoryBottles = '';
-    // }
-    // else if (variable == "bg") {
-    //   this.bgStatus = false;
-    //   this.categoryBg = '';
-    // }
     imageVar ? this.categoryLogo = '' : this.categoryBg = '';
     imageVar ? this.logoStatus = false : this.bgStatus = false;
   }
@@ -117,12 +93,10 @@ export class AdminCategoryComponent implements OnInit {
     this.categoryID = category.id;
     this.categoryName = category.name;
     this.categoryLogo = category.logo;
-    // this.categoryBottles = category.bottles;
     this.categoryBg = category.bg;
     this.categoryDescr = category.description;
     this.logoStatus = true;
     this.bgStatus = true;
-    // this.bottlesStatus = true;
   }
 
 
@@ -130,11 +104,9 @@ export class AdminCategoryComponent implements OnInit {
     this.categoryID = '1';
     this.categoryName = '';
     this.categoryLogo = '';
-    // this.categoryBottles = '';
     this.categoryBg = '';
     this.categoryDescr = '';
     this.logoStatus = false;
     this.bgStatus = false;
-    // this.bottlesStatus = false;
   }
 }

@@ -104,7 +104,6 @@
 .orders-container {
     background-color: $darkBlockColor;
     padding: 0 3vw 4vw;
-    // margin: 5vw 0;
 }
 .orders-block {
     display: flex;
@@ -175,14 +174,6 @@
 .product-row .product-name {
     width: 40%;
 }
-
-
-
-
-
-
-
-
 
 
 @media screen and (max-width: $tablet-L) {

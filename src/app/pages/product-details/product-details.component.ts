@@ -27,10 +27,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // this.checkProduct();
-    // this.setOrderStatus();
-  }
+  ngOnInit(): void {}
 
   getProdDetails(prodName: string): void {
     this.firestore.collection('products').ref.where('name', '==', prodName).onSnapshot(
@@ -50,13 +47,6 @@ export class ProductDetailsComponent implements OnInit {
     this.setOrderStatus(this.product.name);
   }
 
-  // private checkProduct(): void {
-  //   this.orderService.basket.subscribe(
-  //     () => {
-  //       this.setOrderStatus(this.product.name);
-  //     }
-  //   );
-  // }
   setOrderStatus(name: string): void {
     if (localStorage.length > 0 && localStorage.getItem('order')) {      
       let localOrder = JSON.parse(localStorage.getItem('order'));

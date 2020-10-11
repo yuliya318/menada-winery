@@ -128,7 +128,6 @@ export class AdminOrdersComponent implements OnInit {
   addOrder(): void {
     let order = this.createOrder();
     delete order.id;
-    // const date = new Date();
     order.date = new Date();
     this.orderService.postFirestoreOrder({ ...order })
       .then(() => {

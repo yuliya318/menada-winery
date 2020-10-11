@@ -59,7 +59,6 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getIndex(recipe: boolean): number {
-    debugger
     const index = this.recipes.indexOf(this.recipes.filter(elem => elem.title === this.recipe.title)[0]);
     if (recipe) {
       if (index === 0) {

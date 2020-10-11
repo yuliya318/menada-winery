@@ -61,7 +61,6 @@ export class AdminProductComponent implements OnInit {
         });
       }
     );
-    // this.adminCategories = this.categoryService.getFirestoreCategories();
 
   }
 

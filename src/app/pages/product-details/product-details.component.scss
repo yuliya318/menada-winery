@@ -112,7 +112,6 @@
     @include play-small-text;
     letter-spacing: 1px;
     color: #4d4d4d;
-    text-align: center;
 }
 
 .list-price-row {
@@ -125,6 +124,9 @@
     @include item-centred;
     flex-direction: column;
     padding-left: 2vw;
+}
+.price-container .list-text {
+    text-align: center;
 }
 .product-price {
     @include abril-maincolor-text;
